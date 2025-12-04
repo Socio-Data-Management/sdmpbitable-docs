@@ -15,16 +15,16 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://socio-data-management.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/sdmpbitable-docs/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
-
+  organizationName: 'socio-data-management', // Usually your GitHub org/user name.
+  projectName: 'sdmpbitable-docs', // Usually your repo name.
+  deploymentBranch: 'gh-pages',
   onBrokenLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -44,7 +44,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/socio-data-management/sdm-crosstable-docs/tree/main/',
         },
         blog: false,
         theme: {
@@ -63,8 +63,8 @@ const config: Config = {
     navbar: {
       title: 'SDM Cross Table Tool',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'SDM Logo',
+        src: 'img/SdmPbiTableV3.svg',
       },
       items: [
         {
@@ -74,7 +74,7 @@ const config: Config = {
           label: 'Documentation',
         },
         {
-          href: 'https://github.com',
+          href: 'https://github.com/socio-data-management/sdmpbitable-docs',
           label: 'GitHub',
           position: 'right',
         },
@@ -87,8 +87,12 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Overview',
+              to: '/docs/overview',
+            },
+            {
+              label: 'Quick Start',
+              to: '/docs/quick-start',
             },
           ],
         },
@@ -97,15 +101,11 @@ const config: Config = {
           items: [
             {
               label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              href: 'https://stackoverflow.com/questions/tagged/powerbi',
             },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+ {
+              label: 'GitHub Discussions',
+              href: 'https://github.com/socio-data-management/sdmpbitable-docs/discussions',
             },
           ],
         },
@@ -113,17 +113,13 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/socio-data-management/sdmpbitable-docs',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} SDM Cross Table Tool. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
