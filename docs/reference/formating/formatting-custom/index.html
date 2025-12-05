@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-reference/formating/formatting-custom" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Custom Element Formatting (Advanced) | SDM Cross Table Tool Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://socio-data-management.github.io/sdmpbitable-docs/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://socio-data-management.github.io/sdmpbitable-docs/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://socio-data-management.github.io/sdmpbitable-docs/docs/reference/formating/formatting-custom"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Custom Element Formatting (Advanced) | SDM Cross Table Tool Documentation"><meta data-rh="true" name="description" content="Fine-tune fonts, colors, and backgrounds for specific table elements to create highly customized designs or match brand guidelines exactly."><meta data-rh="true" property="og:description" content="Fine-tune fonts, colors, and backgrounds for specific table elements to create highly customized designs or match brand guidelines exactly."><link data-rh="true" rel="icon" href="/sdmpbitable-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://socio-data-management.github.io/sdmpbitable-docs/docs/reference/formating/formatting-custom"><link data-rh="true" rel="alternate" href="https://socio-data-management.github.io/sdmpbitable-docs/docs/reference/formating/formatting-custom" hreflang="en"><link data-rh="true" rel="alternate" href="https://socio-data-management.github.io/sdmpbitable-docs/docs/reference/formating/formatting-custom" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Reference","item":"https://socio-data-management.github.io/sdmpbitable-docs/docs/category/reference"},{"@type":"ListItem","position":2,"name":"Formatting & Styling Overview","item":"https://socio-data-management.github.io/sdmpbitable-docs/docs/reference/formating/"},{"@type":"ListItem","position":3,"name":"Custom Element Formatting (Advanced)","item":"https://socio-data-management.github.io/sdmpbitable-docs/docs/reference/formating/formatting-custom"}]}</script><link rel="stylesheet" href="/sdmpbitable-docs/assets/css/styles.c7055943.css">
+<script src="/sdmpbitable-docs/assets/js/runtime~main.9dcc6dfa.js" defer="defer"></script>
+<script src="/sdmpbitable-docs/assets/js/main.abd6bcda.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/sdmpbitable-docs/img/SdmPbiTableV3.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/sdmpbitable-docs/"><div class="navbar__logo"><img src="/sdmpbitable-docs/img/SdmPbiTableV3.svg" alt="SDM Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/sdmpbitable-docs/img/SdmPbiTableV3.svg" alt="SDM Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">SDM Cross Table Tool</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/sdmpbitable-docs/docs/intro">Documentation</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/socio-data-management/sdmpbitable-docs" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/sdmpbitable-docs/docs/intro"><span title="Welcome to SDM Cross Table Tool by Socio Data Management" class="linkLabel_WmDU">Welcome to SDM Cross Table Tool by Socio Data Management</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/sdmpbitable-docs/docs/category/introduction"><span title="Introduction" class="categoryLinkLabel_W154">Introduction</span></a><button aria-label="Expand sidebar category &#x27;Introduction&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/sdmpbitable-docs/docs/category/getting-started"><span title="Getting Started" class="categoryLinkLabel_W154">Getting Started</span></a><button aria-label="Expand sidebar category &#x27;Getting Started&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/sdmpbitable-docs/docs/category/use-cases"><span title="Use Cases" class="categoryLinkLabel_W154">Use Cases</span></a><button aria-label="Expand sidebar category &#x27;Use Cases&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/sdmpbitable-docs/docs/category/reference"><span title="Reference" class="categoryLinkLabel_W154">Reference</span></a><button aria-label="Collapse sidebar category &#x27;Reference&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sdmpbitable-docs/docs/reference/table-content"><span title="Table Contents" class="linkLabel_WmDU">Table Contents</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sdmpbitable-docs/docs/reference/sorting"><span title="Sorting &amp; Ordering" class="linkLabel_WmDU">Sorting &amp; Ordering</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sdmpbitable-docs/docs/reference/ranking"><span title="Ranking &amp; Visualization" class="linkLabel_WmDU">Ranking &amp; Visualization</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sdmpbitable-docs/docs/reference/significance"><span title="Significance Testing" class="linkLabel_WmDU">Significance Testing</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/sdmpbitable-docs/docs/reference/formating/"><span title="Formatting &amp; Styling Overview" class="categoryLinkLabel_W154">Formatting &amp; Styling Overview</span></a><button aria-label="Collapse sidebar category &#x27;Formatting &amp; Styling Overview&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/sdmpbitable-docs/docs/reference/formating/formatting-styles"><span title="Table Styles (Themes)" class="linkLabel_WmDU">Table Styles (Themes)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/sdmpbitable-docs/docs/reference/formating/formatting-basics"><span title="Table Options (Basics)" class="linkLabel_WmDU">Table Options (Basics)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/sdmpbitable-docs/docs/reference/formating/formatting-custom"><span title="Custom Element Formatting (Advanced)" class="linkLabel_WmDU">Custom Element Formatting (Advanced)</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sdmpbitable-docs/docs/reference/totals"><span title="Totals &amp; Subtotals" class="linkLabel_WmDU">Totals &amp; Subtotals</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sdmpbitable-docs/docs/reference/percentage-series"><span title="Percentage Series Configuration" class="linkLabel_WmDU">Percentage Series Configuration</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sdmpbitable-docs/docs/reference/mean-series"><span title="Mean Series Configuration" class="linkLabel_WmDU">Mean Series Configuration</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sdmpbitable-docs/docs/reference/thresholds"><span title="Thresholds &amp; Masking" class="linkLabel_WmDU">Thresholds &amp; Masking</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sdmpbitable-docs/docs/reference/filtering"><span title="Filtering &amp; Selection" class="linkLabel_WmDU">Filtering &amp; Selection</span></a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/sdmpbitable-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/sdmpbitable-docs/docs/category/reference"><span>Reference</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/sdmpbitable-docs/docs/reference/formating/"><span>Formatting &amp; Styling Overview</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Custom Element Formatting (Advanced)</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Custom Element Formatting Reference</h1></header>
+<p>Fine-tune fonts, colors, and backgrounds for specific table elements to create highly customized designs or match brand guidelines exactly.</p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>Settings Location</div><div class="admonitionContent_BuS1"><p>These settings correspond to <strong><code>topLevelHeaderSettings</code></strong>, <strong><code>subLevelHeaderSettings</code></strong>, and <strong><code>cellSettings</code></strong> in the configuration model.</p></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="overview">Overview<a href="#overview" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview" translate="no">​</a></h2>
+<p>Custom Element Formatting allows you to control individual elements independently:</p>
+<ul>
+<li class=""><strong>Top-Level Column Headers</strong>: The primary column header row</li>
+<li class=""><strong>Sub-Level Column Headers</strong>: Secondary headers (for hierarchical columns)</li>
+<li class=""><strong>Cell Format</strong>: Data cells containing values</li>
+</ul>
+<p>Each element can have its own font, size, weight, and color settings.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="element-reference">Element Reference<a href="#element-reference" class="hash-link" aria-label="Direct link to Element Reference" title="Direct link to Element Reference" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="top-level-column-header">Top-Level Column Header<a href="#top-level-column-header" class="hash-link" aria-label="Direct link to Top-Level Column Header" title="Direct link to Top-Level Column Header" translate="no">​</a></h3>
+<p>The first (primary) row of column headers.</p>
+<p><strong>Default styling</strong>:</p>
+<ul>
+<li class="">Font: Arial</li>
+<li class="">Size: 11pt</li>
+<li class="">Bold: Yes</li>
+<li class="">Background: Inherited from theme</li>
+<li class="">Text Color: Inherited from theme</li>
+</ul>
+<p><strong>Use cases for customization</strong>:</p>
+<ul>
+<li class="">Make headers more prominent (larger, bolder)</li>
+<li class="">Match brand colors</li>
+<li class="">Distinguish from sub-headers</li>
+<li class="">Improve hierarchy visibility</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sub-level-column-header">Sub-Level Column Header<a href="#sub-level-column-header" class="hash-link" aria-label="Direct link to Sub-Level Column Header" title="Direct link to Sub-Level Column Header" translate="no">​</a></h3>
+<p>Additional header rows (when using hierarchical column structures).</p>
+<p><strong>Default styling</strong>:</p>
+<ul>
+<li class="">Font: Arial</li>
+<li class="">Size: 11pt</li>
+<li class="">Bold: Yes</li>
+<li class="">Background: Slightly lighter than top level</li>
+<li class="">Text Color: Inherited from theme</li>
+</ul>
+<p><strong>Use cases for customization</strong>:</p>
+<ul>
+<li class="">Make sub-headers less prominent than top-level</li>
+<li class="">Add visual distinction for hierarchy</li>
+<li class="">Smaller font to show secondary importance</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cell-format">Cell Format<a href="#cell-format" class="hash-link" aria-label="Direct link to Cell Format" title="Direct link to Cell Format" translate="no">​</a></h3>
+<p>Data cells containing actual values (numbers, percentages, etc.).</p>
+<p><strong>Default styling</strong>:</p>
+<ul>
+<li class="">Font: Consolas (monospace for alignment)</li>
+<li class="">Size: 11pt</li>
+<li class="">Bold: No</li>
+<li class="">Background: Inherited from theme</li>
+<li class="">Text Color: Inherited from theme</li>
+</ul>
+<p><strong>Use cases for customization</strong>:</p>
+<ul>
+<li class="">Change to more readable font (Arial, Calibri)</li>
+<li class="">Make certain values stand out</li>
+<li class="">Match data cell styling to headers</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="font-customization">Font Customization<a href="#font-customization" class="hash-link" aria-label="Direct link to Font Customization" title="Direct link to Font Customization" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="font-family">Font Family<a href="#font-family" class="hash-link" aria-label="Direct link to Font Family" title="Direct link to Font Family" translate="no">​</a></h3>
+<p><strong>Setting</strong>: Font family<br>
+<strong>Type</strong>: Dropdown selection<br>
+<strong>Common options</strong>: Arial, Calibri, Verdana, Consolas, Times New Roman, Georgia</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="recommendations-by-use-case">Recommendations by Use Case<a href="#recommendations-by-use-case" class="hash-link" aria-label="Direct link to Recommendations by Use Case" title="Direct link to Recommendations by Use Case" translate="no">​</a></h4>
+<table><thead><tr><th>Font</th><th>Style</th><th>Use Case</th></tr></thead><tbody><tr><td><strong>Arial</strong></td><td>Clean, modern, sans-serif</td><td>Professional reports, most uses</td></tr><tr><td><strong>Calibri</strong></td><td>Modern, readable, sans-serif</td><td>Business documents, modern look</td></tr><tr><td><strong>Verdana</strong></td><td>Large x-height, readable, sans-serif</td><td>Web, accessibility, easy reading</td></tr><tr><td><strong>Consolas</strong></td><td>Monospace, aligned numbers</td><td>Technical data, precise alignment</td></tr><tr><td><strong>Times New Roman</strong></td><td>Traditional, serif</td><td>Formal, academic, traditional</td></tr><tr><td><strong>Georgia</strong></td><td>Serif, readable, elegant</td><td>Formal, elegant, book-like</td></tr></tbody></table>
+<p><strong>Accessibility notes</strong>:</p>
+<ul>
+<li class="">Sans-serif fonts (Arial, Calibri) are more readable for data</li>
+<li class="">Avoid decorative/script fonts</li>
+<li class="">Serif fonts acceptable for formal headers only</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="font-size">Font Size<a href="#font-size" class="hash-link" aria-label="Direct link to Font Size" title="Direct link to Font Size" translate="no">​</a></h3>
+<p><strong>Setting</strong>: Font size<br>
+<strong>Type</strong>: Number<br>
+<strong>Range</strong>: 8pt - 28pt<br>
+<strong>Defaults</strong>:</p>
+<ul>
+<li class="">Headers: 11pt</li>
+<li class="">Cells: 11pt</li>
+</ul>
+<p><strong>Recommended hierarchy</strong>:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Top-level header:    12-14pt (largest, most prominent)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Sub-level header:    11-12pt (medium)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Cell data:          10-11pt (smallest, main focus on data)</span><br></span></code></pre></div></div>
+<p><strong>Tips for sizing</strong>:</p>
+<ul>
+<li class="">Headers 1-2pt larger than cells</li>
+<li class="">Smaller fonts = more data visible, less readable</li>
+<li class="">Larger fonts = cleaner look, less data visible</li>
+<li class="">Consider your audience (executives prefer larger)</li>
+<li class="">Match your brand guidelines</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="text-styles">Text Styles<a href="#text-styles" class="hash-link" aria-label="Direct link to Text Styles" title="Direct link to Text Styles" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bold">Bold<a href="#bold" class="hash-link" aria-label="Direct link to Bold" title="Direct link to Bold" translate="no">​</a></h4>
+<p>Makes text heavier/darker.</p>
+<p><strong>Recommended usage</strong>:</p>
+<ul>
+<li class="">✅ Headers (always bold for prominence)</li>
+<li class="">✅ Important values or totals</li>
+<li class="">❌ Regular data cells (reduces readability)</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="italic">Italic<a href="#italic" class="hash-link" aria-label="Direct link to Italic" title="Direct link to Italic" translate="no">​</a></h4>
+<p>Slightly slanted text.</p>
+<p><strong>Recommended usage</strong>:</p>
+<ul>
+<li class="">✅ Subtotals or secondary values</li>
+<li class="">✅ Footnotes or notes</li>
+<li class="">❌ Main data cells (harder to read)</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="underline">Underline<a href="#underline" class="hash-link" aria-label="Direct link to Underline" title="Direct link to Underline" translate="no">​</a></h4>
+<p>Line under text.</p>
+<p><strong>Recommended usage</strong>:</p>
+<ul>
+<li class="">✅ Totals row (visual separator)</li>
+<li class="">✅ Important headers</li>
+<li class="">❌ Regular data (unnecessary decoration)</li>
+</ul>
+<p><strong>Best practices</strong>:</p>
+<ul>
+<li class="">Use sparingly for emphasis</li>
+<li class="">Don&#x27;t combine more than 2 styles</li>
+<li class="">Ensure sufficient contrast with background</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="color-customization">Color Customization<a href="#color-customization" class="hash-link" aria-label="Direct link to Color Customization" title="Direct link to Color Customization" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="font-color">Font Color<a href="#font-color" class="hash-link" aria-label="Direct link to Font Color" title="Direct link to Font Color" translate="no">​</a></h3>
+<p>The color of the text itself.</p>
+<p><strong>Format</strong>: Hex color code or color picker<br>
+<strong>Examples</strong>:</p>
+<ul>
+<li class=""><code>#000000</code> = Black</li>
+<li class=""><code>#FFFFFF</code> = White</li>
+<li class=""><code>#333333</code> = Dark gray</li>
+<li class=""><code>#2E5090</code> = Navy blue</li>
+<li class=""><code>#006633</code> = Dark green</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="background-color">Background Color<a href="#background-color" class="hash-link" aria-label="Direct link to Background Color" title="Direct link to Background Color" translate="no">​</a></h3>
+<p>The color behind the text.</p>
+<p><strong>Format</strong>: Hex color code or color picker<br>
+<strong>Examples</strong>:</p>
+<ul>
+<li class=""><code>#FFFFFF</code> = White</li>
+<li class=""><code>#F5F5F5</code> = Light gray</li>
+<li class=""><code>#E8F4F8</code> = Light blue</li>
+<li class=""><code>#2E5090</code> = Navy blue</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="color-contrast--accessibility">Color Contrast &amp; Accessibility<a href="#color-contrast--accessibility" class="hash-link" aria-label="Direct link to Color Contrast &amp; Accessibility" title="Direct link to Color Contrast &amp; Accessibility" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="contrast-requirements">Contrast Requirements<a href="#contrast-requirements" class="hash-link" aria-label="Direct link to Contrast Requirements" title="Direct link to Contrast Requirements" translate="no">​</a></h3>
+<p>Ensure text is readable against its background:</p>
+<p><strong>WCAG Guidelines</strong>:</p>
+<ul>
+<li class=""><strong>Level AA</strong> (standard): 4.5:1 contrast ratio</li>
+<li class=""><strong>Level AAA</strong> (enhanced): 7:1 contrast ratio</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="high-contrast-combinations">High-Contrast Combinations<a href="#high-contrast-combinations" class="hash-link" aria-label="Direct link to High-Contrast Combinations" title="Direct link to High-Contrast Combinations" translate="no">​</a></h3>
+<table><thead><tr><th>Use</th><th>Font Color</th><th>Background</th><th>Contrast</th><th>Example</th></tr></thead><tbody><tr><td><strong>Headers</strong></td><td>#FFFFFF</td><td>#2E5090</td><td>9:1</td><td>White on navy</td></tr><tr><td><strong>Headers</strong></td><td>#000000</td><td>#F5F5F5</td><td>11:1</td><td>Black on light gray</td></tr><tr><td><strong>Data</strong></td><td>#000000</td><td>#FFFFFF</td><td>21:1</td><td>Black on white</td></tr><tr><td><strong>Data</strong></td><td>#FFFFFF</td><td>#333333</td><td>8:1</td><td>White on dark gray</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="low-contrast-avoid">Low-Contrast (Avoid)<a href="#low-contrast-avoid" class="hash-link" aria-label="Direct link to Low-Contrast (Avoid)" title="Direct link to Low-Contrast (Avoid)" translate="no">​</a></h3>
+<p>These combinations are hard to read:</p>
+<ul>
+<li class="">Yellow on white (0.9:1) ❌</li>
+<li class="">Light gray on white (1.5:1) ❌</li>
+<li class="">Purple on blue (3:1) ❌</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="testing-contrast">Testing Contrast<a href="#testing-contrast" class="hash-link" aria-label="Direct link to Testing Contrast" title="Direct link to Testing Contrast" translate="no">​</a></h3>
+<p>Use online contrast checkers:</p>
+<ul>
+<li class="">WebAIM Contrast Checker</li>
+<li class="">Accessible Colors</li>
+<li class="">WAVE Tool</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="practical-configuration-examples">Practical Configuration Examples<a href="#practical-configuration-examples" class="hash-link" aria-label="Direct link to Practical Configuration Examples" title="Direct link to Practical Configuration Examples" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="professional-business-report">Professional Business Report<a href="#professional-business-report" class="hash-link" aria-label="Direct link to Professional Business Report" title="Direct link to Professional Business Report" translate="no">​</a></h3>
+<p><strong>Top-Level Header</strong>:</p>
+<ul>
+<li class="">Font: Arial</li>
+<li class="">Size: 12pt</li>
+<li class="">Bold: Yes</li>
+<li class="">Font Color: #FFFFFF</li>
+<li class="">Background: #2E5090</li>
+</ul>
+<p><strong>Sub-Level Header</strong> (if used):</p>
+<ul>
+<li class="">Font: Arial</li>
+<li class="">Size: 11pt</li>
+<li class="">Bold: Yes</li>
+<li class="">Font Color: #FFFFFF</li>
+<li class="">Background: #4472C4</li>
+</ul>
+<p><strong>Cell</strong>:</p>
+<ul>
+<li class="">Font: Calibri</li>
+<li class="">Size: 10pt</li>
+<li class="">Bold: No</li>
+<li class="">Font Color: #000000</li>
+<li class="">Background: #FFFFFF</li>
+</ul>
+<p><strong>Result</strong>: Classic, professional, formal</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="modernminimalist-report">Modern/Minimalist Report<a href="#modernminimalist-report" class="hash-link" aria-label="Direct link to Modern/Minimalist Report" title="Direct link to Modern/Minimalist Report" translate="no">​</a></h3>
+<p><strong>Top-Level Header</strong>:</p>
+<ul>
+<li class="">Font: Arial</li>
+<li class="">Size: 11pt</li>
+<li class="">Bold: Yes</li>
+<li class="">Font Color: #333333</li>
+<li class="">Background: #F0F0F0</li>
+</ul>
+<p><strong>Sub-Level Header</strong>:</p>
+<ul>
+<li class="">Font: Arial</li>
+<li class="">Size: 10pt</li>
+<li class="">Bold: No</li>
+<li class="">Font Color: #666666</li>
+<li class="">Background: #FAFAFA</li>
+</ul>
+<p><strong>Cell</strong>:</p>
+<ul>
+<li class="">Font: Arial</li>
+<li class="">Size: 10pt</li>
+<li class="">Bold: No</li>
+<li class="">Font Color: #000000</li>
+<li class="">Background: #FFFFFF</li>
+</ul>
+<p><strong>Result</strong>: Clean, contemporary, minimal</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="high-contrast-accessibility">High-Contrast Accessibility<a href="#high-contrast-accessibility" class="hash-link" aria-label="Direct link to High-Contrast Accessibility" title="Direct link to High-Contrast Accessibility" translate="no">​</a></h3>
+<p><strong>Top-Level Header</strong>:</p>
+<ul>
+<li class="">Font: Arial (sans-serif)</li>
+<li class="">Size: 13pt (larger)</li>
+<li class="">Bold: Yes</li>
+<li class="">Font Color: #FFFF00 (yellow)</li>
+<li class="">Background: #000000 (black)</li>
+</ul>
+<p><strong>Sub-Level Header</strong>:</p>
+<ul>
+<li class="">Font: Arial</li>
+<li class="">Size: 12pt</li>
+<li class="">Bold: Yes</li>
+<li class="">Font Color: #000000</li>
+<li class="">Background: #FFFFFF</li>
+</ul>
+<p><strong>Cell</strong>:</p>
+<ul>
+<li class="">Font: Verdana (highly readable)</li>
+<li class="">Size: 11pt</li>
+<li class="">Bold: No</li>
+<li class="">Font Color: #000000</li>
+<li class="">Background: #FFFFFF</li>
+</ul>
+<p><strong>Result</strong>: Maximum accessibility for low-vision users</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="brand-matched-corporate">Brand-Matched Corporate<a href="#brand-matched-corporate" class="hash-link" aria-label="Direct link to Brand-Matched Corporate" title="Direct link to Brand-Matched Corporate" translate="no">​</a></h3>
+<p><strong>Top-Level Header</strong>:</p>
+<ul>
+<li class="">Font: Arial</li>
+<li class="">Size: 12pt</li>
+<li class="">Bold: Yes</li>
+<li class="">Font Color: #FFFFFF</li>
+<li class="">Background: #CC0000 (brand red)</li>
+</ul>
+<p><strong>Sub-Level Header</strong>:</p>
+<ul>
+<li class="">Font: Arial</li>
+<li class="">Size: 11pt</li>
+<li class="">Bold: Yes</li>
+<li class="">Font Color: #FFFFFF</li>
+<li class="">Background: #FF6666 (light red)</li>
+</ul>
+<p><strong>Cell</strong>:</p>
+<ul>
+<li class="">Font: Calibri</li>
+<li class="">Size: 10pt</li>
+<li class="">Bold: No</li>
+<li class="">Font Color: #333333</li>
+<li class="">Background: #FFFFFF</li>
+</ul>
+<p><strong>Result</strong>: Branded, professional, recognizable</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="technicalscientific-report">Technical/Scientific Report<a href="#technicalscientific-report" class="hash-link" aria-label="Direct link to Technical/Scientific Report" title="Direct link to Technical/Scientific Report" translate="no">​</a></h3>
+<p><strong>Top-Level Header</strong>:</p>
+<ul>
+<li class="">Font: Consolas (monospace)</li>
+<li class="">Size: 11pt</li>
+<li class="">Bold: Yes</li>
+<li class="">Font Color: #FFFFFF</li>
+<li class="">Background: #404040</li>
+</ul>
+<p><strong>Sub-Level Header</strong>:</p>
+<ul>
+<li class="">Font: Consolas</li>
+<li class="">Size: 10pt</li>
+<li class="">Bold: Yes</li>
+<li class="">Font Color: #000000</li>
+<li class="">Background: #D3D3D3</li>
+</ul>
+<p><strong>Cell</strong>:</p>
+<ul>
+<li class="">Font: Consolas (numbers align)</li>
+<li class="">Size: 10pt</li>
+<li class="">Bold: No</li>
+<li class="">Font Color: #000000</li>
+<li class="">Background: #FFFFFF</li>
+</ul>
+<p><strong>Result</strong>: Technical, precise, data-focused</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="layering-with-style-themes">Layering with Style Themes<a href="#layering-with-style-themes" class="hash-link" aria-label="Direct link to Layering with Style Themes" title="Direct link to Layering with Style Themes" translate="no">​</a></h2>
+<p>Custom Element Formatting works with Style Themes:</p>
+<ol>
+<li class=""><strong>Style Theme</strong> sets base appearance</li>
+<li class=""><strong>Color Theme</strong> applies palette</li>
+<li class=""><strong>Custom Element Formatting</strong> overrides both</li>
+</ol>
+<p><strong>Example workflow</strong>:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Start with: Modern theme + Blue color</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">↓</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Then customize: Change header to bold italic</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">↓</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Result: Modern blue styling + your custom emphasis</span><br></span></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="hierarchy-best-practices">Hierarchy Best Practices<a href="#hierarchy-best-practices" class="hash-link" aria-label="Direct link to Hierarchy Best Practices" title="Direct link to Hierarchy Best Practices" translate="no">​</a></h2>
+<p>Create visual hierarchy to guide readers:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="recommended-hierarchy">Recommended Hierarchy<a href="#recommended-hierarchy" class="hash-link" aria-label="Direct link to Recommended Hierarchy" title="Direct link to Recommended Hierarchy" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">PROMINENCE SCALE:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Top-Level Header    ← Most prominent</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  └─ Larger</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  └─ Bold</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  └─ Contrasting color</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Sub-Level Header    ← Medium prominence</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  └─ Slightly smaller</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  └─ Bold (but less than top)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  └─ Slightly less contrast</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Data Cell           ← Least prominent</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  └─ Smallest size</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  └─ Regular weight</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  └─ High contrast for readability</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="visual-hierarchy-example">Visual Hierarchy Example<a href="#visual-hierarchy-example" class="hash-link" aria-label="Direct link to Visual Hierarchy Example" title="Direct link to Visual Hierarchy Example" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">┌────────────────────────────────────┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│ PRODUCT SALES (14pt, bold, navy)   │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">├────────────────────────────────────┤</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│ 2024 Q1  │ 2024 Q2  │ 2024 Q3      │ ← Sub-header (12pt, bold)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">├──────────┼──────────┼──────────────┤</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  45,000  │  52,000  │  48,500      │ ← Data (10pt, regular)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  38,200  │  41,300  │  39,800      │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  61,500  │  58,900  │  64,200      │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">└──────────┴──────────┴──────────────┘</span><br></span></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="accessibility-considerations">Accessibility Considerations<a href="#accessibility-considerations" class="hash-link" aria-label="Direct link to Accessibility Considerations" title="Direct link to Accessibility Considerations" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="color-contrast">Color Contrast<a href="#color-contrast" class="hash-link" aria-label="Direct link to Color Contrast" title="Direct link to Color Contrast" translate="no">​</a></h3>
+<ol>
+<li class=""><strong>Test your colors</strong> using contrast checkers</li>
+<li class=""><strong>Aim for 7:1</strong> if possible (WCAG AAA)</li>
+<li class=""><strong>Minimum 4.5:1</strong> for text (WCAG AA)</li>
+<li class=""><strong>Avoid color alone</strong> to convey meaning</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="font-choices">Font Choices<a href="#font-choices" class="hash-link" aria-label="Direct link to Font Choices" title="Direct link to Font Choices" translate="no">​</a></h3>
+<ol>
+<li class=""><strong>Sans-serif preferred</strong> (Arial, Verdana, Calibri)</li>
+<li class=""><strong>Avoid decorative</strong> fonts</li>
+<li class=""><strong>Minimum 10pt</strong> for readability</li>
+<li class=""><strong>Higher readability</strong> for presentations/web</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dyslexia-friendly">Dyslexia-Friendly<a href="#dyslexia-friendly" class="hash-link" aria-label="Direct link to Dyslexia-Friendly" title="Direct link to Dyslexia-Friendly" translate="no">​</a></h3>
+<ul>
+<li class="">Use sans-serif fonts</li>
+<li class="">Increase letter spacing (use larger fonts)</li>
+<li class="">Avoid italic/underline in data cells</li>
+<li class="">Use zebra rows (alternating row colors)</li>
+<li class="">Ensure good contrast</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="export-considerations">Export Considerations<a href="#export-considerations" class="hash-link" aria-label="Direct link to Export Considerations" title="Direct link to Export Considerations" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="excel-export">Excel Export<a href="#excel-export" class="hash-link" aria-label="Direct link to Excel Export" title="Direct link to Excel Export" translate="no">​</a></h3>
+<p>Some formatting may change:</p>
+<ul>
+<li class="">Fonts: All fonts are available in Excel</li>
+<li class="">Colors: Most colors export correctly</li>
+<li class="">Sizes: Slightly different rendering possible</li>
+<li class="">Weights: Bold/italic should export correctly</li>
+</ul>
+<p><strong>Tip</strong>: Test export before finalizing design</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="pdf-export">PDF Export<a href="#pdf-export" class="hash-link" aria-label="Direct link to PDF Export" title="Direct link to PDF Export" translate="no">​</a></h3>
+<ul>
+<li class="">Fonts: Use standard fonts for compatibility</li>
+<li class="">Colors: Print to PDF may look different</li>
+<li class="">Resolution: Higher DPI available in PDF</li>
+<li class="">Sizing: May shrink on smaller pages</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="troubleshooting">Troubleshooting<a href="#troubleshooting" class="hash-link" aria-label="Direct link to Troubleshooting" title="Direct link to Troubleshooting" translate="no">​</a></h2>
+<p><strong>Q: Text is hard to read on my background color</strong><br>
+<!-- -->A: Check contrast ratio (aim for 4.5:1 minimum). Use a contrast checker tool.</p>
+<p><strong>Q: Font looks wrong in Power BI Service</strong><br>
+<!-- -->A: Use standard system fonts (Arial, Calibri). Some fonts may not be available.</p>
+<p><strong>Q: Headers are too big</strong><br>
+<!-- -->A: Reduce font size 1-2pt or turn off Bold</p>
+<p><strong>Q: Exported table looks different</strong><br>
+<!-- -->A: Test print/export with your exact setup. Some color rendering varies.</p>
+<p><strong>Q: Text overlaps with numbers</strong><br>
+<!-- -->A: The font might not fit. Try a more compact font (Consolas) or reduce size.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="common-color-palettes">Common Color Palettes<a href="#common-color-palettes" class="hash-link" aria-label="Direct link to Common Color Palettes" title="Direct link to Common Color Palettes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="professional-blue">Professional Blue<a href="#professional-blue" class="hash-link" aria-label="Direct link to Professional Blue" title="Direct link to Professional Blue" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Header BG:    #2E5090 (Navy)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Header Text:  #FFFFFF (White)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Sub-Header:   #4472C4 (Medium blue)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Cell BG:      #FFFFFF (White)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Cell Text:    #000000 (Black)</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="modern-minimal">Modern Minimal<a href="#modern-minimal" class="hash-link" aria-label="Direct link to Modern Minimal" title="Direct link to Modern Minimal" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Header BG:    #F0F0F0 (Light gray)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Header Text:  #333333 (Dark gray)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Sub-Header:   #FAFAFA (Very light gray)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Cell BG:      #FFFFFF (White)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Cell Text:    #000000 (Black)</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="warm-corporate">Warm Corporate<a href="#warm-corporate" class="hash-link" aria-label="Direct link to Warm Corporate" title="Direct link to Warm Corporate" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Header BG:    #CC6633 (Warm brown)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Header Text:  #FFFFFF (White)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Sub-Header:   #FF9966 (Light orange)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Cell BG:      #FFFBF5 (Off-white)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Cell Text:    #333333 (Dark gray)</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="high-contrast">High Contrast<a href="#high-contrast" class="hash-link" aria-label="Direct link to High Contrast" title="Direct link to High Contrast" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Header BG:    #000000 (Black)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Header Text:  #FFFF00 (Yellow)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Sub-Header:   #333333 (Dark gray)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Cell BG:      #FFFFFF (White)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Cell Text:    #000000 (Black)</span><br></span></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="related-topics">Related Topics<a href="#related-topics" class="hash-link" aria-label="Direct link to Related Topics" title="Direct link to Related Topics" translate="no">​</a></h2>
+<ul>
+<li class=""><a class="" href="/sdmpbitable-docs/docs/reference/formating/formatting-basics">Table Options</a> - Display behavior</li>
+<li class=""><a class="" href="/sdmpbitable-docs/docs/reference/formating/formatting-styles">Table Styles</a> - Predefined themes</li>
+<li class=""><a class="" href="/sdmpbitable-docs/docs/reference/formating/">Formatting Overview</a> - All formatting options</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/socio-data-management/sdm-crosstable-docs/tree/main/docs/04-reference/formating/formatting-custom.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/sdmpbitable-docs/docs/reference/formating/formatting-basics"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Table Options (Basics)</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/sdmpbitable-docs/docs/reference/totals"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Totals &amp; Subtotals</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#element-reference" class="table-of-contents__link toc-highlight">Element Reference</a><ul><li><a href="#top-level-column-header" class="table-of-contents__link toc-highlight">Top-Level Column Header</a></li><li><a href="#sub-level-column-header" class="table-of-contents__link toc-highlight">Sub-Level Column Header</a></li><li><a href="#cell-format" class="table-of-contents__link toc-highlight">Cell Format</a></li></ul></li><li><a href="#font-customization" class="table-of-contents__link toc-highlight">Font Customization</a><ul><li><a href="#font-family" class="table-of-contents__link toc-highlight">Font Family</a></li><li><a href="#font-size" class="table-of-contents__link toc-highlight">Font Size</a></li><li><a href="#text-styles" class="table-of-contents__link toc-highlight">Text Styles</a></li></ul></li><li><a href="#color-customization" class="table-of-contents__link toc-highlight">Color Customization</a><ul><li><a href="#font-color" class="table-of-contents__link toc-highlight">Font Color</a></li><li><a href="#background-color" class="table-of-contents__link toc-highlight">Background Color</a></li></ul></li><li><a href="#color-contrast--accessibility" class="table-of-contents__link toc-highlight">Color Contrast &amp; Accessibility</a><ul><li><a href="#contrast-requirements" class="table-of-contents__link toc-highlight">Contrast Requirements</a></li><li><a href="#high-contrast-combinations" class="table-of-contents__link toc-highlight">High-Contrast Combinations</a></li><li><a href="#low-contrast-avoid" class="table-of-contents__link toc-highlight">Low-Contrast (Avoid)</a></li><li><a href="#testing-contrast" class="table-of-contents__link toc-highlight">Testing Contrast</a></li></ul></li><li><a href="#practical-configuration-examples" class="table-of-contents__link toc-highlight">Practical Configuration Examples</a><ul><li><a href="#professional-business-report" class="table-of-contents__link toc-highlight">Professional Business Report</a></li><li><a href="#modernminimalist-report" class="table-of-contents__link toc-highlight">Modern/Minimalist Report</a></li><li><a href="#high-contrast-accessibility" class="table-of-contents__link toc-highlight">High-Contrast Accessibility</a></li><li><a href="#brand-matched-corporate" class="table-of-contents__link toc-highlight">Brand-Matched Corporate</a></li><li><a href="#technicalscientific-report" class="table-of-contents__link toc-highlight">Technical/Scientific Report</a></li></ul></li><li><a href="#layering-with-style-themes" class="table-of-contents__link toc-highlight">Layering with Style Themes</a></li><li><a href="#hierarchy-best-practices" class="table-of-contents__link toc-highlight">Hierarchy Best Practices</a><ul><li><a href="#recommended-hierarchy" class="table-of-contents__link toc-highlight">Recommended Hierarchy</a></li><li><a href="#visual-hierarchy-example" class="table-of-contents__link toc-highlight">Visual Hierarchy Example</a></li></ul></li><li><a href="#accessibility-considerations" class="table-of-contents__link toc-highlight">Accessibility Considerations</a><ul><li><a href="#color-contrast" class="table-of-contents__link toc-highlight">Color Contrast</a></li><li><a href="#font-choices" class="table-of-contents__link toc-highlight">Font Choices</a></li><li><a href="#dyslexia-friendly" class="table-of-contents__link toc-highlight">Dyslexia-Friendly</a></li></ul></li><li><a href="#export-considerations" class="table-of-contents__link toc-highlight">Export Considerations</a><ul><li><a href="#excel-export" class="table-of-contents__link toc-highlight">Excel Export</a></li><li><a href="#pdf-export" class="table-of-contents__link toc-highlight">PDF Export</a></li></ul></li><li><a href="#troubleshooting" class="table-of-contents__link toc-highlight">Troubleshooting</a></li><li><a href="#common-color-palettes" class="table-of-contents__link toc-highlight">Common Color Palettes</a><ul><li><a href="#professional-blue" class="table-of-contents__link toc-highlight">Professional Blue</a></li><li><a href="#modern-minimal" class="table-of-contents__link toc-highlight">Modern Minimal</a></li><li><a href="#warm-corporate" class="table-of-contents__link toc-highlight">Warm Corporate</a></li><li><a href="#high-contrast" class="table-of-contents__link toc-highlight">High Contrast</a></li></ul></li><li><a href="#related-topics" class="table-of-contents__link toc-highlight">Related Topics</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/sdmpbitable-docs/docs/introduction/overview">Overview</a></li><li class="footer__item"><a class="footer__link-item" href="/sdmpbitable-docs/docs/getting-started/quick-start">Quick Start</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/powerbi" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/socio-data-management/sdmpbitable-docs/discussions" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub Discussions<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/socio-data-management/sdmpbitable-docs" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 SDM Cross Table Tool. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
