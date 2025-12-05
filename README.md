@@ -39,3 +39,29 @@ GIT_USER=<Your GitHub username> yarn deploy
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+
+Trucs sympa en markdown:
+
+:::note
+Ceci est une note
+:::
+
+:::info
+Ceci est une information
+:::
+
+:::tip
+Ceci est un conseil/astuce
+:::
+
+:::caution
+Ceci est une mise en garde
+:::
+
+:::danger
+Ceci est un danger/avertissement critique
+:::
+
+:::success
+Ceci est un succès (certaines versions)
+:::

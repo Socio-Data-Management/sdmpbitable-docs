@@ -3,11 +3,13 @@ sidebar_position: 1
 title: Table Contents
 ---
 
-# Table Contents Reference
+# 'Table Contents' settings Reference
 
 ## Overview
+![Table Content Settings](../images/table-content-settings.png)
 
-The **Table Contents** section controls what data is displayed in your table and how it's aggregated.
+:::tip The **Table Contents** section controls what data is displayed in your table and how it's aggregated.
+:::
 
 ## Table Type
 
@@ -87,6 +89,12 @@ Displays index values (typically with 100 as base). Useful for comparing relativ
 
 ## Masking
 
+:::info WHY USE MASKING WHEN POWER BI CAN FILTER DATA?
+When you filter data in Power BI, the underlying data is removed from the visual, which can affect calculations like totals and percentages. Masking allows you to hide specific data points **while still including them in calculations**, ensuring accurate results.
+:::
+
+---
+
 ### Mask Pattern
 **Label**: Mask Pattern  
 **Type**: Text area  
@@ -95,15 +103,66 @@ Displays index values (typically with 100 as base). Useful for comparing relativ
 
 Allows you to mask (hide) data from specific rows or columns using regular expressions.
 
-**Examples**:
-- `Total|Subtotal` — Hides rows matching "Total" or "Subtotal"
-- `^Other` — Hides rows starting with "Other"
-- `Confidential` — Hides exact matches
+![Mask Pattern](../images/MaskPattern.png)
+
+User will input a pattern to match the rows/columns to be hidden. As an example, if you want to show ONLY Brand A and Brand B, you need to high averything which is NOT Brand A or B.
+
+```text
+Label_Brand != BrandA AND Label_Brand != BrandB
+```
+
+or better with the IN operator
+
+
+```text
+NOT Label_Brand IN (BrandA, BrandB)
+```
+
+Therefore, if also you do not want the "No answer" to gender question while still using it in calculations:
+```
+(NOT Label_Brand IN (BrandA, BrandB)) OR Customer_Gender = "Not Stated"
+```
+
+etc ...
+```text
+(NOT Label_Brand IN (BrandA, BrandB)) OR (Customer_Gender IN ("Not Stated", Other))
+```
+
+:::caution Beware of the inverted logic of masking.
+The pattern defines what to HIDE, this can be somewaht counter-intuitive at first.
+:::
+
+Valid operators are:
+- IN - for multiple values
+- AND - for logical conjunction
+- OR - for logical disjunction
+- NOT - for negation
+- = - Equals
+- != - Not equals
+- \< - Less than
+- \> - Greater than
+- LIKE - Pattern matching with % wildcard
+
+:::tip \<= and \>= does not exist
+if you want to filter for years greater than or equal to 2020, you need to use `Year > 2019`
+:::
+
+The __*LIKE*__ operator works with the % symbol, for example:
+```text
+Customer_Gender LIKE %ale
+```
+Will hide M'ale' AND Fem'ale', and therefore show only "Not Stated" and "Other"
+
+To show only Male **AND** Female, you need to invert the logic:
+```NOT Customer_Gender LIKE %ale```
+
+Will show ONLY Male and Female
 
 **Use Cases**:
 - Hide sensitive data in shared reports
-- Remove subtotals or intermediate calculations
-- Filter out "Other" or "Not answered" categories
+- Remove small brands/categories from view
+- Focus on top-performing segments
+- Filter out "Other" or "Not answered" categories while still taking them into account for calculations
 
 ---
 
@@ -115,28 +174,6 @@ For detailed series configuration options (Value Series, Base Series, Mean Serie
 
 ---
 
-## Display Format
-
-### Show % Symbol
-**Label**: Show % symbol  
-**Type**: Toggle  
-**Default**: On
-
-Controls whether the "%" character appears after percentage values.
-
-### Percent Precision
-**Label**: Percent precision  
-**Type**: Number (0-5)  
-**Default**: 1
-
-Specifies number of decimal places for percentage display.
-
-**Examples**:
-- Precision 0: `45%`
-- Precision 1: `45.2%`
-- Precision 2: `45.23%`
-
----
 
 ## Best Practices
 

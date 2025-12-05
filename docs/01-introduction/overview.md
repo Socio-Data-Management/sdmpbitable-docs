@@ -10,9 +10,17 @@ title: Overview
 The **SDM Cross Table Tool** (Socio Data Management Cross Table Tool for Power BI) is a specialized Power BI custom visual component built specifically for creating and analyzing cross-tabulation tables (also known as contingency tables or crosstabs). It goes far beyond simple data grids by providing:
 
 - **Hierarchical table structures** with multiple levels of rows and columns
-- **Statistical analysis capabilities** including significance testing
+
+![Hierarchical Data](Hierarchical_data.png)
+- **Statistical analysis capabilities** including multiple significance testing
+
+![Significance Testing](Significance.png)
 - **Advanced formatting options** to highlight key insights
+
+![Advanced Formatting](AdvFormating.png)
 - **Professional styling** for reports and presentations
+
+![Styling](Styling.png)
 - **Flexible data aggregation** supporting both percentages and means
 - **Interactive filtering** through row and column selection
 
@@ -20,7 +28,7 @@ The **SDM Cross Table Tool** (Socio Data Management Cross Table Tool for Power B
 
 SDM Cross Table Tool is ideal for:
 
-- **Market Research Professionals**: Analyze survey data with demographic breakdowns
+- **Scientific Market Research Professionals**: Analyze scientific and survey data with any breakdowns
 - **Data Analysts**: Create multi-dimensional analysis tables with statistical rigor
 - **Business Intelligence Teams**: Build professional dashboards and reports
 - **Statistical Consultants**: Perform complex cross-tabulations with significance tests
@@ -30,7 +38,7 @@ SDM Cross Table Tool is ideal for:
 
 ### 1. Table Types
 - **Percentage Tables**: Analyze response distributions and proportions
-- **Mean Tables**: Calculate averages with statistical measures (count, standard deviation)
+- **Mean Tables**: Analyze averages Power BI series with statistical measures (count, standard deviation)
 
 ### 2. Data Aggregation
 - Support for single and multiple response modes
@@ -72,9 +80,9 @@ SDM Cross Table Tool is ideal for:
 SDM Cross Table Tool requires a data source with:
 - **Row dimension(s)**: The categories for table rows
 - **Column dimension(s)**: The categories for table columns
-- **Measures**: Numerical values to populate cells (counts, percentages, means)
+- **Measures**: Numerical values to populate cells. The tool leverages the standard Power BI aggregation methods (counts, means...). 
 
-For statistical testing, you'll need additional measures for base values and significance calculations.
+_For statistical testing, you'll need additional measures for base values and significance calculations._
 
 ## Typical Workflow
 

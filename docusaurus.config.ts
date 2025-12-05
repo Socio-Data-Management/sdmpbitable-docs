@@ -88,11 +88,11 @@ const config: Config = {
           items: [
             {
               label: 'Overview',
-              to: '/docs/overview',
+              to: '/docs/introduction/overview',
             },
             {
               label: 'Quick Start',
-              to: '/docs/quick-start',
+              to: '/docs/getting-started/quick-start',
             },
           ],
         },

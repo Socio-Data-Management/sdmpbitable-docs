@@ -20,7 +20,6 @@ Choose the edition that best fits your needs. All editions receive regular updat
 | **Significance Testing** | ❌ | Basic | ✅ Advanced |
 | **Thresholds & Masking** | ❌ | ✅ | ✅ |
 | **Export Options** | ❌ | Excel | Excel + PPT |
-| **Priority Support** | ❌ | ❌ | ✅ |
 | **Commercial License** | ❌ | ❌ | ✅ |
 
 ---
@@ -44,7 +43,7 @@ Choose the edition that best fits your needs. All editions receive regular updat
 - No threshold-based masking
 - Limited formatting customization
 - No export functionality
-- Community support only
+- Limited to 10 rows and 10 columns displayed
 
 ### Best For
 - Students and learners
@@ -114,10 +113,7 @@ Choose the edition that best fits your needs. All editions receive regular updat
 - Regulatory and compliance reporting
 
 ### Support
-- Priority phone support (weekdays 8-18 CET)
-- Email support (24h response guaranteed)
-- Dedicated Slack channel (for 10+ users)
-- Quarterly business reviews
+- Email support
 - Custom development consultation
 
 ---
@@ -140,15 +136,16 @@ Choose the edition that best fits your needs. All editions receive regular updat
 ### Choose **Premium** if you:
 - Deliver reports to external clients
 - Require advanced statistical testing
-- Need guaranteed support and SLAs
 - Use SDM Cross Table Tool enterprise-wide
 - Require commercial licensing
+
+Please contact contact@socio-dm.com for custom quotes or volume licensing.
 
 ---
 
 ## Pricing
 
-For current pricing and licensing terms, please visit our [pricing page](https://example.com/pricing) or contact our sales team at sales@example.com.
+For current pricing and licensing terms, please visit Microsoft Marketplace for Power BI (https://marketplace.microsoft.com/en-us/marketplace/apps?product=power-bi-visuals).
 
 ---
 
@@ -161,10 +158,10 @@ Yes! Your data and configurations will transfer automatically.
 All editions support datasets up to Power BI's native limits.
 
 **Is there a trial period for Pro/Premium?**  
-Yes, we offer a 14-day free trial for Pro and Premium. [Start your trial](https://example.com/trial)
+Yes, we offer a 30-day free trial for Pro and Premium. [Start your trial](https://marketplace.microsoft.com/en-us/marketplace/apps?product=power-bi-visuals)
 
 **What about education/non-profit discounts?**  
-We offer special pricing for educational institutions and non-profits. Contact sales@example.com
+We offer special pricing for educational institutions and non-profits. Contact contact@socio-dm.com
 
 **Can I use Free edition commercially?**  
 Free edition is for non-commercial use only. Use Pro or Premium for client work.

@@ -9,6 +9,7 @@ title: Creating Your First Table
 This detailed step-by-step guide with screenshots will help you create your first SDM Cross Table Tool cross-tabulation from scratch.
 :::
 
+
 This guide will walk you through:
 1. Setting up your data structure
 2. Creating a basic table

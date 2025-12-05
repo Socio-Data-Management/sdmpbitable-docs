@@ -5,52 +5,59 @@ import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: ReactNode;
-};
+} & (
+  | { type: 'svg'; Svg: React.ComponentType<React.ComponentProps<'svg'>> }
+  | { type: 'image'; image: string }
+);
 
 const FeatureList: FeatureItem[] = [
   {
+    type: 'image',
     title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    image: require('@site/static/img/Hierarchical_data.png').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Our Cross Table Tool makes it easy to create and analyze cross-tabulation tables in Power BI.
+        Show significance testing, base, apply thresholds, and customize formatting with just a few clicks.
       </>
     ),
   },
   {
+    type: 'image',
     title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    image: require('@site/static/img/focus.png').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        With our tool, don't waste time wrangling data or building complex formulas. Instead, focus on interpreting results and making data-driven decisions.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    type: 'svg',
+    title: 'Powered by Power BI',
+    Svg: require('@site/static/img/power-bi-logo.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Extend your Power BI reports and DashBoard with custom visuals that can create cross tables with significance testing, thresholds, and more.
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature(feature: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        {feature.type === 'svg' ? (
+          <feature.Svg className={styles.featureSvg} role="img" />
+        ) : (
+          <img src={feature.image} alt={feature.title} className={styles.featureSvg} />
+        )}
       </div>
       <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+        <Heading as="h3">{feature.title}</Heading>
+        <p>{feature.description}</p>
       </div>
     </div>
   );

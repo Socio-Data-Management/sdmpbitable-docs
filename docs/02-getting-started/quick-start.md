@@ -9,6 +9,11 @@ title: Quick Start
 
 Get SDM Cross Table Tool up and running in just a few minutes with this quick walkthrough.
 
+<video autoPlay loop muted playsInline style={{ maxWidth: "100%", border: "1px solid #ccc", borderRadius: "4px" }}>
+  <source src="/sdmpbitable-docs/videos/quickstart.webm" type="video/webm" />
+</video>
+[Quick Start Video](/videos/quickstart.webm)
+
 ### Step 1: Add the Visual
 
 1. In Power BI Desktop, create a **new blank report**
@@ -21,17 +26,20 @@ Get SDM Cross Table Tool up and running in just a few minutes with this quick wa
 SDM Cross Table Tool needs at least:
 - **Row field(s)**: Categories for table rows
 - **Column field(s)**: Categories for table columns
-- **Value field**: Numerical data to display
+- **Value field**: Numerical data (usually for mean table) or any categorical variable or measure (usually for percentage table).
 
 **Example dataset:**
-```
+
 Product      | Region   | Sales
 -------------|----------|--------
 Product A    | North    | 15,000
 Product A    | South    | 12,000
 Product B    | North    | 18,000
 Product B    | South    | 14,000
-```
+
+With this dataset you can create:
+- a cross-tab showing sales distribution of products across regions, in this case, drop any of "Product" or "Region" column in the "value" field and select "Count" measure in the "Values" field.
+- a mean table showing average sales per product and region, in this case, drop "Sales" column in the "value" field and select "Average" measure in the "Values" field.
 
 ### Step 3: Create Your First Table
 
@@ -51,7 +59,7 @@ In the format panel, you can immediately:
 - **Table Type**: Switch between "Percentage" or "Mean"
 - **Show Percentages**: Toggle vertical/horizontal percentages
 - **Show Totals**: Add row and column totals
-- **Formatting**: Change fonts, colors, borders
+- **Formatting**: Change theme, fonts and colors
 
 ---
 

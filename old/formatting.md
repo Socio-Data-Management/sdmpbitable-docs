@@ -12,6 +12,7 @@ Customize the appearance of your table with fonts, colors, and layouts.
 ---
 
 ## Table Display Options
+![Table Display Options](../images/table-display-options.png)
 
 ### Highlight Row on Hover
 **Setting**: Highlight row on hover  
@@ -39,7 +40,12 @@ Displays "%" after percentage values.
 **Type**: Number (0-5)  
 **Default**: 1
 
-Number of decimal places in percentage display.
+Specifies number of decimal places for percentage display.
+
+> **Examples**:
+> - Precision 0: `45%`
+> - Precision 1: `45.2%`
+> - Precision 2: `45.23%`
 
 ### Freeze Left Column
 **Setting**: Freeze left column  
@@ -62,6 +68,9 @@ Keeps column headers visible while scrolling vertically.
 **Default**: Auto
 
 Set a fixed width for the row labels column. Leave empty for automatic sizing.
+:::tip When using a row label fixed width ?
+This option is useful if you intend to have a consistent layout across multiple tables or reports. Especially when you have the same column variables but different variables in rows.
+:::
 
 ### Show Column Header
 **Setting**: Show column header  
@@ -69,6 +78,10 @@ Set a fixed width for the row labels column. Leave empty for automatic sizing.
 **Default**: On
 
 Show or hide column headers.
+
+:::tip When to hide column headers?
+Hiding column headers can be useful in scenarios where the table is part of a larger dashboard with clear context, or when space is limited and the headers are redundant.
+:::
 
 ---
 
