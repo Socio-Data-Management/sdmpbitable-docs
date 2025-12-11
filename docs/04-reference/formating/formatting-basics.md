@@ -329,4 +329,4 @@ A: Use auto sizing (leave Row Title Fixed Width empty) or increase the fixed wid
 
 - [Table Styles](formatting-styles.md) - Apply professional themes
 - [Custom Element Formatting](formatting-custom.md) - Colors and fonts
-- [Formatting Overview](formatting.md) - All formatting options
+- [Formatting Overview](index.md) - All formatting options

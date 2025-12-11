@@ -527,4 +527,4 @@ Cell Text:    #000000 (Black)
 
 - [Table Options](formatting-basics.md) - Display behavior
 - [Table Styles](formatting-styles.md) - Predefined themes
-- [Formatting Overview](formatting.md) - All formatting options
+- [Formatting Overview](index.md) - All formatting options
