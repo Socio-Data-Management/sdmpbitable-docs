@@ -33,6 +33,12 @@ After:  East, North, South, West
 #### Column Value
 Sorts rows based on values from a specific column you select.
 
+:::caution
+If you use this setting for numeric labels like "1", "2", "3", the **'10'** label will be considered as coming before "**2"** in alphabetical order (1,10,2,3,4...). In such cases, consider using 'Last Row/Column Positioning' to fix specific label ("10") at the end.
+
+![classify 10 at the end of row list](../images/classify10-at-end.png)
+:::
+
 **Use Cases**:
 - Sort products by highest sales
 - Rank regions by satisfaction score
@@ -53,6 +59,10 @@ Controls whether sorted values go low-to-high or high-to-low.
 - **Ascending**: Smallest values first (1, 2, 3...)
 - **Descending**: Largest values first (...100, 99, 98)
 
+**Example (Raw label sorting)**:
+- **Ascending**: Alphabetical order (A, B, C...)
+- **Descending**: Reverse alphabetical order (Z, Y, X...)
+
 ---
 
 ## Sort Properties
@@ -64,9 +74,13 @@ Controls whether sorted values go low-to-high or high-to-low.
 
 When using "Column Value" sort, choose which metric to sort by.
 
-- **Value**: Raw count or sum
+- **Value**: Value of cells (AND Vertical Percentage)
 - **Horizontal Percentage**: Percentage within row
 - **Indice**: Index value
+
+:::tip
+For percentage tables, sorting by **"Value"** and **"Vertical Percentage"** yield exactly the same order, reason why on ly 'value',  'horizontal percentage' and indice options are shown.
+:::
 
 ---
 
@@ -74,11 +88,16 @@ When using "Column Value" sort, choose which metric to sort by.
 
 Force certain rows or columns to stay at the beginning or end, regardless of sort order.
 
+:::info
+In the folowing settings, multiple labels can be specified separated by commas. The comparison is not case sensitive and enclose labels in double quotes if they contain comma.
+e.g., `My Brand, My First Competitor` or `"Not Answered","no, never"`
+:::
+
 ### First Rows
 **Setting**: 'First row(s)' label(s)  
 **Type**: Text input  
 **Format**: Comma-separated  
-**Example**: `Total,Subtotal`
+**Example**: `My Brand, My First Competitor`
 
 These rows always appear first in your table, even if a sort would normally place them elsewhere.
 
@@ -96,7 +115,7 @@ Result table:
 **Setting**: 'Last row(s)' label(s)  
 **Type**: Text input  
 **Format**: Comma-separated  
-**Example**: `Not Applicable,Other`
+**Example**: `Not Answered, Other`
 
 These rows always appear last in your table.
 
@@ -115,55 +134,17 @@ Result table:
 **Setting**: 'First column(s)' label(s)  
 **Type**: Text input  
 **Format**: Comma-separated  
-**Example**: `Total,All Categories`
+**Example**: `Current Year, Last Year`
 
 These columns always appear first.
 
 ### Last Columns
 **Setting**: 'Last column(s)' label(s)  
 **Type**: Text input  
-**Format**: Comma-separated
+**Format**: Comma-separated  
+**Example**: `Previous Year, Two Years Ago`
 
 These columns always appear last.
-
----
-
-## Practical Examples
-
-### Example 1: Sales Report
-```
-Configuration:
-- Sort Method: Column Value
-- Column to Sort: Total Sales
-- Sort Direction: Descending
-- Last Row: Total
-
-Result: Highest-performing products first,
-         with Total always at the bottom
-```
-
-### Example 2: Survey Analysis
-```
-Configuration:
-- Sort Method: Row Label (Alphabetical)
-- First Rows: Total,Base
-- Last Rows: Not Answered
-
-Result: Alphabetical regions, with
-        totals first and N/A last
-```
-
-### Example 3: Regional Comparison
-```
-Configuration:
-- Sort Method: Column Value
-- Sort by Column: "North Region"
-- Sort Direction: Descending
-- First Columns: Total
-
-Result: Regions ranked by North performance,
-        with Total column always first
-```
 
 ---
 

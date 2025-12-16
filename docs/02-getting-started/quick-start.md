@@ -15,6 +15,11 @@ Get SDM Cross Table Tool up and running in just a few minutes with this quick wa
 [Quick Start Video](/videos/quickstart.webm)
 
 ### Step 1: Add the Visual
+<img 
+  src={require('../images/SdmPbiTableV3.png').default} 
+  alt="SdmPbiTable logo" 
+  width="50px" 
+/>
 
 1. In Power BI Desktop, create a **new blank report**
 2. Go to **Visualizations** pane on the right
@@ -27,6 +32,10 @@ SDM Cross Table Tool needs at least:
 - **Row field(s)**: Categories for table rows
 - **Column field(s)**: Categories for table columns
 - **Value field**: Numerical data (usually for mean table) or any categorical variable or measure (usually for percentage table).
+
+:::info
+**Tip:** You do not need to prepare specific measure, unless you need to **weigth** your data. For percentage tables, you can use any categorical field (e.g., Product, Region, Gender, Age class, Segment...) or a measure that returns categorical data. For mean tables, use numerical fields (e.g., Sales, Revenue, Age).
+:::
 
 **Example dataset:**
 
@@ -47,10 +56,10 @@ With this dataset you can create:
 2. In the **Visualizations** pane:
    - Drag a field to **Rows** (e.g., "Product")
    - Drag a field to **Columns** (e.g., "Region")
-   - Drag a measure to **Values** (e.g., "Sales")
-
-3. Click on the **Format** icon (paint bucket) in the Visualizations pane
-4. Your table appears!
+   - Drag a measure to **Values** (e.g., "Sales"), select 'count' for percentage or 'average' for mean table.
+   - Select the appropriate table type in Visual properties
+![alt text](../images/table-content-settings.png)
+3. Your table appears!
 
 ### Step 4: Basic Configuration
 
@@ -60,6 +69,28 @@ In the format panel, you can immediately:
 - **Show Percentages**: Toggle vertical/horizontal percentages
 - **Show Totals**: Add row and column totals
 - **Formatting**: Change theme, fonts and colors
+
+The default format is a 'custom' basic simple table format:
+![alt text](../images/style-custom.png)
+
+With two click, you can change to other pre-defined styles:
+
+- _Classic Indigo:_ <br/>
+![alt text](../images/style-classic-indigo.png)
+
+- _Modern Sunset:_ <br/>
+![alt text](../images/style-modern-sunset.png)
+
+- _Market Research Forest:_ <br/>
+![alt text](../images/style-mr-forest.png)
+
+- _Scientific Indigo:_ <br/>
+![alt text](../images/style-scientific-indigo.png)
+
+- _Or customize your own style:_ <br/>
+![alt text](../images/style-custom-custom.png)
+
+#### See [Styling Your Table](../04-reference/formating/index.md) for more details.
 
 ---
 

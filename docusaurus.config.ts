@@ -9,6 +9,21 @@ const config: Config = {
   tagline: 'Professional cross-tabulation tables for Power BI',
   favicon: 'img/favicon.ico',
 
+  // Module de recherche locale Docusaurus
+  themes: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true,
+        language: ["fr", "en"], // adaptez selon vos langues
+        indexDocs: true,
+        indexBlog: true,
+        indexPages: false,
+        docsRouteBasePath: '/docs',
+      },
+    ],
+  ],
+
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
