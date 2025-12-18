@@ -45,13 +45,19 @@ Used to analyze averages and their statistical properties.
 - **Indice**: Index based on mean values
 
 **Example**: Average customer satisfaction score:
-```
-            Mean Score    Count    Std Dev
-Product A   4.2          1250     0.8
-Product B   4.5          980      0.7
-```
 
----
+![alt text](../images/measures-for-mean-signif.png)
+
+
+With these data:
+
+|         |Mean Score|Count|Std Dev|
+|---------|---------:|----:|-------:|
+|Product A|4.2|1250|0.8|
+|Product B|4.5|980|0.7|
+
+The table would display:
+
 
 ## Display Options
 

@@ -56,7 +56,7 @@ Fine-tune fonts, colors, and backgrounds for specific table elements: headers an
 | Apply a professional theme | [Styles](formatting-styles.md) |
 | Match brand colors | [Custom Formatting](formatting-custom.md) |
 | Accessibility guidance | [Custom Formatting - Accessibility](formatting-custom.md#accessibility-considerations) |
-| Common configurations | [Practical Examples](formatting-custom.md#practical-styling-examples) |
+| Common configurations | [Practical Examples](formatting-custom.md) |
 
 ---
 

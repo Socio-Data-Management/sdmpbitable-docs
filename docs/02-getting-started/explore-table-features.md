@@ -30,7 +30,7 @@ This section determines:
 
 **When to use**: Configure this section first, as it defines what your table displays and how data is aggregated.
 
-📖 **Learn more**: [Table Contents Reference](../04-reference/table-content.md)
+📖 **Learn more**: [Table Contents Reference](/docs/04-reference/table-content.md)
 
 ---
 
@@ -51,7 +51,7 @@ This section allows you to:
 
 **When to use**: After your data is displaying correctly, configure sorting to highlight insights or maintain consistent presentation.
 
-📖 **Learn more**: [Sorting & Ordering Reference](../04-reference/sorting.md)
+📖 **Learn more**: [Sorting & Ordering Reference](/docs/04-reference/sorting.md)
 
 ---
 
@@ -75,7 +75,7 @@ This composite section includes:
 
 **When to use**: Add ranking after basic table setup to visually emphasize performance differences.
 
-📖 **Learn more**: [Ranking & Visualization Reference](../04-reference/ranking.md)
+📖 **Learn more**: [Ranking & Visualization Reference](/docs/04-reference/ranking.md)
 
 ---
 
@@ -97,7 +97,7 @@ This section appears when **Table Type** is set to "Percentage" and manages:
 
 **When to use**: Essential for percentage tables with custom measures or weighted data.
 
-📖 **Learn more**: [Percentage Series Configuration](../04-reference/percentage-series.md)
+📖 **Learn more**: [Percentage Series Configuration](/docs/04-reference/percentage-series.md)
 
 ---
 
@@ -119,7 +119,7 @@ This section appears when **Table Type** is set to "Mean" and manages:
 
 **When to use**: Essential for mean tables to properly aggregate and display average values.
 
-📖 **Learn more**: [Mean Series Configuration](../04-reference/mean-series.md)
+📖 **Learn more**: [Mean Series Configuration](/docs/04-reference/mean-series.md)
 
 ---
 
@@ -144,7 +144,7 @@ This composite section includes:
 
 **When to use**: When you need to highlight statistically significant differences between groups.
 
-📖 **Learn more**: [Significance Testing Reference](../04-reference/significance.md)
+📖 **Learn more**: [Significance Testing Reference](/docs/04-reference/significance.md)
 
 ---
 
@@ -168,7 +168,7 @@ This section manages:
 
 **When to use**: Configure after basic table setup to add context rows.
 
-📖 **Learn more**: [Totals & Subtotals Reference](../04-reference/totals.md)
+📖 **Learn more**: [Totals & Subtotals Reference](/docs/04-reference/totals.md)
 
 ---
 
@@ -193,7 +193,7 @@ This section allows you to:
 
 **When to use**: Important for survey data or any analysis with variable sample sizes.
 
-📖 **Learn more**: [Thresholds & Masking Reference](../04-reference/thresholds.md)
+📖 **Learn more**: [Thresholds & Masking Reference](/docs/04-reference/thresholds.md)
 
 ---
 
@@ -232,7 +232,7 @@ This composite section includes multiple cards:
 
 **When to use**: Configure styling after data and structure are finalized, or apply pre-defined themes immediately for quick professional appearance.
 
-📖 **Learn more**: [Formatting & Styling Reference](../04-reference/formatting.md)
+📖 **Learn more**: [Formatting & Styling Reference](/docs/04-reference/formating/index.md)
 
 ---
 
@@ -331,9 +331,9 @@ Now that you understand what each section does:
 
 📖 **Reference Guides**: Explore detailed settings for each section using the links above
 
-🎯 **Use Cases**: See real-world examples in [Business Cases](../03-use-cases/business-cases.md)
+🎯 **Use Cases**: See real-world examples in [Business Cases](/docs/03-use-cases/business-cases.md)
 
-❓ **Need Help?**: Start with the [Quick Start Guide](quick-start.md) for basics
+❓ **Need Help?**: Start with the [Quick Start Guide](/docs/02-getting-started/quick-start.md) for basics
 
 ---
 

@@ -66,14 +66,15 @@ With this dataset you can create:
 In the format panel, you can immediately:
 
 - **Table Type**: Switch between "Percentage" or "Mean"
-- **Show Percentages**: Toggle vertical/horizontal percentages
+- **Show Measure**: Toggle **Value, vertical/horizontal percentages, indice** buttons
+- **Select series usage**: Configure multiple value series (e.g., count, mean, std. dev., base, unweighted base...)
 - **Show Totals**: Add row and column totals
 - **Formatting**: Change theme, fonts and colors
 
 The default format is a 'custom' basic simple table format:
 ![alt text](../images/style-custom.png)
 
-With two click, you can change to other pre-defined styles:
+With two click, you can change to other pre-defined styles and color theme like:
 
 - _Classic Indigo:_ <br/>
 ![alt text](../images/style-classic-indigo.png)
@@ -130,7 +131,7 @@ Best for highlighting differences in survey data
 ## Next Steps
 
 ### To Learn More:
-- [Create Your First Table](first-table.md) — Detailed step-by-step
+- [Explore table features](/docs/02-getting-started/explore-table-features.md) — Detailed step-by-step
 - [Feature Reference](../04-reference/table-content.md) — All available options
 - [Use Cases](../03-use-cases/business-cases.md) — Real-world examples
 

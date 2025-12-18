@@ -1,11 +1,13 @@
 ---
 sidebar_position: 3
-title: Ranking & Visualization
+title: Ranking
 ---
 
-# Ranking & Visualization Reference
+# Ranking Settings Reference
 
 ## Overview
+
+![Ranking settings](../images/ranking-settings.png)
 
 Automatically rank cells within each column and visualize rankings with numbers, colors, or gradients.
 
@@ -29,6 +31,25 @@ Turns ranking on/off for all cells in the table.
 
 ## Ranking Configuration
 
+### Cell Value Property
+**Setting**: Cell value  
+**Type**: Dropdown  
+**Options**: Value, Horizontal Percentage, Indice  
+**Default**: Value
+
+Which metric to rank by within each column.
+:::info
+the metric used for ranking **DOES NOT** need to be displayed in the table. You can rank on one metric while displaying another.
+:::
+
+:::tip
+It is an interesting feature to sort on a specific measure but to rank on another measure like 'Sorting my metric vertical percentage but rank on indice'.
+:::
+
+:::note
+Because Vertical Percentage is calculated based on column totals, ranking by **Value** and **Vertical Percentage** yield exactly the same order. Therefore, only 'Value', 'Horizontal Percentage', and 'Indice' options are shown.
+:::
+
 ### Ranking Order
 **Setting**: Ranking order  
 **Options**: Greater is first, Lesser is first  
@@ -38,14 +59,6 @@ Determines what's considered "best" (rank #1).
 
 - **Greater is first**: Highest values get rank 1 (sales, satisfaction, etc.)
 - **Lesser is first**: Lowest values get rank 1 (costs, errors, etc.)
-
-### Cell Value Property
-**Setting**: Cell value  
-**Type**: Dropdown  
-**Options**: Value, Horizontal Percentage, Indice  
-**Default**: Value
-
-Which metric to rank by within each column.
 
 ---
 
@@ -69,26 +82,25 @@ Shows a numbered badge (1, 2, 3...) in cells. Choose the shape:
 - **Rounded Square**: Square with rounded corners
 
 **Example**:
-```
-┌─────────────────┐
-│  42%            │
-│   [2]           │  ← Rank badge
-└─────────────────┘
-```
+
+![ranking badges](../images/ranking-badges.png)
 
 #### Color Gradients
 
 **Red to Blue**: 
+![ranking red to blue](../images/ranking-red-to-blue.png)
 - Red = lowest rank
 - Blue = highest rank
 - Good for neutral comparisons
 
 **Red to Green**:
+![ranking red to green](../images/ranking-red-to-green.png)
 - Red = low/bad
 - Green = high/good
 - Commonly understood for positive/negative
 
 **Custom Color Gradient**:
+![ranking custom colors](../images/ranking-custom-colors.png)
 - Define your own start and end colors
 - Full control over color scheme
 
@@ -128,11 +140,14 @@ With this option:
 - Value 94% = Light green
 - Value 50% = Dark red  ← Different color
 ```
+![ranking value for colors](../images/ranking-value-for-colors.gif)
 
 ### Auto Font Color
 **Setting**: Auto font color  
 **Type**: Toggle  
 **Default**: Off
+
+![alt text](../images/ranking-auto-fontcolor.png)
 
 Automatically adjust text color (black/white) based on background color for better readability.
 
@@ -161,17 +176,9 @@ When "Prevent middle range" is enabled:
 Values in this range remain neutral (no color or styling).
 
 **Example**:
-```
-Configuration:
-- Color scheme: Red to Green
-- Exclude from: 40
-- Exclude to: 60
 
-Result:
-- < 40%: Red
-- 40-60%: No color (neutral zone)
-- > 60%: Green
-```
+![alt text](../images/ranking-exclude-rng-setting.png)
+![alt text](../images/ranking-exclude-range.png)
 
 ---
 

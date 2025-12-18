@@ -6,6 +6,8 @@ sidebar_position: 1
 
 ## Professional Cross-Tabulation Tables for Power BI
 
+![Intro Full Feature ScreenShot](images/intro-full-features.png)
+
 The **Socio Data Management Cross Table Tool for Power BI** is a powerful custom visual component designed to create sophisticated cross-tabulation tables with advanced analytics capabilities. Whether you're working with survey data, business metrics, or complex datasets, SDM Cross Table Tool provides the tools you need to visualize, analyze, and present your data with professional styling and precision.
 
 ### What You Can Do
