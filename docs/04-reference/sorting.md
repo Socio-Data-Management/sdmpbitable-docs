@@ -52,7 +52,7 @@ Sorts rows based on values from a specific column you select.
 
 ---
 
-### Find number in Row Labels 🧪 
+### Find number in Row Labels 
 **Setting**: Find number in Row Labels  
 **Options**: True, False 
 **Default**: False
@@ -168,7 +168,7 @@ Result table:
 - Other (always last)
 ```
 
-### Column sorting🧪
+### Column sorting
 **Setting**: Column sort on labels  
 **Type**: True/False  
 **Example**: False
@@ -177,7 +177,7 @@ When enabled, columns are sorted depending on their labels alphabetically. Other
 See [About sorting elements in Power BI](#about-sorting-elements-in-power-bi) section for more details.
 
 
-### Find number in Column Labels 🧪 
+### Find number in Column Labels
 **Setting**: Find number in Column Labels  
 **Options**: True, False 
 **Default**: False

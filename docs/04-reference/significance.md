@@ -7,7 +7,15 @@ title: Significance Testing
 
 ## Overview
 
-Identify statistically significant differences between groups in your data.
+![significance regex level2](../images/signif-regex-level2.png)
+
+The Socio Data Management Power BI cross table tool lets you identify statistically significant differences between groups in your data in several manner, depending on your edition (Pro or Premium) and configuration.
+All feattures includes:
+- Two independent significance tests per table
+- Multiple test types (All columns, Item vs other, Item vs total, Regex)
+- Various display options (icon, font color, background color, border color)
+- Configurable confidence levels (90%, 95%, 99%)
+- Configurable variance methods for percentage tables (pooled, separate)
 
 :::info Edition Availability
 - **Basic significance**: Available in **Pro** edition
@@ -40,47 +48,70 @@ No significance testing is performed.
 ### All Columns
 Compares each column against all others in the table.
 
+:::note You are limited to 156 unique symbols for marking significance. Here is a list of the 156 symbols:
+`ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzαβγδεζηθικλμνξοπρστυφχψωΓΔΘΛΞΠΣΦΨΩ🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ`
+:::
+
 **Use Case**: Determine which regions have significantly different satisfaction scores
 
 **Example**:
-```
-If comparing satisfaction:
-- North: 68% vs South: 52% → SIGNIFICANT (if p < 0.05)
-- North: 68% vs East: 65% → NOT significant
-```
+<table><tr>
+<td>![alt text](../images/signif-allcolumns-settings.png)</td>
+<td>![alt text](../images/signif-allcolumns.png)</td>
+</tr></table>
+Note that when you have more than one level of column, the significance markers will appear differently per level to avoid confusion.
+![alt text](../images/signif-abcd-2levels.png)
+
+
+Available in **Pro** and **Premium** editions.
 
 ### Item vs Other Question Item
 Compares one response option against all others.
+:::important
+This test is the most used for survey data analysis. You should always prefer this test vs _'Against Total'_ when comparing response options.
+:::
 
 **Use Case**: Highlight if one product preference is significantly different
 
 **Example**:
-```
-"Prefer Product A" vs "Prefer Product B + Prefer Product C"
-```
+
+![alt text](../images/signif-background.png)
 
 Available in **Pro** and **Premium** editions.
 
 ### Item versus Total (Base)
-Compares each item to the overall average.
-
-**Use Case**: Identify which regions over/under-perform vs company average
-
-**Example**:
-```
-If overall satisfaction = 60%
-- North: 68% → SIGNIFICANT (above average)
-- South: 52% → SIGNIFICANT (below average)
-```
+Compares each item to the overall average at the same level.
+:::warning
+This test has been implemented for legacy purpose and is not generally recommended for any analysis. The reason is that observation (population) of the tested values should _**always be independent**_. In this test the observations of each cell is included in the total so it does not ensure this independency rule.
+Unless you have a **good** reason, prefer the _'Item vs Other Question Item'_ test instead.
+:::
 
 Available in **Pro** and **Premium** editions.
 
 ### Regular Expression
 Uses a regex pattern to identify columns to compare.
 
-**Use Case**: Compare all regions starting with "North"
+This option is extremely useful when you are focusing on a brand, a population or a product and want to know which _"competitors"_ are significantly lower or higher.
 
-**Example Pattern**: `^North` matches North1, North2, NorthEast
+**Example 1**: _You want to compare the age group "50-70 years" against all other age groups in a satisfaction survey._
+
+In this example, we have two levels of columns but the regex matches only one item on the first level (50-70):
+<table><tr>
+<td>![alt text](../images/signif-regex-level1-settings.png)</td>
+<td>![alt text](../images/signif-regex-level1.png)</td>
+</tr></table>
+
+_The regex pattern used here is `50-70` which matches partially the column with label "50-70 years"._
+
+**Example 2**: _You want to compare respondents who answered "yes, once or twice" against all other response options in a survey question split by age groups._
+
+In this second example, we match on level two, "yes, once" ich matches columns "Yes, once or twice" under each age group:
+In this case, only every columns compares to this matched column in each subgroup:
+<table><tr>
+<td>![alt text](../images/signif-regex-level2-settings.png)</td>
+<td>![alt text](../images/signif-regex-level2.png)</td>
+</tr></table>
+
 
 Available in **Premium** edition only.
 
@@ -99,6 +130,11 @@ The confidence threshold for determining significance.
 - **95%**: Standard business level
 - **99%**: Strict scientific standard
 
+:::info
+You usually do not change this settings.
+Choose a higher level _(99%)_ for critical decisions.
+:::
+
 ### Variance Method (Percentage Tables Only)
 
 **Setting**: Signif. Var. Method  
@@ -111,6 +147,10 @@ How variance is calculated when comparing percentages.
 - **Pooled**: Treats all groups as one population (more conservative)
 - **Separate**: Treats groups separately (more sensitive to differences)
 
+:::tip
+In usual situation, leave the default to **Pooled proportion**.<br/>
+Choose **Separate proportion** option when group sizes differ greatly.
+:::
 ---
 
 ## Display Options
@@ -122,10 +162,28 @@ How variance is calculated when comparing percentages.
 
 How significant values are marked:
 
-**Icon**: Small symbol/marker appears in cell  
-**Font Color**: Text color changes to highlight significance  
-**Background Color**: Cell background changes  
-**Border Color**: Cell border changes to highlight
+**Icon**: Small symbol/marker appears in cell (Red for significantly lower, Green for significantly higher)
+<table><tr>
+<td>![alt text](../images/signif-icon-settings.png)</td>
+<td>![alt text](../images/signif-icon.png)</td>
+</tr></table>
+
+**Font Color**: Text color changes red or green to highlight significance
+<table><tr>
+<td>![alt text](../images/signif-fontcolor-settings.png)</td>
+<td>![alt text](../images/signif-fontcolor.png)</td>
+</tr></table>
+
+**Background Color**: Cell background changes red or green to highlight significance
+<table><tr>
+<td>![alt text](../images/signif-background-settings.png)</td>
+<td>![alt text](../images/signif-background.png)</td>
+</tr></table>
+**Border Color**: Cell border changes red or green to highlight significance
+<table><tr>
+<td>![alt text](../images/signif-bordercolor-settings.png)</td>
+<td>![alt text](../images/signif-bordercolor.png)</td>
+</tr></table>
 
 ---
 
@@ -138,8 +196,13 @@ In Premium edition, you can configure each test independently:
 - Different test types simultaneously
 - Regex patterns for flexible comparison
 
+<table><tr>
+<td>![alt text](../images/signif-dual-settings.png)</td>
+<td>![alt text](../images/signif-dual.png)</td>
+</tr></table>
+
 ### Hide First Variable
-Hides the first variable in comparative displays for cleaner visuals.
+Hides the first variable in comparative displays for cleaner visuals (see masking in [table-content](table-content.md#masking)).
 
 ---
 
@@ -162,44 +225,6 @@ A cell marked as significant means:
 - Significance depends on sample size (large samples show more differences)
 - Practical significance ≠ statistical significance (a 1% difference might be statistically significant but not practically important)
 - Always consider context, not just statistics
-
----
-
-## Practical Examples
-
-### Example 1: Regional Satisfaction (Pro Edition)
-```
-Configuration:
-- Significance Test 1: All columns
-- Significance Level: 95%
-- View Option: Background Color
-
-Result: Cells show which regions differ
-        significantly from others
-```
-
-### Example 2: Product Performance vs Average (Pro Edition)
-```
-Configuration:
-- Significance Test 1: Item versus Total
-- Variance Method: Pooled proportion
-- View Option: Font Color
-- Display: Red text for significant differences
-
-Result: Products performing above/below
-        company average are highlighted
-```
-
-### Example 3: Complex Analysis (Premium Edition)
-```
-Configuration:
-- Test 1: All columns (with icon)
-- Test 2: Item vs Total (with color)
-- Level: 99% (strict)
-
-Result: Can see both column-to-column
-        differences AND vs-average differences
-```
 
 ---
 

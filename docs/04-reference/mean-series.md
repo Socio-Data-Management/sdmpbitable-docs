@@ -7,6 +7,8 @@ title: Mean Series Configuration
 
 ## Overview
 
+![mean-series-settings](../images/mean-series-settings-explain.png)
+
 Configure which data series (measures) are used for mean (average) calculations, statistical properties, and significance testing in mean tables.
 
 :::info Edition Availability
@@ -25,16 +27,24 @@ Mean tables display **average values** rather than percentages or counts. They'r
 - Financial averages (revenue per customer, average order value)
 - Measurement data (temperature, weight, distance)
 
-**Example Mean Table**:
-```
-                Mean Score    Count    Std Dev
-Product A       4.2          1250     0.8
-Product B       4.5          980      0.7
-Product C       3.9          1100     0.9
-```
+:::tip
+Mean tables are ideal for continuous data where averages and variability matter. Continuous (or numeric) data are indicated within Power Bi with a sigma (Σ) symbol next to the measure name (here under L2 and L5).
+<span style={{textAlign: "center"}}>
+![alt text](../images/sigmaForNumeric.png)
+</span>
+:::
 
+
+**Example Mean Table**:
+<span style={{textAlign: "center"}}>
+![mean table](../images/mean-table.png)
+<br/>_Mean table showing average score of customer recognition by media channel and survey cell_
+</span>
 ---
 
+:::warning
+The component itself **DOES NOT** calculate means directly. You must provide appropriate measures from your data model for each series (Average, Count, Std Dev, etc.) or a pre-calculated measure for weighted mean. See the **Data Model Requirements** section for details on creating these measures.
+:::
 ## Core Series Configuration
 
 ### Mean Series
@@ -47,15 +57,11 @@ The primary data series containing the values to be averaged.
 **What It Contains**:
 - Individual measurements or scores
 - Pre-calculated means (if aggregated in data model)
-- Weighted values (if using weights)
+- Weighted average (if using weights)
 
-**Calculation**:
-```
-Mean = Sum(Values) / Count(Records)
-or
-Mean = Pre-calculated average measure
-```
+Usually, after having dropped the variable in the 'values' section, you will use the 'Average' function in the dropdown listed measures:<br/>![powerbi-functions](../images/powerbi-functions.png)
 
+You can also create custom DAX measures for more complex mean calculations.
 **Examples**:
 
 **Example 1: Satisfaction Scores**
@@ -76,13 +82,6 @@ Mean Series = DIVIDE(SUM(Sales[Revenue]), DISTINCTCOUNT(Sales[CustomerID]))
 Calculates: Average revenue per unique customer
 ```
 
-**Example 3: Pre-aggregated Data**
-```DAX
-Mean Series = SUM(Data[PreCalculatedMean])
-
-Use when: Your data already contains mean values
-```
-
 **Common Sources**:
 - `AVERAGE(Table[Metric])`
 - `DIVIDE(SUM(Values), COUNT(Records))`
@@ -96,7 +95,7 @@ Use when: Your data already contains mean values
 **Required**: For displaying sample size  
 **Type**: Dropdown (lists available measures)
 
-The number of observations used to calculate each mean.
+The number of observations used to calculate show the sample size.
 
 **What It Shows**:
 - Sample size (n)
@@ -105,20 +104,25 @@ The number of observations used to calculate each mean.
 
 **Why It Matters**:
 ```
-Product A: Mean = 4.2, Count = 1000  ✓ Reliable
-Product B: Mean = 4.8, Count = 5     ✗ Unreliable
+Product A: Mean = 4.2, Count = 1000  ✅ Reliable 
+Product B: Mean = 4.8, Count = 5     ❌ Unreliable
 
 Same difference (0.6), but Product B has tiny sample
 ```
+Usually, you will use the _'Count'_ or _'Count(Distinct)'_ function in the dropdown listed measures:<br/>![powerbi-functions](../images/powerbi-functions.png)
 
+You may also create custom DAX measures for specific counting logic.
 **Examples**:
 
 **Example 1: Simple Count**
 ```DAX
 Count Series = COUNTROWS(Survey)
-
 Counts: All rows in the table
 ```
+
+:::warning
+using COUNTROWS will count all rows, including one which may NOT take part in the calculation. If your variable contains missing or irrelevant data, use the 'Count Rows' function in the dropdown listed functions.
+:::
 
 **Example 2: Respondent Count**
 ```DAX
@@ -136,12 +140,11 @@ Counts: Only records with actual scores
 
 **Display in Table**:
 ```
-                Mean    Count    
-Product A       4.2     1250     ← Large sample
-Product B       4.5     980
-Product C       3.9     45       ← Small sample (less reliable)
+                Product A   Product B   Product C        
+Base              1250         980         45
+Average            4.2         4.5        3.9 
+                ■ Large sample          ▪ Small sample (less reliable)
 ```
-
 ---
 
 ### Standard Deviation Series
@@ -150,64 +153,9 @@ Product C       3.9     45       ← Small sample (less reliable)
 **Type**: Dropdown (lists available measures)
 
 The measure of variability/spread in the data.
+This measure is required for significance testing of mean differences. It is never displayed directly in the table but used in calculations behind the scenes.
 
-**What It Shows**:
-- How much values vary around the mean
-- Data consistency
-- Required for t-tests and ANOVA
-
-**Interpretation**:
-```
-Product A: Mean = 4.2, StdDev = 0.5  → Consistent ratings
-Product B: Mean = 4.2, StdDev = 1.5  → Highly variable ratings
-
-Both have same mean but different consistency
-```
-
-**Calculation**:
-```
-StdDev = √[Σ(x - mean)² / (n - 1)]
-
-Measures: Average distance from mean
-```
-
-**Examples**:
-
-**Example 1: Standard Calculation**
-```DAX
-StdDev Series = STDEV.S(Survey[Score])
-
-Calculates: Sample standard deviation
-```
-
-**Example 2: Pre-calculated**
-```DAX
-StdDev Series = SUM(Data[PreCalcStdDev])
-
-Use when: Data already contains standard deviations
-```
-
-**Example 3: Weighted Standard Deviation**
-```DAX
-StdDev Series = [CustomWeightedStdDev]
-
-Use when: Need weighted variability measure
-```
-
-**Display in Table**:
-```
-                Mean    Count    StdDev
-Product A       4.2     1250     0.8    ← Low variability
-Product B       4.5     980      0.7    ← Lower variability
-Product C       3.9     1100     1.2    ← High variability
-```
-
-**Low StdDev**: Consistent, reliable, narrow range
-**High StdDev**: Variable, scattered, wide range
-
----
-
-## Significance Testing Series
+## Specific Significance Testing Series
 
 ### Significance Mean Series
 **Setting**: Significance Mean Series  
@@ -215,7 +163,8 @@ Product C       3.9     1100     1.2    ← High variability
 **Type**: Dropdown (lists available measures)  
 **Available in**: Pro, Premium
 
-The mean values used for statistical significance testing.
+There is cases where you may need to provide a different mean series for significance testing than the one used for display, reason why the tool proposes this separate setting.
+Set here the mean values used for statistical significance testing.
 
 **When It Differs from Mean Series**:
 - Display uses weighted means
@@ -231,14 +180,76 @@ Significance Mean Series: AVERAGE(Survey[Score])
 
 Use when: Testing and display use same data
 ```
+<table><tr>
+<td>![alt text](../images/mean-signif-raw-settings.png)</td>
+<td>![alt text](../images/mean-signif-raw.png)</td>
+</tr>
+<tr style={{textAlign: "center"}}>
+<td colspan="2">_Mean table showing same mean series for display and significance testing_</td>
+</tr></table>
+
+
 
 **Scenario 2: Different Series**
-```
-Mean Series: [WeightedMean]
-Significance Mean Series: AVERAGE(Survey[Score])
 
-Use when: Display weighted but test unweighted
+:::tip
+To Create a weighted mean, use _"New Measure"_ in Power BI and entrer a DAX formula like:
+```DAX
+L2_weighted = DIVIDE(
+    SUMX(main, main[L2] * main[Weight]),   // Note the SUMX to multiply row by row each L2 value by its Weight
+    SUM(main[Weight]),
+    BLANK() // if divide by Zero
+)
 ```
+You will also need to create a weighted standard deviation measure for significance testing.
+```DAX
+L2_WStdDev = 
+VAR MeanValue = [L2_weighted]
+RETURN  
+    SQRT(
+        DIVIDE(
+            SUMX(
+                main,
+                main[Weight] * POWER(main[L2] - MeanValue, 2)
+            ),
+            SUM(main[Weight])
+        )
+    )
+```
+
+:::
+**Example**:
+Here under are three different settings
+- in the first one the 'Mean Series' is set to a raw mean measure with the 'Significance Mean Series' set the same as count Series.
+- in the second one the 'Mean Series' is still set to a raw mean measure with the 'Significance Mean Series' and 'Count Series' set to the Weighted measures. With these settings, significance use the weighted population and the weighted mean for testing while the display use the raw mean so values remains the same while significance tests are based differently.
+- in the third one the 'Mean Series' is set to a weighted mean measure with the 'Significance Mean Series' set to a raw mean measure and the 'Count Series' set to the raw count measure. With these settings, significance use the raw population and the raw mean for testing while the display use the weighted mean so values differs between display and testing.
+<table><tr>
+<td>![alt text](../images/mean-signif-raw-settings.png)</td>
+<td>![alt text](../images/mean-signif-raw.png)</td>
+</tr>
+<tr style={{textAlign: "center"}}>
+<td colspan="2">_Mean table showing the same mean series for display (unweighted) and significance testing (unweighted)_ </td>
+</tr></table>
+
+<br/>
+<table><tr>
+<td>![alt text](../images/mean-weighted-signif-raw-settings.png)</td>
+<td>![alt text](../images/mean-weighted-signif-raw.png)</td>
+</tr>
+<tr style={{textAlign: "center"}}>
+<td colspan="2">_Mean table showing different mean series for display (weighted) and significance testing (unweighted)_ <br/>
+_Note the difference in the 'Count series' and 'Mean Series for significance tests'_</td>
+</tr></table>
+<br/>
+
+<table><tr>
+<td>![alt text](../images/mean-raw-signif-weighted-settings.png)</td>
+<td>![alt text](../images/mean-raw-signif-weighted.png)</td>
+</tr>
+<tr style={{textAlign: "center"}}>
+<td colspan="2">_Mean table showing different mean series for display (unweighted) and significance testing (weighted)_ <br/>
+_Note the difference in the 'Count series' and 'Mean Series for significance tests'_</td>
+</tr></table>
 
 **Why Separate?**:
 - Research protocols may require unweighted testing
@@ -252,32 +263,11 @@ Use when: Display weighted but test unweighted
 **Required**: Only when using weighted data  
 **Type**: Dropdown (lists available measures)
 
-The raw count of observations before weighting adjustments.
-
-**What It Shows**:
-```
-                Mean    Count    Unweighted
-Product A       4.2     1250     1180       ← Actual respondents
-Product B       4.5     980      1050       ← Actual respondents
-Product C       3.9     1100     1090       ← Actual respondents
-```
+The raw count of observations before weighting adjustments. Used for unweighted base row only, no calculation is made with it.
 
 **When to Use**:
-- Your mean calculations use weights
 - For research transparency
 - To show actual sample sizes
-
-**Example**:
-```DAX
-Unweighted Base Series = DISTINCTCOUNT(Survey[RespondentID])
-
-Shows: Actual number of people, ignoring weights
-```
-
-**Why It Matters**:
-- **Count (weighted)**: May be 1250 (adjusted for demographics)
-- **Unweighted**: Actual 1180 people responded
-- Difference indicates weighting impact
 
 ---
 
@@ -285,23 +275,22 @@ Shows: Actual number of people, ignoring weights
 
 ### Required Measures for Mean Tables
 
-#### 1. Mean Calculation
+#### 1. Mean: Either select 'Average' in the dropdown selection of the continuous variable (raw only) or create a Mean Calculation
 ```DAX
 // Simple average
 MeanScore = AVERAGE(Survey[Score])
 
 // Or weighted average
 WeightedMean = 
+VAR FilteredData = FILTER(Survey, NOT(ISBLANK(Survey[Score])))  // Define the Sub-Set of Data where 'Score' is present (not necessary if variable is mandatory)
     DIVIDE(
-        SUM(Survey[Score] * Survey[Weight]),
-        SUM(Survey[Weight])
+        SUMX(FilteredData, Survey[Score] * Survey[Weight]),
+        SUMX(FilteredData, Survey[Weight]),
+        BLANK()
     )
-
-// Or pre-calculated
-MeanValue = SUM(Data[PreCalcMean])
 ```
 
-#### 2. Count/Sample Size
+#### 2. Count: Either select 'Count' in the dropdown selection (raw), the 'Sum' function of the weight variable or a Size Calculation
 ```DAX
 // Simple count
 SampleSize = COUNTROWS(Survey)
@@ -311,69 +300,48 @@ RespondentCount = DISTINCTCOUNT(Survey[RespondentID])
 
 // Or non-blank count
 ValidResponses = COUNTROWS(FILTER(Survey, NOT(ISBLANK(Survey[Score]))))
+
+// or Weighted count
+WeightedCount = SUM(Survey[Weight])
 ```
 
-#### 3. Standard Deviation
+:::warning
+You **SHOULD NOT** Count another variable (like the record ID or respondent ID) as the Average or Std Deviation are calculated upon non-null values of the selected mean variable.
+:::
+
+
+#### 3. Standard Deviation: Either select 'Standard Deviation' in the dropdown selection of the variable or create a Standard Deviation Calculation
 ```DAX
 // Sample standard deviation
 StdDeviation = STDEV.S(Survey[Score])
 
-// Or population standard deviation
-PopStdDev = STDEV.P(Survey[Score])
+// Or Weighted standard deviation
+WeightedStdDev =
+VAR FilteredData = FILTER(Survey, NOT(ISBLANK(Survey[Score])))  // Define the Sub-Set of Data where 'Score' is present
+
+VAR MeanValue = DIVIDE(SUMX(FilteredData, Survey[Score] * Survey[Weight]), SUMX(FilteredData, Survey[Weight]))
+RETURN  
+    SQRT(
+        DIVIDE(
+            SUMX(FilteredData,
+                Survey[Weight] * POWER(Survey[Score] - MeanValue, 2)
+            ),
+            SUMX(FilteredData, Survey[Weight])
+        )
+    )
+
 ```
 
-#### 4. Unweighted Base (if weighted)
+#### 4. Unweighted Base : This shoud ALWAYS be a raw 'count' or 'Count distinct' function of non-null value of selected mean variable
 ```DAX
-UnweightedCount = DISTINCTCOUNT(Survey[RespondentID])
+UnweightedCount = DISTINCTCOUNT(Survey[Score])
 ```
+:::warning
+You **SHOULD NOT** Count another variable (like the record ID or respondent ID) as the Mean or Std Deviation are calculated upon non-null values of the selected mean variable.
+:::
+
 
 ---
-
-## Series Mapping Strategies
-
-### Strategy 1: Simple Mean Analysis
-**Best for**: Basic averages, no weighting, no testing
-
-```
-Mean Series: AVERAGE(Metric)
-Count Series: COUNTROWS(Table)
-StdDev Series: Not configured
-Significance Mean: Not configured
-Unweighted Base: Not configured
-```
-
-### Strategy 2: Mean with Sample Size
-**Best for**: Showing reliability, basic reporting
-
-```
-Mean Series: AVERAGE(Score)
-Count Series: DISTINCTCOUNT(RespondentID)
-StdDev Series: STDEV.S(Score)
-Significance Mean: Not configured
-Unweighted Base: Not configured
-```
-
-### Strategy 3: Weighted Mean Analysis
-**Best for**: Demographic weighting, population estimates
-
-```
-Mean Series: [WeightedMean]
-Count Series: SUM(Weight)
-StdDev Series: [WeightedStdDev]
-Significance Mean: Not configured
-Unweighted Base: DISTINCTCOUNT(RespondentID)
-```
-
-### Strategy 4: Full Statistical Analysis
-**Best for**: Research studies, significance testing
-
-```
-Mean Series: [WeightedMean]
-Count Series: SUM(Weight)
-StdDev Series: STDEV.S(Score)
-Significance Mean: AVERAGE(Score)
-Unweighted Base: DISTINCTCOUNT(RespondentID)
-```
 
 ---
 
@@ -387,16 +355,9 @@ Configuration:
 - Mean Series: "Average Satisfaction Score"
 - Count Series: "Count of Respondents"
 - StdDev Series: Not shown
-
-Result:
-                Mean    Count
-Product A       4.2     1250
-Product B       4.5     980
-Product C       3.9     1100
-Overall         4.2     3330
 ```
 
-### Example 2: Performance Analysis with Variability
+### Example 2: Performance Analysis with significance
 ```
 Metric: Employee performance ratings
 
@@ -404,12 +365,6 @@ Configuration:
 - Mean Series: "Average Rating"
 - Count Series: "Employee Count"
 - StdDev Series: "Rating Std Dev"
-
-Result:
-                Mean    Count    StdDev
-Department A    4.2     45       0.6    ← Consistent
-Department B    4.5     38       1.2    ← Variable
-Department C    3.8     52       0.5    ← Consistent
 ```
 
 ### Example 3: Weighted Research Study
@@ -422,13 +377,6 @@ Configuration:
 - StdDev Series: "Satisfaction Std Dev"
 - Unweighted Base: "Count of Respondents"
 - Significance Mean: "Unweighted Mean"
-
-Result:
-                Mean    Count    Unweighted    StdDev
-Urban           4.2     650      520           0.8
-Suburban        4.3     250      310           0.7
-Rural           4.0     100      170           0.9
-Total           4.2     1000     1000          0.8
 ```
 
 ### Example 4: Revenue Analysis
@@ -438,15 +386,7 @@ Metric: Average revenue per customer
 Configuration:
 - Mean Series: "Revenue per Customer"
 - Count Series: "Customer Count"
-
-Result:
-                Mean Rev    Customers
-Region North    $1,245      2,500
-Region South    $1,180      3,200
-Region East     $1,320      1,800
-Region West     $1,290      2,100
 ```
-
 ---
 
 ## Statistical Context
@@ -470,25 +410,6 @@ Region West     $1,290      2,100
 
 ---
 
-### Interpreting Standard Deviation
-
-**Rule of Thumb**:
-- **Low StdDev** (< 1.0 for 1-5 scale): Consistent, agreement
-- **Medium StdDev** (1.0-1.5): Moderate variability
-- **High StdDev** (> 1.5): High variability, disagreement
-
-**Example**:
-```
-Product A: Mean = 4.0, StdDev = 0.5
-→ Most ratings between 3.5 and 4.5 (tight cluster)
-
-Product B: Mean = 4.0, StdDev = 1.5
-→ Ratings spread from 2.5 to 5.5 (wide range)
-→ Some love it (5), some hate it (2-3)
-```
-
----
-
 ### Sample Size Considerations
 
 **Minimum Sample Sizes**:
@@ -501,51 +422,6 @@ Product B: Mean = 4.0, StdDev = 1.5
 - Large samples detect small differences
 - Small samples miss real differences
 - Always consider practical significance
-
----
-
-## Common Patterns
-
-### Pattern 1: Simple Mean Report
-```
-Basic average calculation
-Show sample size for context
-
-→ Mean Series: Average
-→ Count Series: Count
-```
-
-### Pattern 2: Quality Analysis
-```
-Mean with variability
-Identify consistency issues
-
-→ Mean Series: Average
-→ Count Series: Count
-→ StdDev Series: Standard Deviation
-```
-
-### Pattern 3: Weighted Survey
-```
-Population-weighted results
-Show actual vs weighted
-
-→ Mean Series: Weighted average
-→ Count Series: Weighted count
-→ Unweighted Base: Raw count
-```
-
-### Pattern 4: Statistical Testing
-```
-Compare groups statistically
-Test for significant differences
-
-→ Mean Series: Weighted average
-→ Count Series: Weighted count
-→ StdDev Series: Standard deviation
-→ Significance Mean: For testing
-→ Unweighted Base: Actual sample
-```
 
 ---
 

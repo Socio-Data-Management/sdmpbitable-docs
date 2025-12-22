@@ -61,6 +61,41 @@ Determines what's considered "best" (rank #1).
 - **Lesser is first**: Lowest values get rank 1 (costs, errors, etc.)
 
 ---
+### Ranking Scope
+**Setting**: Ranking scope  
+**Options**: Global, Per Column, Per Row
+**Default**: Global
+
+Determines how-to rank the cells.
+- **Global**: Ranks all cells in the table together
+- **Per Column**: Ranks cells within each column separately
+- **Per Row**: Ranks cells within each row separately
+
+Examples: **Ranking per column**:
+![ranking per column](../images/ranking-percolumn.png)
+
+See **level of column** setting below to choose which column level to consider for Global and Per Row ranking.
+
+### Level of Column for Global and per-row ranking
+**Setting**: Level of column
+**Options**: From 0 to N (N = number of column levels - 1)      
+**Default**: 1
+
+When using "Global" or "Per Row" ranking scope, choose which column level to consider for ranking.
+- **Level 0**: Total of all columns (global or per-row)
+![ranking level 0](../images/ranking-global-level0.png)
+- **Level 1**: First level of columns - global
+![ranking level 1](../images/ranking-global-level1.png)
+- **Level 1**: First level of columns - per row
+![ranking level1](../images/ranking-perrow-level1.png)
+- **Level N**: Nth level of columns - global
+![ranking level 2](../images/ranking-global-level2.png)
+- **Level N**: Nth level of columns - per row
+![ranking level 2](../images/ranking-perrow-level2.png)
+
+
+
+---
 
 ## Ranking Display Options
 
