@@ -122,13 +122,15 @@ Shows a numbered badge (1, 2, 3...) in cells. Choose the shape:
 
 #### Color Gradients
 
-**Red to Blue**: 
+**Red to Blue**:
+
 ![ranking red to blue](../images/ranking-red-to-blue.png)
 - Red = lowest rank
 - Blue = highest rank
 - Good for neutral comparisons
 
 **Red to Green**:
+
 ![ranking red to green](../images/ranking-red-to-green.png)
 - Red = low/bad
 - Green = high/good

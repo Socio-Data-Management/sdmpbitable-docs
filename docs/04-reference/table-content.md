@@ -49,16 +49,6 @@ Used to analyze averages and their statistical properties.
 ![alt text](../images/measures-for-mean-signif.png)
 
 
-With these data:
-
-|         |Mean Score|Count|Std Dev|
-|---------|---------:|----:|-------:|
-|Product A|4.2|1250|0.8|
-|Product B|4.5|980|0.7|
-
-The table would display:
-
-
 ## Display Options
 
 ### Values
@@ -111,7 +101,7 @@ Allows you to mask (hide) data from specific rows or columns using regular expre
 
 ![Mask Pattern](../images/MaskPattern.png)
 
-User will input a pattern to match the rows/columns to be hidden. As an example, if you want to show ONLY Brand A and Brand B, you need to high averything which is NOT Brand A or B.
+User will input a pattern to match the rows/columns to be hidden. As an example, if you want to show ONLY Brand A and Brand B, you need to hide everything which is NOT Brand A or B.
 
 ```text
 Label_Brand != BrandA AND Label_Brand != BrandB

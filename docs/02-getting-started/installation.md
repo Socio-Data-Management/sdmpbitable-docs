@@ -85,4 +85,4 @@ If you encounter installation issues:
 ## Next Steps
 
 - [Quick Start Guide](quick-start.md) — Create your first table
-- [Explore table deatures](explore-table-features.md) — Explore capabilities
+- [Explore table features](explore-table-features.md) — Explore capabilities

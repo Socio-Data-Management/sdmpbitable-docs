@@ -12,7 +12,10 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "pdf": "node generate-pdf.js",
+    "pdf:all": "mr-pdf --initialDocURLs=\\\"http://localhost:3000/sdmpbitable-docs\\\" --contentSelector=\\\"article\\\" --paginationSelector=\\\"a.pagination-nav__link--next\\\" --excludeSelectors=\\\".margin-vent--xl a,.breadcrumbs,.theme-edit-this-page\\\" --outputPDFFilename=\\\"./docs-complete.pdf\\\"",
+    "pdf:watch": "npm run start & timeout 10 && npm run pdf"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
@@ -21,6 +24,7 @@
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",
+    "puppeteer": "^24.35.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -28,6 +32,9 @@
     "@docusaurus/module-type-aliases": "3.9.2",
     "@docusaurus/tsconfig": "3.9.2",
     "@docusaurus/types": "3.9.2",
+    "fast-xml-parser": "^5.3.3",
+    "pdf-lib": "^1.17.1",
+    "playwright": "^1.57.0",
     "typescript": "~5.6.2"
   },
   "browserslist": {
