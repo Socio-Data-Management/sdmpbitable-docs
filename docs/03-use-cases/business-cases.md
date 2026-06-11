@@ -5,7 +5,7 @@ title: Business Cases & Examples
 
 # Business Cases & Real-World Examples
 
-:::info Content in Development
+:::info[Content in Development]
 We're building detailed real-world case studies showing SDM Cross Table Tool in action across different industries and scenarios.
 :::
 

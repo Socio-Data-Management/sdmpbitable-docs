@@ -7,9 +7,9 @@ title: Formatting & Styling Overview
 
 Customize the appearance of your table to match your brand, improve readability, and highlight key insights.
 
-## Three Levels of Formatting
+## Four Levels of Formatting
 
-SDM Cross Table Tool provides flexible formatting options organized into three levels:
+SDM Cross Table Tool provides flexible formatting options organized into four levels:
 
 ### 1. **Table Options** (Basic Display)
 Control how the table behaves and displays, including hover effects, row striping, freezing, and column visibility.
@@ -34,15 +34,28 @@ Apply pre-configured professional themes with coordinated color palettes and sty
 - Cell text size
 - Row title alignment
 
-### 3. **Custom Element Formatting** (Advanced Customization)
-Fine-tune fonts, colors, and backgrounds for specific table elements: headers and cells.
+### 3. **Tile Mode & Spacing** (Card-Like Rendering)
+Turn cells into detached tiles with rounded corners, shadows, configurable padding and column/row gaps. Works with any theme.
+
+👉 [Tile Mode Reference →](formatting-tile-mode.md)
+
+**Key settings**:
+- Tile mode toggle
+- Border radius and drop shadow
+- Horizontal / vertical padding
+- Tile width (auto-equalize or explicit)
+- Column gaps (group, sub-group), sub-cell gap, row gap
+
+### 4. **Custom Element Formatting** (Advanced Customization)
+Fine-tune fonts, colors, and backgrounds for specific table elements: column headers, row headers, and data cells. Override toggles let you mix theme defaults with surgical custom tweaks on **any** style theme.
 
 👉 [Custom Element Formatting Reference →](formatting-custom.md)
 
 **Key settings**:
-- Top-level header styling
-- Sub-level header styling
-- Cell styling
+- Top-level column header styling (Custom theme only)
+- Sub-level column header styling (Custom theme only)
+- Row header styling (any theme, via override toggle)
+- Cell styling (any theme, via override toggle)
 - Font families, sizes, weights
 - Custom colors and backgrounds
 
@@ -54,6 +67,8 @@ Fine-tune fonts, colors, and backgrounds for specific table elements: headers an
 |------|-------|
 | Control table behavior | [Table Options](formatting-basics.md) |
 | Apply a professional theme | [Styles](formatting-styles.md) |
+| Card-like rendering, gaps between groups | [Tile Mode](formatting-tile-mode.md) |
+| Override fonts on a predefined theme | [Custom Formatting](formatting-custom.md#availability-by-style-theme) |
 | Match brand colors | [Custom Formatting](formatting-custom.md) |
 | Accessibility guidance | [Custom Formatting - Accessibility](formatting-custom.md#accessibility-considerations) |
 | Common configurations | [Practical Examples](formatting-custom.md) |
@@ -67,9 +82,11 @@ Fine-tune fonts, colors, and backgrounds for specific table elements: headers an
    ↓
 2. Adjust Table Options for behavior
    ↓
-3. Fine-tune with Custom Formatting (if needed)
+3. (Optional) Enable Tile Mode for card-like rendering
    ↓
-4. Test and iterate
+4. Fine-tune with Custom Formatting overrides (if needed)
+   ↓
+5. Test and iterate
 ```
 
 ---
@@ -88,5 +105,6 @@ Fine-tune fonts, colors, and backgrounds for specific table elements: headers an
 
 - **New to formatting?** → Start with [Table Options](formatting-basics.md)
 - **Want to look professional quickly?** → Go to [Styles](formatting-styles.md)
+- **Want a card-like dashboard look?** → Enable [Tile Mode](formatting-tile-mode.md)
 - **Need specific colors/fonts?** → Jump to [Custom Formatting](formatting-custom.md)
 - **Building for accessibility?** → See [Custom Formatting](formatting-custom.md) accessibility section

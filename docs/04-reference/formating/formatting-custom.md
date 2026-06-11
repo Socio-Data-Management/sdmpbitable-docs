@@ -7,8 +7,8 @@ title: Custom Element Formatting (Advanced)
 
 Fine-tune fonts, colors, and backgrounds for specific table elements to create highly customized designs or match brand guidelines exactly.
 
-:::info Settings Location
-These settings correspond to **`topLevelHeaderSettings`**, **`subLevelHeaderSettings`**, and **`cellSettings`** in the configuration model.
+:::info[Settings Location]
+These settings correspond to **`topLevelHeaderSettings`**, **`subLevelHeaderSettings`**, **`rowHeaderSettings`**, and **`cellSettings`** in the configuration model.
 :::
 
 ---
@@ -17,11 +17,31 @@ These settings correspond to **`topLevelHeaderSettings`**, **`subLevelHeaderSett
 
 Custom Element Formatting allows you to control individual elements independently:
 
-- **Top-Level Column Headers**: The primary column header row
-- **Sub-Level Column Headers**: Secondary headers (for hierarchical columns)
-- **Cell Format**: Data cells containing values
+- **Top-Level Column Headers**: the primary column header row
+- **Sub-Level Column Headers**: secondary headers (for hierarchical columns)
+- **Row Headers**: the left column titles (rows labels)
+- **Cell Format**: data cells containing values
 
 Each element can have its own font, size, weight, and color settings.
+
+---
+
+## Availability by Style Theme
+
+Two cards (**Cell format** and **Row header format**) work with **any style theme**, not only Custom. Each has an "Override" toggle:
+
+| Card | Toggle | When the theme is Custom | When the theme is Modern / Classic / Scientific / Market Research |
+|------|--------|--------------------------|-------------------------------------------------------------------|
+| **Cell format** | *Override cell style* | Forced ON (hidden) — the Custom theme always uses these settings | Visible. OFF (default) = theme's built-in cell style. ON = your settings override the theme. |
+| **Row header format** | *Override row header style* | Forced ON (hidden) | Visible. OFF = theme's built-in row header style. ON = your settings override. |
+| **Top-Level Column Header** | — | Visible | Hidden (theme controls these). |
+| **Sub-Level Column Header** | — | Visible | Hidden. |
+
+This means you can pick any predefined theme (e.g. Modern) and still customize **only the data cells** or **only the row labels** without dropping back to the fully manual Custom theme.
+
+:::tip[Surgical overrides]
+The override toggle is per element. You can keep the theme's stylish headers and just bump the cell font size, or vice versa.
+:::
 
 ---
 
@@ -60,6 +80,29 @@ Additional header rows (when using hierarchical column structures).
 - Add visual distinction for hierarchy
 - Smaller font to show secondary importance
 
+### Row Header (left column)
+
+The leftmost column containing row labels.
+
+**Default styling**:
+- Font: Arial
+- Size: 11pt
+- Bold: Yes
+- Background: inherited from theme
+- Text Color: inherited from theme
+
+**Activation**: requires the *Override row header style* toggle to be ON (default OFF on Modern/Classic/Scientific/Market Research; forced ON on Custom).
+
+**Use cases for customization**:
+- Use a brand font for row labels
+- Increase contrast on row labels without touching cells
+- Reduce label font size on dense tables
+- In Tile Mode: keep a solid background on row headers while data tiles float
+
+:::note[Sticky behavior preserved]
+The background you set here is preserved by sticky-column behavior (when row labels stay frozen on horizontal scroll). The visual will not turn transparent on scroll.
+:::
+
 ### Cell Format
 
 Data cells containing actual values (numbers, percentages, etc.).
@@ -68,13 +111,20 @@ Data cells containing actual values (numbers, percentages, etc.).
 - Font: Consolas (monospace for alignment)
 - Size: 11pt
 - Bold: No
-- Background: Inherited from theme
-- Text Color: Inherited from theme
+- Background: inherited from theme
+- Text Color: inherited from theme
+
+**Activation**: requires the *Override cell style* toggle to be ON (default OFF on Modern/Classic/Scientific/Market Research; forced ON on Custom).
 
 **Use cases for customization**:
 - Change to more readable font (Arial, Calibri)
 - Make certain values stand out
 - Match data cell styling to headers
+- Force a specific font on top of a predefined theme
+
+:::note[Tile Mode interaction]
+When **Tile Mode** is ON, the background defined here is **not** applied to the data cell — the *Tile background* (in the Tile Mode card) governs the tile color instead. Fonts and font colors still apply through the tile, so text styling works unchanged.
+:::
 
 ---
 
@@ -527,4 +577,5 @@ Cell Text:    #000000 (Black)
 
 - [Table Options](formatting-basics.md) - Display behavior
 - [Table Styles](formatting-styles.md) - Predefined themes
+- [Tile Mode & Spacing](formatting-tile-mode.md) - Card-like rendering, gaps, shadows
 - [Formatting Overview](index.md) - All formatting options

@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'SDM Cross Table Tool Documentation',
   tagline: 'Professional cross-tabulation tables for Power BI',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
 
   // Module de recherche locale Docusaurus
   themes: [

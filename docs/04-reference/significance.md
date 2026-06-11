@@ -17,7 +17,7 @@ All feattures includes:
 - Configurable confidence levels (90%, 95%, 99%)
 - Configurable variance methods for percentage tables (pooled, separate)
 
-:::info Edition Availability
+:::info[Edition Availability]
 - **Basic significance**: Available in **Pro** edition
 - **Advanced significance**: Available in **Premium** edition
 :::
@@ -48,7 +48,7 @@ No significance testing is performed.
 ### All Columns
 Compares each column against all others in the table.
 
-:::note You are limited to 156 unique symbols for marking significance. Here is a list of the 156 symbols:
+:::note[You are limited to 156 unique symbols for marking significance. Here is a list of the 156 symbols:]
 `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzαβγδεζηθικλμνξοπρστυφχψωΓΔΘΛΞΠΣΦΨΩ🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ`
 :::
 
@@ -179,6 +179,14 @@ How significant values are marked:
 <td>![alt text](../images/signif-background-settings.png)</td>
 <td>![alt text](../images/signif-background.png)</td>
 </tr></table>
+
+:::note[***Option for backGround color***]
+<table><tr>
+<td style={{width: "20%"}} >![alt text](../images/signif-custom-background.png)</td>
+<td>When you choose background color, you can also choose to apply a **gradient** custom colors instead of a solid color. Choosing this option will make a new option appear to solect the gradient colors and the orientation of gradient.</td>
+</tr></table>
+:::
+
 **Border Color**: Cell border changes red or green to highlight significance
 <table><tr>
 <td>![alt text](../images/signif-bordercolor-settings.png)</td>

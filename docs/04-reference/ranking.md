@@ -11,7 +11,7 @@ title: Ranking
 
 Automatically rank cells within each column and visualize rankings with numbers, colors, or gradients.
 
-:::info Edition Availability
+:::info[Edition Availability]
 Ranking is available in **Pro** and **Premium** editions.
 :::
 

@@ -59,7 +59,7 @@ This section allows you to:
 
 **What it controls**: Visual highlighting of top/bottom performers
 
-:::info Edition Availability
+:::info[Edition Availability]
 Ranking is available in **Pro** and **Premium** editions only.
 :::
 
@@ -127,7 +127,7 @@ This section appears when **Table Type** is set to "Mean" and manages:
 
 **What it controls**: Statistical testing and difference highlighting
 
-:::info Edition Availability
+:::info[Edition Availability]
 - Basic significance testing: **Pro** and **Premium**
 - Advanced testing (2 tests, regex): **Premium** only
 :::
@@ -176,7 +176,7 @@ This section manages:
 
 **What it controls**: Data quality warnings and value masking
 
-:::info Edition Availability
+:::info[Edition Availability]
 Threshold features are available in **Pro** and **Premium** editions.
 :::
 

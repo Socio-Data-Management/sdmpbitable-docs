@@ -8,7 +8,7 @@ title: Table Contents
 ## Overview
 ![Table Content Settings](../images/table-content-settings.png)
 
-:::tip The **Table Contents** section controls what data is displayed in your table and how it's aggregated.
+:::tip[The **Table Contents** section controls what data is displayed in your table and how it's aggregated.]
 :::
 
 ## Table Type
@@ -85,7 +85,7 @@ Displays index values (typically with 100 as base). Useful for comparing relativ
 
 ## Masking
 
-:::info WHY USE MASKING WHEN POWER BI CAN FILTER DATA?
+:::info[WHY USE MASKING WHEN POWER BI CAN FILTER DATA?]
 When you filter data in Power BI, the underlying data is removed from the visual, which can affect calculations like totals and percentages. Masking allows you to hide specific data points **while still including them in calculations**, ensuring accurate results.
 :::
 
@@ -124,7 +124,7 @@ etc ...
 (NOT Label_Brand IN (BrandA, BrandB)) OR (Customer_Gender IN ("Not Stated", Other))
 ```
 
-:::caution Beware of the inverted logic of masking.
+:::caution[Beware of the inverted logic of masking.]
 The pattern defines what to HIDE, this can be somewaht counter-intuitive at first.
 :::
 
@@ -139,7 +139,7 @@ Valid operators are:
 - \> - Greater than
 - LIKE - Pattern matching with % wildcard
 
-:::tip \<= and \>= does not exist
+:::tip[\<= and \>= does not exist]
 if you want to filter for years greater than or equal to 2020, you need to use `Year > 2019`
 :::
 

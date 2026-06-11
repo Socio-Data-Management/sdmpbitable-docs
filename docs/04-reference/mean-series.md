@@ -11,7 +11,7 @@ title: Mean Series Configuration
 
 Configure which data series (measures) are used for mean (average) calculations, statistical properties, and significance testing in mean tables.
 
-:::info Edition Availability
+:::info[Edition Availability]
 - Mean tables: Available in **Pro** and **Premium** editions
 - All series configuration available in both Pro and Premium
 :::

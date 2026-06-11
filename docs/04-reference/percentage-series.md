@@ -11,7 +11,7 @@ title: Percentage Series Configuration
 
 Configure which data series (measures) are used for different calculations in percentage tables. Proper series mapping is essential for accurate percentages, bases, and significance testing.
 
-:::info Edition Availability
+:::info[Edition Availability]
 All series configuration is available in **Free**, **Pro**, and **Premium** editions.
 :::
 

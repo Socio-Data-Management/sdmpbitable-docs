@@ -9,7 +9,7 @@ Apply pre-configured professional themes to your table with coordinated color sc
 
 ![Style Settings](/img/style-settings.png)
 
-:::info Settings Location
+:::info[Settings Location]
 These settings correspond to the **`StyleSettingsCard`** in the configuration model.
 :::
 
@@ -186,7 +186,7 @@ Refer to [Custom Element Formatting](formatting-custom.md) for detailed font and
 - Accessibility requirements
 - Experimental layouts
 
-:::note Extending Custom Theme
+:::note[Extending Custom Theme]
 To fully customize fonts and colors per element, combine Custom style with Custom Element Formatting (headers and cells).
 :::
 

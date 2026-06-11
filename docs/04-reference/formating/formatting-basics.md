@@ -7,7 +7,7 @@ title: Table Options (Basics)
 
 Control the fundamental display behavior of your table including hover effects, row striping, freezing panes, and display precision.
 
-:::info Settings Location
+:::info[Settings Location]
 These settings correspond to the **`tableSettingsCard`** in the configuration model.
 :::
 
@@ -169,7 +169,7 @@ Keeps column headers visible while scrolling vertically.
 └─────────┴──────────────────────────┘
 ```
 
-:::tip Best Practice
+:::tip[Best Practice]
 Keep both freezing options **On** for tables larger than your screen. Disable only if your table is small enough to fit completely.
 :::
 
@@ -209,7 +209,7 @@ Row Title Fixed Width: 20em
 - Test that labels aren't cut off if using fixed widths
 - Percentage widths are relative to total table width
 
-:::tip When to Use Fixed Width
+:::tip[When to Use Fixed Width]
 This is particularly useful when you have the same column variables but different row variables across multiple tables, maintaining visual consistency.
 :::
 

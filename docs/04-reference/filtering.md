@@ -9,7 +9,7 @@ title: Filtering & Selection
 
 Enable users to interact with your table by selecting rows or columns headers. This feature allows end-users to filter other page visuals using the SDM Cross Table Tool visualization.
 
-:::info Edition Availability
+:::info[Edition Availability]
 Row and column selection is available in **Pro** and **Premium** editions.
 :::
 

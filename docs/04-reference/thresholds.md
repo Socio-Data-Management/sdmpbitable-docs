@@ -5,7 +5,7 @@ title: Thresholds & Masking
 
 # Thresholds & Masking Reference
 
-:::info Coming Soon
+:::info[Coming Soon]
 Comprehensive guide to threshold settings, warning values, masking rules, and data quality controls.
 :::
 
