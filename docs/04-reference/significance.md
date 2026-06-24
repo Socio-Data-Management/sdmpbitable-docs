@@ -112,6 +112,35 @@ In this case, only every columns compares to this matched column in each subgrou
 <td>![alt text](../images/signif-regex-level2.png)</td>
 </tr></table>
 
+#### Regex level
+**Setting**: Regex level
+**Options**: Same Level, Level 1, Level 2
+**Default**: Same Level
+
+Controls **on which column depth the regex looks for the reference** _and_ **how the comparison cascades** through the column hierarchy.
+
+- **Same Level** _(default — historical behavior)_  
+  The regex is matched anywhere in the column hierarchy and the reference column is compared with its **direct siblings** (cells sharing the same parent). No comparison is propagated to deeper aggregations.
+
+- **Level 1**  
+  The regex must match at the **first column level**. For every cell at any deeper aggregation, the reference is the cell sharing the same coordinates _except_ for the level‑1 dimension, where the value matches the regex.
+
+- **Level 2**  
+  Same logic, but the regex is anchored at the **second column level**.
+
+**Example**: with columns _Year > Country > Brand_ and the regex `2024` at **Level 1**, the test produces:
+
+| Compared cell | Reference (regex-matched) |
+|---|---|
+| `2025` aggregate | `2024` aggregate |
+| `2025 / FR` aggregate | `2024 / FR` aggregate |
+| `2025 / FR / Renault` leaf | `2024 / FR / Renault` leaf |
+| `2026 / UK / Peugeot` leaf | `2024 / UK / Peugeot` leaf |
+| … | … |
+
+The reference branch (`2024`) itself is never flagged.
+
+A read‑only **Regex match status** field is displayed under the regex input. It shows the column paths actually matched by the current regex (or a sample of available column titles when nothing matches), making it easy to diagnose a regex that does not produce the expected highlights.
 
 Available in **Premium** edition only.
 
@@ -168,6 +197,14 @@ How significant values are marked:
 <td>![alt text](../images/signif-icon.png)</td>
 </tr></table>
 
+:::tip[Custom Icon Images]
+You can replace the default green/red SVG triangles with your own images. When the view option is set to **Icon**, two additional fields appear in the significance settings:
+- **Custom icon positive (base64)**: Paste a base64 data URI (`data:image/png;base64,…`) to use a custom image for positive significance.
+- **Custom icon negative (base64)**: Paste a base64 data URI for negative significance.
+
+Leave either field empty to keep the default SVG triangle for that direction. Custom images are displayed at 12 × 12 px, vertically centered in the cell.
+:::
+
 **Font Color**: Text color changes red or green to highlight significance
 <table><tr>
 <td>![alt text](../images/signif-fontcolor-settings.png)</td>
@@ -192,6 +229,53 @@ How significant values are marked:
 <td>![alt text](../images/signif-bordercolor-settings.png)</td>
 <td>![alt text](../images/signif-bordercolor.png)</td>
 </tr></table>
+
+---
+
+## Significance Legend
+
+The **Legend** sub-card (inside Significance Settings) adds an automatic legend below the table that explains the significance markers to report readers. Enable it with the **Show legend** toggle at the top of the sub-card.
+
+### Display Modes
+
+The legend automatically adapts its content to match the display mode(s) actively used by your significance test(s):
+
+#### Background / Border mode
+When at least one significance test uses **Background** or **Border** display, the legend shows three colored squares with editable labels:
+- A square in the **neutral cell** background color → label defaults to "Not significantly different"
+- A square in the **positive significance** color → label defaults to "Significantly higher"
+- A square in the **negative significance** color → label defaults to "Significantly lower"
+
+All three labels support the **fx** button (DAX measure binding) for dynamic, filter-context-sensitive text.
+
+#### Icon mode
+When at least one significance test uses **Icon** display, the legend shows the actual icons (custom image or default SVG triangles) beside an editable text label for each active significance test (**Signif 1 label**, **Signif 2 label**).
+
+#### Font Color mode
+When at least one significance test uses **Font Color** display, the legend renders "123/123" in green (positive) and red (negative) beside an editable text label for each active significance test.
+
+### Layout
+
+| Active significance tests | Legend layout |
+|---|---|
+| 1 test active | Centered below the table |
+| 2 tests active | First test left-aligned, second test right-aligned |
+
+### Font Settings
+
+All legend text shares a single **FontControl** (font family, bold, italic, underline, size) configurable in the Legend sub-card.
+
+### Label Settings
+
+| Setting | Description | Default |
+|---|---|---|
+| Neutral label | Label for the neutral color square (background/border mode) | "Not significantly different" |
+| Positive label | Label for the positive color square (background/border mode) | "Significantly higher" |
+| Negative label | Label for the negative color square (background/border mode) | "Significantly lower" |
+| Signif 1 label | Text label for significance 1 (icon / font color mode) | *(empty)* |
+| Signif 2 label | Text label for significance 2 (icon / font color mode) | *(empty)* |
+
+All label fields support the **fx** button for DAX measure binding, allowing the legend text to update dynamically based on filter context.
 
 ---
 
