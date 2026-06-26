@@ -249,10 +249,10 @@ When at least one significance test uses **Background** or **Border** display, t
 All three labels support the **fx** button (DAX measure binding) for dynamic, filter-context-sensitive text.
 
 #### Icon mode
-When at least one significance test uses **Icon** display, the legend shows the actual icons (custom image or default SVG triangles) beside an editable text label for each active significance test (**Signif 1 label**, **Signif 2 label**).
+When at least one significance test uses **Icon** display, the legend shows the actual icons (custom image or default SVG triangles) beside an editable text label for each active significance test (**Signif 1 label**, **Signif 2 label**). A **Signif 1 label suffix** / **Signif 2 label suffix** field lets you append a dynamic value (via the **fx** button) without creating a dedicated DAX measure for the full text — the program concatenates the two parts with a space.
 
 #### Font Color mode
-When at least one significance test uses **Font Color** display, the legend renders "123/123" in green (positive) and red (negative) beside an editable text label for each active significance test.
+When at least one significance test uses **Font Color** display, the legend renders "123/123" in green (positive) and red (negative) beside an editable text label for each active significance test. The same suffix fields apply.
 
 ### Layout
 
@@ -273,9 +273,15 @@ All legend text shares a single **FontControl** (font family, bold, italic, unde
 | Positive label | Label for the positive color square (background/border mode) | "Significantly higher" |
 | Negative label | Label for the negative color square (background/border mode) | "Significantly lower" |
 | Signif 1 label | Text label for significance 1 (icon / font color mode) | *(empty)* |
+| Signif 1 label suffix | Dynamic suffix appended after the Signif 1 label | *(empty)* |
 | Signif 2 label | Text label for significance 2 (icon / font color mode) | *(empty)* |
+| Signif 2 label suffix | Dynamic suffix appended after the Signif 2 label | *(empty)* |
 
 All label fields support the **fx** button for DAX measure binding, allowing the legend text to update dynamically based on filter context.
+
+:::tip Composing dynamic labels without extra measures
+The suffix fields are designed for cases where the label has a fixed prefix and a dynamic part. For example, set **Signif 1 label** to `"Significantly different from"` (constant) and bind **Signif 1 label suffix** to a DAX measure that returns the currently selected reference value. The visual concatenates them with a space — no need to create a dedicated measure just to produce the full sentence.
+:::
 
 ---
 
