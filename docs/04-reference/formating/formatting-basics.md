@@ -5,7 +5,7 @@ title: Table Options (Basics)
 
 # Table Options Reference
 
-Control the fundamental display behavior of your table including hover effects, row striping, freezing panes, and display precision.
+Control the fundamental display behavior of your table including hover effects, row striping, borders, freezing panes, and display precision.
 
 :::info[Settings Location]
 These settings correspond to the **`tableSettingsCard`** in the configuration model.
@@ -68,6 +68,26 @@ Row 4: Light gray background
 **When to disable**:
 - Very narrow tables (few columns)
 - When custom styling already provides good contrast
+
+### Table Border
+**Setting**: Table border  
+**Type**: Toggle  
+**Default**: On
+
+Shows or hides all cell and table borders. When off, the table renders without any grid lines, giving a clean, minimal look. Significance borders (`.sigBordPlus` / `.sigBordMinus`) are preserved regardless of this setting.
+
+**When to enable** (default):
+- Standard reporting where grid lines help readability
+- Dense tables where borders guide the eye across columns
+
+**When to disable**:
+- Tile mode designs (borders already absent per tile)
+- Minimalist dashboards where whitespace replaces structure
+- Embedding a table inside a styled card or frame
+
+:::note
+Disabling borders does not affect the significance highlight borders — those remain visible to preserve data interpretation.
+:::
 
 ---
 
@@ -253,6 +273,7 @@ Before (Header On):          After (Header Off):
 ```
 - Highlight row on hover: On
 - Zebra rows: On
+- Table border: On
 - Show % symbol: On
 - Percent precision: 1
 - Freeze left: On
@@ -265,6 +286,7 @@ Before (Header On):          After (Header Off):
 ```
 - Highlight row on hover: Off (reduces visual clutter)
 - Zebra rows: On (helps tracking)
+- Table border: On
 - Show % symbol: On
 - Percent precision: 0 (more compact)
 - Freeze left: On
@@ -277,6 +299,7 @@ Before (Header On):          After (Header Off):
 ```
 - Highlight row on hover: On
 - Zebra rows: Off (cleaner look)
+- Table border: Off (minimal feel)
 - Show % symbol: On
 - Percent precision: 0 (simplicity)
 - Freeze left: On
@@ -289,6 +312,7 @@ Before (Header On):          After (Header Off):
 ```
 - Highlight row on hover: On
 - Zebra rows: Off
+- Table border: Off
 - Show % symbol: On
 - Percent precision: 1
 - Freeze left: Off (if table is narrow)
@@ -303,9 +327,10 @@ Before (Header On):          After (Header Off):
 
 1. **Hover Highlight**: Keep On for interactive reports, Off for print-friendly views
 2. **Zebra Rows**: Always On unless table is very narrow
-3. **Symbol/Precision**: Match your audience (executives = simpler, analysts = more detail)
-4. **Freezing**: Always On for large tables, consider Off for small ones
-5. **Column Headers**: Keep On unless context is very clear
+3. **Table Border**: Keep On for standard reporting; turn Off for minimal/tile-mode designs
+4. **Symbol/Precision**: Match your audience (executives = simpler, analysts = more detail)
+5. **Freezing**: Always On for large tables, consider Off for small ones
+6. **Column Headers**: Keep On unless context is very clear
 
 ---
 
