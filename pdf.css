@@ -1,0 +1,39 @@
+/* Masquer le chrome Docusaurus */
+.navbar,
+.footer,
+.pagination-nav {
+  display: none !important;
+}
+
+/* Typo & layout */
+body {
+  font-size: 12px;
+}
+
+/* Sauts de page */
+h1 {
+  page-break-before: always;
+}
+
+h1:first-of-type {
+  page-break-before: auto;
+}
+
+pre, table, blockquote {
+  page-break-inside: avoid;
+}
+
+/* Cover */
+.cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.cover h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
