@@ -154,6 +154,20 @@ To show only Male **AND** Female, you need to invert the logic:
 
 Will show ONLY Male and Female
 
+:::tip[Blank / empty values]
+If a category has no value in your data (Power BI shows it as blank), it appears as an **empty label** in the table — not the word "Null". A pattern like `Label_Brand = Null` will therefore never match it.
+
+To target blank values specifically, compare against an empty string:
+```text
+Label_Brand = ""
+```
+
+To exclude blanks while keeping everything else, use the greater-than operator:
+```text
+Label_Brand > ""
+```
+:::
+
 **Use Cases**:
 - Hide sensitive data in shared reports
 - Remove small brands/categories from view
