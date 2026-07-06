@@ -1,5 +1,6 @@
 import type {ReactNode} from 'react';
 import clsx from 'clsx';
+import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
@@ -71,6 +72,9 @@ export default function HomepageFeatures(): ReactNode {
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
+        </div>
+        <div className="text--center margin-top--lg">
+          <Link to="https://youtu.be/ZAc73A6DHT4">View Video Presentation</Link>
         </div>
       </div>
     </section>

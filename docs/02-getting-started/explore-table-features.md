@@ -75,7 +75,28 @@ This composite section includes:
 
 ---
 
-## 4. % Series Usage
+## 4. Cell Rules
+
+**What it controls**: Conditional decoration of individual cells (color, label, badge, or full CSS) driven by rules you write directly in the visual
+
+This section allows you to:
+- Write `condition : output` rules, evaluated top-to-bottom on each cell — the first matching rule wins
+- React to the cell's own computed values (`pctV`, `pctH`, `indice`, `value`, `base`, `avg`, `signif1`, `signif2`) and to header labels (`col1…`, `row1…`)
+- Color backgrounds or text, prepend labels, add colored badges, or apply full custom CSS (gradients, bold, alignment…)
+- Add a `default` catch-all for cells no other rule matches
+
+**Key decisions here**:
+- Choose the display mode (cell background, text color, label, badge, or Custom CSS)
+- Write conditions with numeric and header variables (remember `pctV`/`pctH` are fractions 0–1)
+- Pick a badge shape when using badge mode
+
+**When to use**: When you need conditional formatting that reacts to the numbers the visual actually displays — no DAX measure required.
+
+📖 **Learn more**: [Cell Rules Reference](/docs/04-reference/cell-rules.md)
+
+---
+
+## 5. % Series Usage
 
 **What it controls**: Data series mapping for percentage tables
 
@@ -97,7 +118,7 @@ This section appears when **Table Type** is set to "Percentage" and manages:
 
 ---
 
-## 5. Mean Series Usage
+## 6. Mean Series Usage
 
 **What it controls**: Data series mapping for mean tables
 
@@ -119,7 +140,7 @@ This section appears when **Table Type** is set to "Mean" and manages:
 
 ---
 
-## 6. Significance Settings
+## 7. Significance Settings
 
 **What it controls**: Statistical testing and difference highlighting
 
@@ -139,7 +160,7 @@ This composite section includes:
 
 ---
 
-## 7. Totals
+## 8. Totals
 
 **What it controls**: Display of total rows, base rows, and subtotals
 
@@ -163,7 +184,7 @@ This section manages:
 
 ---
 
-## 8. Threshold
+## 9. Threshold
 
 **What it controls**: Data quality warnings and value masking
 
@@ -184,7 +205,7 @@ This section allows you to:
 
 ---
 
-## 9. Table Format Settings
+## 10. Table Format Settings
 
 **What it controls**: Visual appearance and styling
 
@@ -220,6 +241,27 @@ This composite section includes multiple cards:
 **When to use**: Configure styling after data and structure are finalized, or apply pre-defined themes immediately for quick professional appearance.
 
 📖 **Learn more**: [Formatting & Styling Reference](/docs/04-reference/formating/index.md)
+
+---
+
+## 11. Logos
+
+**What it controls**: Display of images (logos) inside row and column headers
+
+This section allows you to:
+- Bind a base64 image measure to each header level — **`colLogoLv1`**, **`colLogoLv2`**, **`colLogoLv3`** for columns and **`rowLogoLv1`**, **`rowLogoLv2`** for rows
+- Turn logos on/off globally with **Show logos**
+- Choose a display mode per level: *Logo only*, *Logo above text*, or *Logo under text*
+- Set the logo size (px) independently for each level
+
+**Key decisions here**:
+- Provide a DAX measure returning a base64 image (PNG, JPEG…) for each header level you want to brand
+- Decide whether the logo replaces or accompanies the header text
+- Adjust per-level sizes so logos align consistently across headers
+
+**When to use**: To brand your table with company or product logos in the headers — for example competitor or key-account comparisons.
+
+📖 **Learn more**: [Logos in Headers Reference](/docs/04-reference/logos.md)
 
 ---
 
@@ -265,12 +307,14 @@ Some features depend on others:
 | **Table Contents** | Define data type and display | First |
 | **Sorting** | Arrange rows/columns | After data displays |
 | **Ranking** | Visual highlights | After basic setup |
+| **Cell Rules** | Conditional cell decoration | After values display |
 | **% Series** | Map percentage data | With Table Contents |
 | **Mean Series** | Map mean data | With Table Contents |
 | **Significance** | Statistical testing | After analysis decisions |
 | **Totals** | Context rows | After basic setup |
 | **Threshold** | Data quality | After totals |
 | **Table Format** | Visual styling | Last (or use themes first) |
+| **Logos** | Branding in headers | With Table Format |
 
 ---
 

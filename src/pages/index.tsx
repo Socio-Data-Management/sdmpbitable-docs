@@ -20,8 +20,8 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="https://youtu.be/ZAc73A6DHT4">
-            View Presentation video
+            to="/docs/intro">
+            Access Documentation
           </Link>
         </div>
       </div>

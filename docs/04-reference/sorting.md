@@ -184,7 +184,7 @@ See [About sorting elements in Power BI](#about-sorting-elements-in-power-bi) se
 
 When enabled, this setting extracts numeric values from column labels for sorting purposes. This is particularly useful when your column labels contain numbers mixed with text.
 
-This feature works the same as for row labels. See [Find number in Row Labels](#find-number-in-row-labels-) section for more details.
+This feature works the same as for row labels. See [Find number in Row Labels](#find-number-in-row-labels) section for more details.
 
 
 ### First Columns
