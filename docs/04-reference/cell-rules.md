@@ -11,7 +11,7 @@ Cell Rules let you decorate individual cells (color, label, or full CSS) based o
 
 You type a list of rules in the **Cell rules** text box (Format pane → Cell Rules). Each rule is a `condition : output` pair. For every cell, the visual evaluates the rules **top to bottom** on the values it has already computed (percentages, index, base, mean, significance) and on the **row/column header labels**, and applies the output of the **first rule that matches**.
 
-:::info Why not a DAX measure anymore?
+:::info[Why not a DAX measure anymore?]
 The previous version relied on a `Cell Rules` DAX measure that had to reproduce the visual's own calculations (vertical %, side-by-side recomputations, per-scale means…). That is impossible to replicate faithfully in DAX. The engine now runs **inside the visual**, directly on the numbers it displays, so a rule always sees exactly what the user sees. The old `Cell Rules` data-role field has been **removed**.
 :::
 
@@ -67,7 +67,7 @@ These come straight from the visual's own calculations:
 
 **Operators**: `=`, `!=`, `<`, `>`, `<=`, `>=`.
 
-:::warning Percentages are fractions
+:::warning[Percentages are fractions]
 `pctV` and `pctH` are stored as **fractions**, not percentages. Write `pctV < 0.10` for "below 10 %", **not** `pctV < 10`. (`indice` on the other hand is on a base-100 scale.)
 :::
 
@@ -97,7 +97,7 @@ In tables with **sub-tables** (two row levels), `row1` is the sub-table name and
 | `IN ("a","b","c")` | Label equals one of the listed values |
 | `=` / `!=` | Label equals / differs from a value |
 
-:::warning Quote text with special characters
+:::warning[Quote text with special characters]
 String literals that contain spaces or parentheses **must be quoted**: `row1 CONTAINS "(4)"`. Without quotes, the parentheses break parsing. Also, the substring must appear **literally** — `CONTAINS "(10)"` does **not** match `note sur 10)` (there is no `(` right before `10`); use `CONTAINS "sur 10)"` instead.
 :::
 
@@ -107,7 +107,7 @@ colX CONTAINS "Framatome" : color:#0a7
 row1 IN ("BRAND1","BRAND2","BRAND99") : #0088FF;Target
 ```
 
-:::note Numeric vs. text operators
+:::note[Numeric vs. text operators]
 A numeric operator (`<`, `>`, …) on a header variable, or `CONTAINS` on a numeric variable, simply evaluates to `false` (no error). On `colX`/`rowX`, a condition is true if **at least one** level satisfies it (OR semantics).
 :::
 
@@ -162,7 +162,7 @@ default : background:#EEE;color:#333;text-align:right
 
 User CSS is **sanitized** before being applied, and applied only through the CSSOM (`style.setProperty`), never as HTML — so it **cannot execute JavaScript** and **cannot load external resources**. The sanitizer rejects any declaration whose value contains `url(...)`, `image-set(...)`, `expression(...)`, backslash escapes, at-rules (`@…`), `<`/`>`, braces or comments.
 
-:::tip What still works
+:::tip[What still works]
 Gradients (`linear-gradient(...)`), `calc()`, `rgb()`/`hsl()`, vendor prefixes, text decoration, alignment, shadows — none of these need `url()`, so they all pass. Only external-resource and code-execution vectors are blocked, keeping the visual certification-safe.
 :::
 
@@ -182,7 +182,7 @@ Master switch. When off, no rule is evaluated and no decoration is applied.
 | Square | Sharp rectangular badge |
 | Rounded Square | Rectangle with slightly rounded corners |
 
-:::note Compatibility with Ranking badges
+:::note[Compatibility with Ranking badges]
 Cell Rules badges and Ranking badges are **cumulative** — both can appear in the same cell (the Cell Rules badge is placed first).
 :::
 
@@ -210,7 +210,7 @@ Some modes are mutually exclusive because they write the same visual property. O
 
 **To resolve**: disable one feature or switch to a non-overlapping mode. Significance shown as **icons** or **borders** never conflicts.
 
-:::note Custom CSS is not conflict-checked
+:::note[Custom CSS is not conflict-checked]
 Because Custom CSS can set any property, it is not part of the automatic conflict detection — you are responsible for avoiding clashes with Ranking/Significance colors.
 :::
 

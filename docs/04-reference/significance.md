@@ -9,18 +9,13 @@ title: Significance Testing
 
 ![significance regex level2](../images/signif-regex-level2.png)
 
-The Socio Data Management Power BI cross table tool lets you identify statistically significant differences between groups in your data in several manner, depending on your edition (Pro or Premium) and configuration.
+The Socio Data Management Power BI cross table tool lets you identify statistically significant differences between groups in your data in several manner, depending on your configuration.
 All feattures includes:
 - Two independent significance tests per table
 - Multiple test types (All columns, Item vs other, Item vs total, Regex)
 - Various display options (icon, font color, background color, border color)
 - Configurable confidence levels (90%, 95%, 99%)
 - Configurable variance methods for percentage tables (pooled, separate)
-
-:::info[Edition Availability]
-- **Basic significance**: Available in **Pro** edition
-- **Advanced significance**: Available in **Premium** edition
-:::
 
 ---
 
@@ -63,8 +58,6 @@ Note that when you have more than one level of column, the significance markers 
 ![alt text](../images/signif-abcd-2levels.png)
 
 
-Available in **Pro** and **Premium** editions.
-
 ### Item vs Other Question Item
 Compares one response option against all others.
 :::important
@@ -77,16 +70,12 @@ This test is the most used for survey data analysis. You should always prefer th
 
 ![alt text](../images/signif-background.png)
 
-Available in **Pro** and **Premium** editions.
-
 ### Item versus Total (Base)
 Compares each item to the overall average at the same level.
 :::warning
 This test has been implemented for legacy purpose and is not generally recommended for any analysis. The reason is that observation (population) of the tested values should _**always be independent**_. In this test the observations of each cell is included in the total so it does not ensure this independency rule.
 Unless you have a **good** reason, prefer the _'Item vs Other Question Item'_ test instead.
 :::
-
-Available in **Pro** and **Premium** editions.
 
 ### Regular Expression
 Uses a regex pattern to identify columns to compare.
@@ -142,8 +131,6 @@ The reference branch (`2024`) itself is never flagged.
 
 A read‑only **Regex match status** field is displayed under the regex input. It shows the column paths actually matched by the current regex (or a sample of available column titles when nothing matches), making it easy to diagnose a regex that does not produce the expected highlights.
 
-Available in **Premium** edition only.
-
 ---
 
 ## Confidence Level
@@ -169,7 +156,6 @@ Choose a higher level _(99%)_ for critical decisions.
 **Setting**: Signif. Var. Method  
 **Options**: Pooled proportion, Separate proportion  
 **Default**: Pooled  
-**Available in**: Pro, Premium
 
 How variance is calculated when comparing percentages.
 
@@ -285,11 +271,11 @@ The suffix fields are designed for cases where the label has a fixed prefix and 
 
 ---
 
-## Advanced Testing (Premium Only)
+## Advanced Testing
 
 ### Multiple Test Configuration
 
-In Premium edition, you can configure each test independently:
+You can configure each test independently:
 - Different display methods for each test
 - Different test types simultaneously
 - Regex patterns for flexible comparison
@@ -365,8 +351,5 @@ A: Your significance level might be too lenient (90%); try 99%
 
 **Q: No cells marked significant**  
 A: Check sample sizes; very small groups won't show significance
-
-**Q: Significance test types are grayed out**  
-A: Significance testing requires Pro or Premium edition
 
 For more help, see the [Quick Start Guide](../02-getting-started/quick-start.md) or contact support.

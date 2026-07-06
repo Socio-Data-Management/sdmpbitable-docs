@@ -5,74 +5,65 @@ title: Editions Comparison
 
 # SDM Cross Table Tool Editions
 
-Choose the edition that best fits your needs. All editions receive regular updates and support.
+The SDM Cross Table Tool has a single set of features available to everyone. The **Free** edition gives you access to **every feature** — the only difference with the **Pro** edition is the **Excel export** and the removal of the on-table watermark. All editions receive regular updates and support.
 
 ## Feature Comparison Matrix
 
-| Feature | Free | Pro | Premium |
-|---------|------|-----|---------|
-| **Basic Cross-Tabs** | ✅ | ✅ | ✅ |
-| **Percentage Tables** | ✅ | ✅ | ✅ |
-| **Mean Tables** | ✅ | ✅ | ✅ |
-| **Custom Formatting** | Limited | ✅ | ✅ |
-| **Row/Column Sorting** | Basic | ✅ | ✅ |
-| **Ranking & Indexing** | ❌ | ✅ | ✅ |
-| **Significance Testing** | ❌ | Basic | ✅ Advanced |
-| **Thresholds & Masking** | ❌ | ✅ | ✅ |
-| **Export Options** | ❌ | Excel | Excel + PPT |
-| **Commercial License** | ❌ | ❌ | ✅ |
+| Feature | Free | Pro |
+|---------|------|-----|
+| **Basic Cross-Tabs** | ✅ | ✅ |
+| **Percentage Tables** | ✅ | ✅ |
+| **Mean Tables** | ✅ | ✅ |
+| **Custom Formatting** | ✅ | ✅ |
+| **Row/Column Sorting** | ✅ | ✅ |
+| **Ranking & Indexing** | ✅ | ✅ |
+| **Significance Testing** | ✅ | ✅ |
+| **Thresholds & Masking** | ✅ | ✅ |
+| **Row/Column Selection** | ✅ | ✅ |
+| **Excel Export** | ❌ | ✅ |
+| **"Powered by Socio Data Management" watermark** | Shown | Removed |
 
 ---
 
 ## Free Edition
 
-**Perfect for**: Getting started, learning, small projects
+**Perfect for**: Everyone — from learning and small projects to full production reports
 
 ### What's Included
+The Free edition includes **all features** of the SDM Cross Table Tool, including:
+
 - Basic cross-tabulation tables
 - Percentage and mean aggregations
-- Simple row and column sorting
-- Standard table formatting (fonts, colors)
+- Full custom formatting and styling themes
+- Row and column sorting (alphabetical, by value, custom rules)
+- Ranking, indexing and visual indicators
+- Statistical significance testing (all test types)
+- Thresholds and value masking
+- Interactive row/column selection
 - Display of totals and base rows
-- Zebra rows and hover effects
-- Full freeze pane support
+- Zebra rows, hover effects and full freeze pane support
 
 ### Limitations
-- No ranking or visual indicators
-- No statistical significance testing
-- No threshold-based masking
-- Limited formatting customization
-- No export functionality
-- Limited to 10 rows and 10 columns displayed
+- **No Excel export** — this is the only feature reserved for the Pro edition
+- A **"Powered by Socio Data Management"** watermark is displayed on the table
 
 ### Best For
 - Students and learners
-- Small internal projects
+- Internal projects and reporting
 - Proof-of-concepts
-- Basic data exploration
+- Data exploration and full analysis
 
 ---
 
 ## Pro Edition
 
-**Perfect for**: Professional analysts, business teams
+**Perfect for**: Analysts and teams who need Excel export and a watermark-free table
 
 ### Everything in Free, Plus:
-- ✅ **Advanced Formatting**: Complete control over element styling
-- ✅ **Ranking & Visualization**: Color-coded cell ranking with multiple display options
-- ✅ **Basic Significance Testing**: Test differences between columns and segments
-- ✅ **Smart Sorting**: Advanced sort by value, alphabetically, or custom rules
-- ✅ **Threshold Management**: Mask or warn on values below thresholds
-- ✅ **Flexible Series Mapping**: Custom aggregation series for complex data
 - ✅ **Excel Export**: Export tables with preserved formatting
-- ✅ **Multi-level Hierarchies**: Support for complex row/column structures
+- ✅ **No Watermark**: The "Powered by Socio Data Management" watermark is removed from the table
 
-### Use Cases
-- Market research analysis
-- Survey data cross-tabulation
-- Regional performance comparison
-- Demographic breakdowns
-- Management reporting
+Every other feature is already available in the Free edition.
 
 ### Support
 - Email support (24-48h response)
@@ -81,63 +72,16 @@ Choose the edition that best fits your needs. All editions receive regular updat
 
 ---
 
-## Premium Edition
-
-**Perfect for**: Enterprise teams, critical analyses, statistical consultants
-
-### Everything in Pro, Plus:
-- ✅ **Advanced Significance Testing**: 
-  - Multiple test types (all columns, item vs total, regex-based)
-  - Configurable confidence levels (90%, 95%, 99%)
-  - Pooled or separate variance methods
-  - Detailed test configuration
-- ✅ **PowerPoint Export**: Export to presentations with full formatting
-- ✅ **Commercial License**: Use in client work and commercial projects
-- ✅ **Priority Support**: Phone and email support (2-4h response)
-- ✅ **Custom Configurations**: Enterprise-level support for complex setups
-- ✅ **SLA Guarantee**: Uptime and support guarantees
-- ✅ **Dedicated Account Manager**: For organizations with 10+ users
-
-### Advanced Features
-- Unweighted base rows for multi-weighted datasets
-- Signif base rows for specialized testing
-- Complex masking patterns (regex support)
-- Custom color gradients for ranking
-- Extended statistical options
-
-### Use Cases
-- Enterprise analytics platforms
-- Client deliverables requiring statistical rigor
-- Academic and research institutions
-- Consulting firms
-- Regulatory and compliance reporting
-
-### Support
-- Email support
-- Custom development consultation
-
----
-
 ## Edition Selection Guide
 
 ### Choose **Free** if you:
-- Are learning Power BI custom visuals
-- Need basic cross-tabulation for internal use
-- Have no budget constraints for evaluation
-- Want to explore SDM Cross Table Tool capabilities
+- Want access to all analysis and formatting features
+- Do not need to export tables to Excel
+- Are comfortable with the "Powered by Socio Data Management" watermark
 
 ### Choose **Pro** if you:
-- Build professional reports and dashboards
-- Need statistical analysis capabilities
-- Want to export and share formatted tables
-- Work in market research or analytics
-- Have a moderate annual budget
-
-### Choose **Premium** if you:
-- Deliver reports to external clients
-- Require advanced statistical testing
-- Use SDM Cross Table Tool enterprise-wide
-- Require commercial licensing
+- Need to export your tables to Excel
+- Want to remove the watermark from your tables
 
 Please contact contact@socio-dm.com for custom quotes or volume licensing.
 
@@ -157,14 +101,11 @@ Yes! Your data and configurations will transfer automatically.
 **Does Free edition have limitations on data size?**  
 All editions support datasets up to Power BI's native limits.
 
-**Is there a trial period for Pro/Premium?**  
-Yes, we offer a 30-day free trial for Pro and Premium. [Start your trial](https://marketplace.microsoft.com/en-us/marketplace/apps?product=power-bi-visuals)
+**Is there a trial period for Pro?**  
+Yes, we offer a 30-day free trial for Pro. [Start your trial](https://marketplace.microsoft.com/en-us/marketplace/apps?product=power-bi-visuals)
 
 **What about education/non-profit discounts?**  
 We offer special pricing for educational institutions and non-profits. Contact contact@socio-dm.com
-
-**Can I use Free edition commercially?**  
-Free edition is for non-commercial use only. Use Pro or Premium for client work.
 
 ---
 

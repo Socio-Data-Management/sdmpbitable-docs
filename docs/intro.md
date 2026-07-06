@@ -18,7 +18,7 @@ The **Socio Data Management Cross Table Tool for Power BI** is a powerful custom
 - **Ranking & Indexing**: Automatically rank cells and calculate indices for comparative analysis
 - **Flexible Thresholds**: Warn or mask values based on customizable business rules
 - **Interactive Selection**: Allow users to select rows and columns for dynamic filtering
-- **Professional Output**: Export to Excel or PowerPoint with preserved formatting
+- **Professional Output**: Export to Excel with preserved formatting
 
 ### Get Started
 
@@ -27,7 +27,7 @@ Choose your path:
 - **New to SDM Cross Table Tool?** Start with [Installation & Quick Start](02-getting-started/quick-start.md)
 - **Want to see it in action?** Check out our [Use Cases & Business Examples](03-use-cases/business-cases.md)
 - **Need detailed options?** Explore the [Complete Reference Guide](04-reference/table-content.md)
-- **Comparing editions?** See what's included in [Free, Pro & Premium](01-introduction/editions.md)
+- **Comparing editions?** See what's included in [Free & Pro](01-introduction/editions.md)
 
 ---
 

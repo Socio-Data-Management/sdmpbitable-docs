@@ -122,7 +122,6 @@ Displays a row showing the unweighted (raw) sample size.
 **Setting**: Show Signif Base Row  
 **Type**: Toggle  
 **Default**: Off  
-**Available in**: Premium
 
 Displays a separate base row used specifically for significance testing calculations.
 
@@ -182,7 +181,6 @@ The label for the unweighted base row.
 **Setting**: Signif Base Row Label  
 **Type**: Text input  
 **Default**: "Signif Base"  
-**Available in**: Premium
 
 The label for the significance testing base row.
 

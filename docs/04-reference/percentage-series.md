@@ -11,10 +11,6 @@ title: Percentage Series Configuration
 
 Configure which data series (measures) are used for different calculations in percentage tables. Proper series mapping is essential for accurate percentages, bases, and significance testing.
 
-:::info[Edition Availability]
-All series configuration is available in **Free**, **Pro**, and **Premium** editions.
-:::
-
 ---
 
 ## Understanding Series
@@ -195,7 +191,6 @@ These series are used when performing statistical significance tests.
 **Setting**: Significance Series  
 **Required**: Only if using significance tests  
 **Type**: Dropdown (lists available measures)  
-**Available in**: Pro, Premium
 
 The data series used for calculating significance tests.
 
@@ -233,7 +228,6 @@ Use when: Display weighted but test unweighted
 **Setting**: Significance Base Series  
 **Required**: Only if using significance tests  
 **Type**: Dropdown (lists available measures)  
-**Available in**: Pro, Premium
 
 The base used for calculating proportions in significance tests.
 

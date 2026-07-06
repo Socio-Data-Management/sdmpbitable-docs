@@ -95,7 +95,6 @@ When you filter data in Power BI, the underlying data is removed from the visual
 **Label**: Mask Pattern  
 **Type**: Text area  
 **Default**: Empty  
-**Available in**: Pro, Premium editions
 
 Allows you to mask (hide) data from specific rows or columns using regular expressions.
 

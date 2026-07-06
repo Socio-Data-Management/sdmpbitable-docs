@@ -11,11 +11,6 @@ title: Mean Series Configuration
 
 Configure which data series (measures) are used for mean (average) calculations, statistical properties, and significance testing in mean tables.
 
-:::info[Edition Availability]
-- Mean tables: Available in **Pro** and **Premium** editions
-- All series configuration available in both Pro and Premium
-:::
-
 ---
 
 ## Understanding Mean Tables
@@ -161,7 +156,6 @@ This measure is required for significance testing of mean differences. It is nev
 **Setting**: Significance Mean Series  
 **Required**: Only if using significance tests  
 **Type**: Dropdown (lists available measures)  
-**Available in**: Pro, Premium
 
 There is cases where you may need to provide a different mean series for significance testing than the one used for display, reason why the tool proposes this separate setting.
 Set here the mean values used for statistical significance testing.
@@ -447,9 +441,6 @@ Configuration:
 
 ### Q: Unweighted base same as count
 **A**: Your data likely isn't weighted; you can hide unweighted row
-
-### Q: Mean tables not available
-**A**: Mean tables require Pro or Premium edition
 
 ### Q: Significance tests don't work with means
 **A**:

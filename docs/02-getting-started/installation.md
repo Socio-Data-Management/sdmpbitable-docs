@@ -64,7 +64,6 @@ To verify the installation:
 ### "Insufficient permissions" error
 
 - Contact your Power BI administrator
-- Pro/Premium editions require organizational setup
 
 ### Visual crashes or doesn't load data
 
@@ -78,7 +77,6 @@ If you encounter installation issues:
 
 - **Free Edition**: Check our [community forums](https://example.com/forum)
 - **Pro Edition**: Email support@example.com (24-48h response)
-- **Premium Edition**: Contact your account manager
 
 ---
 

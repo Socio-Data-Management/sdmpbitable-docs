@@ -59,10 +59,6 @@ This section allows you to:
 
 **What it controls**: Visual highlighting of top/bottom performers
 
-:::info[Edition Availability]
-Ranking is available in **Pro** and **Premium** editions only.
-:::
-
 This composite section includes:
 - **Basic Settings**: Ranking scope, order, and display method
 - **Custom Colors**: Define your own color gradients
@@ -127,15 +123,10 @@ This section appears when **Table Type** is set to "Mean" and manages:
 
 **What it controls**: Statistical testing and difference highlighting
 
-:::info[Edition Availability]
-- Basic significance testing: **Pro** and **Premium**
-- Advanced testing (2 tests, regex): **Premium** only
-:::
-
 This composite section includes:
 - **Base Settings**: Test types, confidence levels, variance methods
 - **Test 1 Configuration**: Display and comparison options
-- **Test 2 Configuration**: (Premium only) Additional test layer
+- **Test 2 Configuration**: Additional test layer
 
 **Key decisions here**:
 - Choose test type (all columns, item vs total, regex)
@@ -175,10 +166,6 @@ This section manages:
 ## 8. Threshold
 
 **What it controls**: Data quality warnings and value masking
-
-:::info[Edition Availability]
-Threshold features are available in **Pro** and **Premium** editions.
-:::
 
 This section allows you to:
 - Set warning thresholds (visual alerts)
@@ -247,9 +234,9 @@ Here's a recommended order for configuring your table:
 
 ### Phase 2: Analysis (Optional)
 4. **Sorting**: Arrange for insights or consistency
-5. **Significance**: Highlight statistical differences (Pro/Premium)
-6. **Ranking**: Visual performance indicators (Pro/Premium)
-7. **Thresholds**: Data quality controls (Pro/Premium)
+5. **Significance**: Highlight statistical differences
+6. **Ranking**: Visual performance indicators
+7. **Thresholds**: Data quality controls
 
 ### Phase 3: Presentation (Final)
 8. **Table Format**: Apply styling and themes
@@ -261,13 +248,13 @@ Here's a recommended order for configuring your table:
 
 Some features depend on others:
 
-| Feature | Requires | Edition |
-|---------|----------|---------|
-| **Vertical %** | Base series configured | All |
-| **Significance Testing** | Significance series configured | Pro+ |
-| **Ranking** | Ranking enabled | Pro+ |
-| **Indice** | Value and base series | Premium |
-| **Threshold Masking** | Threshold enabled | Pro+ |
+| Feature | Requires |
+|---------|----------|
+| **Vertical %** | Base series configured |
+| **Significance Testing** | Significance series configured |
+| **Ranking** | Ranking enabled |
+| **Indice** | Value and base series |
+| **Threshold Masking** | Threshold enabled |
 
 ---
 
@@ -307,7 +294,7 @@ Some features depend on others:
 → Highlights top performers automatically
 ```
 
-### Scenario 3: Statistical Comparison (Premium)
+### Scenario 3: Statistical Comparison
 ```
 1. Table Contents: Percentage, vertical % + horizontal %
 2. % Series: Configure all series including significance
@@ -326,7 +313,7 @@ Now that you understand what each section does:
 
 1. **Start Simple**: Configure Table Contents and Totals first
 2. **Add Analysis**: Try Sorting or Ranking
-3. **Go Advanced**: Explore Significance and Thresholds (Pro/Premium)
+3. **Go Advanced**: Explore Significance and Thresholds
 4. **Polish**: Apply themes or customize formatting
 
 📖 **Reference Guides**: Explore detailed settings for each section using the links above
@@ -352,6 +339,6 @@ Now that you understand what each section does:
 → Check: Table Format Settings (fonts, colors, precision)
 
 **Ranking/Significance not working**  
-→ Check: Edition requirements, Series Configuration
+→ Check: Series Configuration
 
 For detailed troubleshooting, see each section's reference guide.

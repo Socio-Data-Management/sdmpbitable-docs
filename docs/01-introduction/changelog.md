@@ -145,7 +145,7 @@ Version de base intégrant :
 - Tri des lignes et des colonnes
 - Seuils d'avertissement et de masquage
 - Styles CSS (Custom, Modern, Classic, Scientific, Market Research) + 21 thèmes de couleurs
-- Export Excel (Pro/Enterprise)
+- Export Excel (Pro)
 - Fusion de modalités, filtre DSL des colonnes
 - Mode côte à côte (*Side by Side*)
 - 10 langues : EN, FR, DE, ES, IT, PT-BR, AR, HE, ZH, RO

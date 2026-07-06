@@ -9,10 +9,6 @@ title: Filtering & Selection
 
 Enable users to interact with your table by selecting rows or columns headers. This feature allows end-users to filter other page visuals using the SDM Cross Table Tool visualization.
 
-:::info[Edition Availability]
-Row and column selection is available in **Pro** and **Premium** editions.
-:::
-
 <video autoPlay loop muted playsInline style={{ maxWidth: "100%", border: "1px solid #ccc", borderRadius: "4px" }}>
   <source src="/sdmpbitable-docs/videos/sdmPbiTable-selection.webm" type="video/webm" />
 </video>
@@ -68,8 +64,5 @@ A: Check that Enable Selection is turned on in formatting panel
 
 **Q: Selection performance is slow**  
 A: Large tables (1000+ rows) may be slow. Consider data aggregation or pagination.
-
-**Q: Selection is grayed out/unavailable**  
-A: Row and Column Selection requires Pro or Premium edition
 
 For more help, see the [Quick Start Guide](../02-getting-started/quick-start.md).

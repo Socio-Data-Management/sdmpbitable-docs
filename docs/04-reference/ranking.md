@@ -11,10 +11,6 @@ title: Ranking
 
 Automatically rank cells within each column and visualize rankings with numbers, colors, or gradients.
 
-:::info[Edition Availability]
-Ranking is available in **Pro** and **Premium** editions.
-:::
-
 ---
 
 ## Enable Ranking
@@ -23,7 +19,6 @@ Ranking is available in **Pro** and **Premium** editions.
 **Setting**: Do ranking  
 **Type**: Toggle  
 **Default**: Off  
-**Available in**: Pro, Premium
 
 Turns ranking on/off for all cells in the table.
 
@@ -200,7 +195,6 @@ Exclude certain values from being colored/ranked, useful for "neutral" zones.
 **Setting**: Prevent middle range from coloring  
 **Type**: Toggle  
 **Default**: Off  
-**Available in**: Premium
 
 When enabled, values between two thresholds are left uncolored.
 
@@ -221,7 +215,7 @@ Values in this range remain neutral (no color or styling).
 
 ## Custom Color Gradient
 
-Available in **Premium** edition with "Custom color gradient" display option.
+Available with the "Custom color gradient" display option.
 
 ### Color From
 **Type**: Color picker  
@@ -239,7 +233,7 @@ The color for highest-ranked values.
 
 ## Practical Examples
 
-### Example 1: Sales Performance (Pro Edition)
+### Example 1: Sales Performance
 ```
 Configuration:
 - Enable Ranking: Yes
@@ -277,7 +271,7 @@ Result: Scores below 45% = red (poor)
         Above 55% = green (good)
 ```
 
-### Example 4: Custom Brand Colors (Premium)
+### Example 4: Custom Brand Colors
 ```
 Configuration:
 - Enable Ranking: Yes
