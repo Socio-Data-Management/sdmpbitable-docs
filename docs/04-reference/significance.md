@@ -11,7 +11,7 @@ title: Significance Testing
 
 The Socio Data Management Power BI cross table tool lets you identify statistically significant differences between groups in your data in several manner, depending on your configuration.
 All feattures includes:
-- Two independent significance tests per table
+- Three independent significance tests per table
 - Multiple test types (All columns, Item vs other, Item vs total, Regex)
 - Various display options (icon, font color, background color, border color)
 - Configurable confidence levels (90%, 95%, 99%)
@@ -31,7 +31,12 @@ All feattures includes:
 **Options**: Same as above  
 **Default**: None
 
-Each test compares different aspects of your data.
+### Significance Test 3
+**Setting**: Significance 3  
+**Options**: Same as above  
+**Default**: None
+
+Each test compares different aspects of your data. The three tests are fully independent — each has its own type, display option, regex, and custom icons — and they are **not mutually exclusive**: several tests can point at the same cell, and you are free to give two or three of them the **same symbol** (see [Combining tests with the same symbol](#combining-tests-with-the-same-symbol)).
 
 ---
 
@@ -235,7 +240,7 @@ When at least one significance test uses **Background** or **Border** display, t
 All three labels support the **fx** button (DAX measure binding) for dynamic, filter-context-sensitive text.
 
 #### Icon mode
-When at least one significance test uses **Icon** display, the legend shows the actual icons (custom image or default SVG triangles) beside an editable text label for each active significance test (**Signif 1 label**, **Signif 2 label**). A **Signif 1 label suffix** / **Signif 2 label suffix** field lets you append a dynamic value (via the **fx** button) without creating a dedicated DAX measure for the full text — the program concatenates the two parts with a space.
+When at least one significance test uses **Icon** display, the legend shows the actual icons (custom image or default SVG triangles) beside an editable text label for each active significance test (**Signif 1 label**, **Signif 2 label**, **Signif 3 label**). A matching **Signif _n_ label suffix** field lets you append a dynamic value (via the **fx** button) without creating a dedicated DAX measure for the full text — the program concatenates the two parts with a space.
 
 #### Font Color mode
 When at least one significance test uses **Font Color** display, the legend renders "123/123" in green (positive) and red (negative) beside an editable text label for each active significance test. The same suffix fields apply.
@@ -245,7 +250,7 @@ When at least one significance test uses **Font Color** display, the legend rend
 | Active significance tests | Legend layout |
 |---|---|
 | 1 test active | Centered below the table |
-| 2 tests active | First test left-aligned, second test right-aligned |
+| 2 or 3 tests active | Blocks spread across the row (first left-aligned, last right-aligned, others distributed between) |
 
 ### Font Settings
 
@@ -262,6 +267,8 @@ All legend text shares a single **FontControl** (font family, bold, italic, unde
 | Signif 1 label suffix | Dynamic suffix appended after the Signif 1 label | *(empty)* |
 | Signif 2 label | Text label for significance 2 (icon / font color mode) | *(empty)* |
 | Signif 2 label suffix | Dynamic suffix appended after the Signif 2 label | *(empty)* |
+| Signif 3 label | Text label for significance 3 (icon / font color mode) | *(empty)* |
+| Signif 3 label suffix | Dynamic suffix appended after the Signif 3 label | *(empty)* |
 
 All label fields support the **fx** button for DAX measure binding, allowing the legend text to update dynamically based on filter context.
 
@@ -275,7 +282,7 @@ The suffix fields are designed for cases where the label has a fixed prefix and 
 
 ### Multiple Test Configuration
 
-You can configure each test independently:
+You can configure up to **three** tests, each independently:
 - Different display methods for each test
 - Different test types simultaneously
 - Regex patterns for flexible comparison
@@ -284,6 +291,16 @@ You can configure each test independently:
 <td>![alt text](../images/signif-dual-settings.png)</td>
 <td>![alt text](../images/signif-dual.png)</td>
 </tr></table>
+
+### Combining tests with the same symbol
+
+The tests are **not mutually exclusive**. Because each test writes its own result on every cell, you can point several tests at the same cell and, if you wish, mark them with the **same symbol** (same view option and, for icons, the same custom image).
+
+This is what lets you express an **OR** relationship. For example, to flag every cell that is significantly different from **column A _or_ column B**, set up two `Regular expression` tests — one matching A, the other matching B — and give both the **same icon**. A cell that is significant against either reference then carries that single symbol.
+
+:::note
+When two or three tests resolve to the **same icon** on the **same cell**, the icon is drawn **once** (the union is not duplicated). Font-color, background and border modes stack as CSS classes, so keep those on distinct tests if you want to tell them apart.
+:::
 
 ### Hide First Variable
 Hides the first variable in comparative displays for cleaner visuals (see masking in [table-content](table-content.md#masking)).

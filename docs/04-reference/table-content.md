@@ -83,6 +83,26 @@ Displays index values (typically with 100 as base). Useful for comparing relativ
 
 ---
 
+## Empty Datasets
+
+### Clear on Empty dataset
+**Label**: Clear on Empty dataset  
+**Type**: Toggle  
+**Default**: Off
+
+Controls what the visual shows when the incoming dataset contains **no rows** — most commonly when a page or report filter excludes everything.
+
+Without this option, an empty dataset would still draw an empty "shell" (a column header plus a `Base` row at 0), which can look like the visual is broken. This toggle lets you choose a cleaner behavior instead:
+
+- **Off (default)** — the visual displays a localized **"No data to display"** message. The message is translated into every language the visual supports.
+- **On** — the visual renders **nothing at all**, clearing any previous content. Power BI is still notified that rendering has completed, so the visual does not appear stuck in a loading state.
+
+:::info[The Excel export button is never shown on an empty dataset]
+Regardless of the *Show Excel Export Button* setting, the export button is always hidden when there is no data, since there would be nothing to export.
+:::
+
+---
+
 ## Masking
 
 :::info[WHY USE MASKING WHEN POWER BI CAN FILTER DATA?]
