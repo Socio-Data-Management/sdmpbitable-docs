@@ -6,6 +6,45 @@ sidebar_position: 3
 
 Historique des évolutions et corrections depuis la version **3.3.x** (première version soumise à la certification Microsoft AppSource).
 
+Depuis juillet 2026, la famille compte **deux visuels** : **CrossTable** (ce changelog historique) et le nouveau **CrossTable InCell Charts**, qui a son propre suivi de version ci-dessous.
+
+---
+
+## CrossTable InCell Charts — nouveau visuel *(v1.1.x)*
+
+**[CrossTable InCell Charts](../05-crosstable-charts/overview.md)** est un nouveau visuel compagnon, dérivé (*fork*) de CrossTable et publié séparément (GUID, licence et fiche Marketplace propres — voir [Editions](editions.md)).
+
+### Ce qu'il reprend de CrossTable
+Le même moteur de tableau croisé : rôles de données, séries pourcentage/moyenne, tests de significativité, totaux/sous-totaux, seuils (y compris *Cell Base*), tri, logos, styles et thèmes de couleur, licence.
+
+### Ce qu'il retire
+**Tile Mode**, **Cell Rules**, **Ranking**, l'alignement de texte par cellule et le zébrage — ces réglages restent exclusifs à CrossTable.
+
+### Ce qu'il ajoute
+- **Data Bar** — barre divergente par cellule (modes *Cell Value* / *Compare to Regex* / *Follow Signif 1-3*, orientation verticale ou horizontale, dégradé **Positive/Negative from → to**, bordure, style d'axe zéro, regroupement par série). Voir [Data Bar](../05-crosstable-charts/data-bar.md).
+- **Data Line** — points reliés par cellule (même logique de valeur/échelle que Data Bar), marqueurs, regroupement, séparateurs de groupe. Voir [Data Line](../05-crosstable-charts/data-line.md).
+- Overlay de significativité dédié aux graphiques (police/fond/marqueur/icône par test) ; le test **All Columns** (lettres A/B/C…) n'est pas proposé, une lettre n'ayant pas de sens sur une barre. Voir [Significance on Charts](../05-crosstable-charts/significance-on-charts.md).
+- **Row height** (hauteur de ligne minimale) et **Value number format** (abréviation k/M/B) pour donner de la place aux graphiques et garder les libellés lisibles.
+
+### Corrections récentes
+- **Dégradé des barres** : les couleurs *Positive/Negative* de la carte *Data Bar* sont maintenant nommées *from* (couleur pleine, côté axe) avec deux nouveaux réglages *to* (couleur de fin, côté extrémité) pour un dégradé optionnel, plus une option **Border** pour délimiter la barre dans sa couleur *from*.
+- **Alignement de l'axe zéro** : en orientation verticale, la largeur naturelle variable du libellé chiffré (signe, nombre de chiffres) décalait l'axe zéro d'une ligne à l'autre au sein d'une même colonne. L'axe est désormais aligné automatiquement, pixel pour pixel, sur toute la colonne.
+
+---
+
+## CrossTable — depuis le 15 juillet 2026 *(v3.6.18.9)*
+
+> Section ajoutée pour la nouvelle documentation du visuel CrossTable InCell Charts ; ne couvre que les changements identifiés depuis la dernière mise à jour du changelog, pas un historique complet entre 3.5.28 et 3.6.18.
+
+### Nouveautés
+- **Seuils sur la base de cellule** (*Cell Base Value* / *Cell Unweighted Base Value*) pour les tables de moyennes — voir [Thresholds & Masking](../04-reference/thresholds.md#threshold-on--choosing-what-is-tested).
+
+### Corrections
+- **Thèmes Scientific / Market Research** : l'en-tête de colonnes (titres) ignorait le thème de couleur choisi et gardait toujours un fond sombre fixe, quel que soit le thème sélectionné dans [Table Styles](../04-reference/formating/formatting-styles.md). Corrigé pour suivre le thème comme les styles Modern et Classic.
+
+### Autres
+- Le développement du **Data Bar** a été retiré de CrossTable et poursuivi dans le nouveau visuel **CrossTable InCell Charts** (voir ci-dessus) — CrossTable reste focalisé sur le tableau croisé classique (Ranking, Cell Rules, Tile Mode).
+
 ---
 
 ## Version 3.5.28.9 *(en cours — non publiée)*

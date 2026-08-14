@@ -87,6 +87,10 @@ Please contact contact@socio-dm.com for custom quotes or volume licensing.
 
 ---
 
+## CrossTable InCell Charts
+
+[CrossTable InCell Charts](../05-crosstable-charts/overview.md) is a separate product listing with its own Free/Pro editions, following the **same model** as above: Free includes every feature (Data Bar, Data Line, significance testing, totals, thresholds, sorting, styles…) with the watermark shown and Excel export disabled; Pro removes the watermark and enables Excel export. Licensing one visual does not license the other — check both listings on Microsoft Marketplace if you plan to use them together.
+
 ## Pricing
 
 For current pricing and licensing terms, please visit Microsoft Marketplace for Power BI (https://marketplace.microsoft.com/en-us/marketplace/apps?product=power-bi-visuals).

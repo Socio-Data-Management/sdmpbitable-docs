@@ -75,6 +75,10 @@ SDM Cross Table Tool is ideal for:
 - Apply warnings for data quality issues
 - Flexible threshold rules based on cell value or base size
 
+## Two visuals in this family
+
+SDM Cross Table Tool covers **CrossTable**, the full crosstab described on this page. A companion visual, **[CrossTable InCell Charts](../05-crosstable-charts/overview.md)**, builds the exact same hierarchical table but renders each cell as a small **Data Bar** or **Data Line** chart instead of a plain number. Both visuals share the same data roles, percentage/mean engine, significance tests, totals, thresholds, sorting and styling — only the cell-level presentation (and a handful of table-only features like Ranking, Cell Rules and Tile Mode) differs. See the [feature comparison](../05-crosstable-charts/overview.md#feature-comparison) to decide which one fits a given report.
+
 ## Data Requirements
 
 SDM Cross Table Tool requires a data source with:

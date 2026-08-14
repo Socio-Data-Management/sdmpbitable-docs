@@ -71,6 +71,10 @@ To verify the installation:
 - Clear browser cache (if using Power BI Service)
 - Try creating a new blank report
 
+## Installing CrossTable InCell Charts
+
+[CrossTable InCell Charts](../05-crosstable-charts/overview.md) is installed the same way, as a **separate visual**: search for **"CrossTable InCell Charts"** instead in step 5 (or step 3 for Power BI Service). Both visuals can be added to the same report.
+
 ## Getting Help
 
 If you encounter installation issues:

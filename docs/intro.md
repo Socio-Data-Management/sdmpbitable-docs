@@ -20,6 +20,10 @@ The **Socio Data Management Cross Table Tool for Power BI** is a powerful custom
 - **Interactive Selection**: Allow users to select rows and columns for dynamic filtering
 - **Professional Output**: Export to Excel with preserved formatting
 
+:::info[Two visuals, one family]
+This documentation also covers **[CrossTable InCell Charts](05-crosstable-charts/overview.md)**, a companion visual that renders the same cross-tab data as small diverging **Data Bar** or **Data Line** charts inside each cell, instead of plain numbers. Same engine, same data roles — pick the visual that fits how you want a given table to read.
+:::
+
 ### Get Started
 
 Choose your path:
@@ -28,6 +32,7 @@ Choose your path:
 - **Want to see it in action?** Check out our [Use Cases & Business Examples](03-use-cases/business-cases.md)
 - **Need detailed options?** Explore the [Complete Reference Guide](04-reference/table-content.md)
 - **Comparing editions?** See what's included in [Free & Pro](01-introduction/editions.md)
+- **Want in-cell charts instead of numbers?** See [CrossTable InCell Charts](05-crosstable-charts/overview.md)
 
 ---
 
