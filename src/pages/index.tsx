@@ -23,6 +23,11 @@ function HomepageHeader() {
             to="/docs/intro">
             Access Documentation
           </Link>
+          <Link
+            className="button button--outline button--secondary button--lg"
+            to="/docs/crosstable-charts/overview">
+            Explore InCell Charts
+          </Link>
         </div>
       </div>
     </header>

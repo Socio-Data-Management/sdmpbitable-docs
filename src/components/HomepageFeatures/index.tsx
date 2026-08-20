@@ -19,7 +19,7 @@ const FeatureList: FeatureItem[] = [
     image: require('@site/static/img/Hierarchical_data.png').default,
     description: (
       <>
-        Our Cross Table Tool makes it easy to create and analyze cross-tabulation tables in Power BI.
+        Our tools make it easy to create and analyze cross-tabulation tables in Power BI — as numbers or as small in-cell charts.
         Show significance testing, base, apply thresholds, and customize formatting with just a few clicks.
       </>
     ),
@@ -30,7 +30,7 @@ const FeatureList: FeatureItem[] = [
     image: require('@site/static/img/focus.png').default,
     description: (
       <>
-        With our tool, don't waste time wrangling data or building complex formulas. Instead, focus on interpreting results and making data-driven decisions.
+        Don't waste time wrangling data or building complex formulas. Instead, focus on interpreting results and making data-driven decisions.
       </>
     ),
   },
@@ -40,11 +40,65 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/power-bi-logo.svg').default,
     description: (
       <>
-        Extend your Power BI reports and DashBoard with custom visuals that can create cross tables with significance testing, thresholds, and more.
+        Extend your Power BI reports and dashboards with custom visuals that create cross tables with significance testing, thresholds, and more.
       </>
     ),
   },
 ];
+
+type VisualCard = {
+  title: string;
+  description: ReactNode;
+  to: string;
+  linkLabel: string;
+};
+
+const VisualList: VisualCard[] = [
+  {
+    title: 'CrossTable',
+    description: (
+      <>
+        The full crosstab: numeric cells, <strong>Ranking</strong> badges &amp; gradients, <strong>Cell Rules</strong> conditional decoration, <strong>Tile Mode</strong>.
+      </>
+    ),
+    to: '/docs/intro',
+    linkLabel: 'Explore CrossTable →',
+  },
+  {
+    title: 'CrossTable InCell Charts',
+    description: (
+      <>
+        The same hierarchical table, with <strong>Data Bar</strong> and <strong>Data Line</strong> mini-charts — and <strong>Gap Mode</strong> comparison columns — instead of plain numbers.
+      </>
+    ),
+    to: '/docs/crosstable-charts/overview',
+    linkLabel: 'Explore InCell Charts →',
+  },
+];
+
+function VisualsSection(): ReactNode {
+  return (
+    <section className={styles.features}>
+      <div className="container">
+        <div className="text--center margin-bottom--lg">
+          <Heading as="h2">Two visuals, one family</Heading>
+          <p>Same data roles, same percentage/mean engine, same significance tests — pick the visual that fits how a table should read.</p>
+        </div>
+        <div className="row">
+          {VisualList.map((visual) => (
+            <div key={visual.title} className={clsx('col col--6')}>
+              <div className="card padding--lg">
+                <Heading as="h3">{visual.title}</Heading>
+                <p>{visual.description}</p>
+                <Link to={visual.to}>{visual.linkLabel}</Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function Feature(feature: FeatureItem) {
   return (
@@ -66,17 +120,20 @@ function Feature(feature: FeatureItem) {
 
 export default function HomepageFeatures(): ReactNode {
   return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
+    <>
+      <section className={styles.features}>
+        <div className="container">
+          <div className="row">
+            {FeatureList.map((props, idx) => (
+              <Feature key={idx} {...props} />
+            ))}
+          </div>
+          <div className="text--center margin-top--lg">
+            <Link to="https://youtu.be/ZAc73A6DHT4">View Video Presentation</Link>
+          </div>
         </div>
-        <div className="text--center margin-top--lg">
-          <Link to="https://youtu.be/ZAc73A6DHT4">View Video Presentation</Link>
-        </div>
-      </div>
-    </section>
+      </section>
+      <VisualsSection />
+    </>
   );
 }

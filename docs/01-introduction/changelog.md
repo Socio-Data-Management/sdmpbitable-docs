@@ -10,6 +10,17 @@ Depuis juillet 2026, la famille compte **deux visuels** : **CrossTable** (ce cha
 
 ---
 
+## CrossTable InCell Charts — Gap Mode *(août 2026)*
+
+Nouvelle carte de paramètres **Gap Mode** : remplace les colonnes d'un groupe (partitions) par 1 à 3 colonnes d'écart synthétiques (**Gap vs average**, **Gap vs 2nd**, **Gap vs 3rd**) portant l'écart `partition principale − référence`, sans toucher au moteur de calcul — une pure transformation de l'arbre de colonnes appliquée juste après la significativité. Voir [Gap Mode](../05-crosstable-charts/gap-mode.md).
+
+- **Référence de l'écart vs moyenne** = le total du groupe de colonnes (le nœud parent), pas le complément.
+- **Signif réutilisée** : chaque colonne d'écart emprunte son verdict à l'un des 3 tests de significativité existants (Signif 1 → *Gap vs average*, Signif 2/3 → *Gap vs 2nd/3rd*) ; un bandeau d'avertissement signale un test resté à *None*.
+- **Présentation par colonne** (barre/nombre, couleurs, police, largeur…) éditée via une icône **⚙** dédiée, visible en mode Édition du rapport uniquement.
+- Échelle de barre **propre à chaque colonne d'écart**, indépendante de l'échelle table-wide du Data Bar classique.
+
+---
+
 ## CrossTable InCell Charts — nouveau visuel *(v1.1.x)*
 
 **[CrossTable InCell Charts](../05-crosstable-charts/overview.md)** est un nouveau visuel compagnon, dérivé (*fork*) de CrossTable et publié séparément (GUID, licence et fiche Marketplace propres — voir [Editions](editions.md)).

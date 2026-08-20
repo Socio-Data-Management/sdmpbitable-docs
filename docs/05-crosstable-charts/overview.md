@@ -5,7 +5,7 @@ title: Overview
 
 # CrossTable InCell Charts
 
-**CrossTable InCell Charts** is the companion visual to [SDM Cross Table Tool](../01-introduction/overview.md). It builds the exact same hierarchical cross-tabulation table — same data roles, same percentage/mean engine, same significance tests, same totals and thresholds — but replaces the plain numeric cells with small **diverging charts drawn directly inside each cell**: a **Data Bar** (a horizontal or vertical bar per cell) or a **Data Line** (a point connected across cells, forming a sparkline-like trend).
+**CrossTable InCell Charts** is the companion visual to [SDM Cross Table Tool](../01-introduction/overview.md). It builds the exact same hierarchical cross-tabulation table — same data roles, same percentage/mean engine, same significance tests, same totals and thresholds — but replaces the plain numeric cells with small **diverging charts drawn directly inside each cell**: a **Data Bar** (a horizontal or vertical bar per cell) or a **Data Line** (a point connected across cells, forming a sparkline-like trend). An optional **Gap Mode** goes one step further, collapsing a whole group of columns into 1–3 synthetic "main vs. average" / "main vs. competitor" gap columns — the classic brand-comparison chart.
 
 Think of it as a Power BI custom visual dedicated to the "in-cell chart" pattern popularized by spreadsheet conditional-formatting bars — but hierarchical, statistically aware, and stylable like the rest of the SDM table family.
 
@@ -44,6 +44,7 @@ Everything **not** related to that trade-off — data roles, series mapping, sig
 | **Tile Mode** | ✅ | ❌ |
 | **Data Bar** (in-cell diverging bar chart) | ❌ | ✅ |
 | **Data Line** (in-cell connected point / sparkline) | ❌ | ✅ |
+| **Gap Mode** (main-vs-average / main-vs-competitor gap columns) | ❌ | ✅ |
 | Row height control, abbreviated value format (k/M/B) | ❌ | ✅ |
 | Excel export (Pro) | ✅ | ✅ |
 
@@ -72,6 +73,7 @@ See [Percentage Series](../04-reference/percentage-series.md) and [Mean Series](
 - [Data Bar](data-bar.md) — diverging bar chart per cell: modes, orientation, colors and gradients, border, zero-axis style, grouping.
 - [Data Line](data-line.md) — connected points across cells: markers, thickness, grouping, group separators.
 - [Significance on Charts](significance-on-charts.md) — how significance test results are shown when the cell content is a chart instead of a number.
+- [Gap Mode](gap-mode.md) — replace a column group's partitions with 1–3 "main vs. average / vs. competitor" gap columns, styled through a dedicated ⚙ editor.
 - Everything else (series, totals, thresholds, sorting, styles, logos, licensing) is documented under [CrossTable Reference](../04-reference/table-content.md) and applies unchanged.
 
 :::note[Licensing]
