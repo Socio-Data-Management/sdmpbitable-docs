@@ -106,7 +106,9 @@ When **Bar value** is set to a Follow Signif Rule, the bar's color is primarily 
 
 Merges the last hierarchical level of columns (or rows) into a **single cell** containing one bar per series, each in its own series color, instead of one bar per individual cell. Useful when the last level is a small set of comparable categories (e.g. Yes/No, or three brands) that reads better as a small clustered chart than as separate columns.
 
-A color legend for the series is shown under the table automatically when grouping is active.
+Series colors are assigned by category **name** (stable everywhere a category appears, even if it's missing from some groups) from the report's color palette — see Data Line's [Colors → Grouped mode](data-line.md#grouped-mode--series-colors-group) for the full behavior, including per-category overrides; it applies the same way here.
+
+A color legend for the series is shown under the table automatically when grouping is active, controlled by Data Line's [Legend](data-line.md#legend) group (**Show** / **Sort on label**) — there's no separate legend card under Data Bar.
 
 :::warning[Significance overlay not covered in grouped mode]
 The per-test significance overlay (marker/icon/font/background — see [Significance on Charts](significance-on-charts.md)) currently decorates **individual** bars only. When **Group into one chart** is on, grouped bars use their series color and do not show the significance overlay.

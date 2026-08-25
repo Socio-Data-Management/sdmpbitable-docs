@@ -22,8 +22,15 @@ CrossTable InCell Charts therefore only offers:
 | Item vs question item | ✅ |
 | Item versus Total (Base) | ✅ |
 | Regular expression | ✅ |
+| Previous visible column | ✅ |
+| Previous row | ✅ |
+| Partition Gap *(Gap Mode only)* | ✅ |
 
-The three remaining test types all produce a simple **verdict per cell** — higher (+1), lower (−1), or not significant (0) — which is exactly what a chart overlay needs.
+All the remaining test types produce a simple **verdict per cell** — higher (+1), lower (−1), or not significant (0) — which is exactly what a chart overlay needs.
+
+:::note[Partition Gap is exclusive to Gap Mode]
+**Partition Gap** doesn't exist as a general-purpose test — it doesn't compute anything outside of [Gap Mode](gap-mode.md), where it drives the **Gap vs 2nd**/**Gap vs 3rd** columns specifically (main partition vs. the named competitor). Picking it for a significance slot while Gap Mode is off, or while neither gap column is shown, simply does nothing. See [Gap Mode → Significance drives color](gap-mode.md#significance-drives-color-the-scale-is-computed-per-column) for the full picture of which test decorates which gap column.
+:::
 
 ---
 
@@ -40,6 +47,10 @@ Instead of coloring table cell backgrounds/borders and printing letters, each ac
 | **Border color** | *(not used — border is reserved for CrossTable's plain cell rendering)* | *(not used)* |
 
 Configure the view **per test** (Significance 1 / 2 / 3 each have their own **Significance view option**), exactly as in CrossTable.
+
+:::note[Gap Mode is the one exception]
+This table describes an ordinary Data Bar/Data Line cell. [Gap Mode](gap-mode.md) cells are a genuine cell (not a bare chart mark), so **Border color** *does* work there — see [Gap Mode → Bar vs. Number](gap-mode.md#significance-drives-color-the-scale-is-computed-per-column).
+:::
 
 ### When several tests are significant on the same cell
 

@@ -12,10 +12,14 @@ title: Significance Testing
 The Socio Data Management Power BI cross table tool lets you identify statistically significant differences between groups in your data in several manner, depending on your configuration.
 All feattures includes:
 - Three independent significance tests per table
-- Multiple test types (All columns, Item vs other, Item vs total, Regex)
+- Multiple test types (All columns, Item vs other, Item vs total, Regex, Previous visible column, Previous row)
 - Various display options (icon, font color, background color, border color)
 - Configurable confidence levels (90%, 95%, 99%)
 - Configurable variance methods for percentage tables (pooled, separate)
+
+:::note[On CrossTable InCell Charts]
+This page covers the test types and settings shared by both visuals. **CrossTable InCell Charts** drops **All Columns** (no room for lettered A/B/C markers on a chart) and adds one chart-specific type, **Partition Gap**, used only inside [Gap Mode](../05-crosstable-charts/gap-mode.md) to compare the main partition against its named 2nd/3rd competitor. See [Significance on Charts](../05-crosstable-charts/significance-on-charts.md) for what's different when a test decorates a chart instead of a plain cell.
+:::
 
 ---
 
@@ -23,7 +27,7 @@ All feattures includes:
 
 ### Significance Test 1
 **Setting**: Significance 1  
-**Options**: None, All columns, Item vs other question item, Item versus Total (Base), Regular expression  
+**Options**: None, All columns, Item vs other question item, Item versus Total (Base), Regular expression, Previous visible column, Previous row  
 **Default**: None
 
 ### Significance Test 2
@@ -136,6 +140,38 @@ The reference branch (`2024`) itself is never flagged.
 
 A read‑only **Regex match status** field is displayed under the regex input. It shows the column paths actually matched by the current regex (or a sample of available column titles when nothing matches), making it easy to diagnose a regex that does not produce the expected highlights.
 
+### Previous Visible Column
+
+Compares each column to the nearest **visible** column before it, at the same depth in the column hierarchy — skipping over any columns hidden by a [Mask Pattern](table-content.md#masking).
+
+**Use Case**: Track a single brand's evolution year over year, or any period-over-period comparison, without cluttering the table with every other response option.
+
+This test is what makes a "previous period" comparison work even when you have hidden most of the columns. For example, with columns *Year > Brand* and a mask that keeps only `MyBrand` visible under each year (`NOT BrandName = "MyBrand"`), each year effectively shows a single leaf column. This test aligns each one with the previous **visible** leaf column — 2022 vs. 2021, 2023 vs. 2022, and so on — even though `2022 / MyBrand` and `2021 / MyBrand` don't share the same immediate parent column-wise; they're simply the two closest visible leaves in table order.
+
+:::note
+The very first visible column at a given depth has no previous visible column to compare against, so it is never marked significant by this test.
+:::
+
+:::tip
+This test runs at **every level** of the column hierarchy independently, not just the leaves. If your top-level columns (e.g. the years themselves) aren't masked, you'll also get a year-over-year comparison at that level, in addition to the leaf-level one.
+:::
+
+### Previous Row
+
+Compares each row to the **previous row** in the table, in the same column — a row-over-row equivalent of *Previous visible column*, useful when your rows are an ordered sequence (a scale, a ranking, consecutive periods represented as rows instead of columns).
+
+**Use Case**: Flag which item in an ordered list of rated items jumps significantly compared to the one just above it.
+
+Unlike *All Columns* (which uses each **column's** own total as the sample size), this test uses each **row's** own base — consistent with the [Rows are repeated items](understanding-bases.md#the-rows-are-repeated-items-toggle) setting, where every row is an independent item with its own respondent base.
+
+:::note
+Native Power BI subtotal rows are automatically skipped — both as a row being tested and as a candidate "previous row" — so a subtotal never gets compared, and the row right after it compares against the last real data row above the subtotal, not the subtotal itself.
+:::
+
+:::note
+The first row in the table (or the first row after any leading subtotal) has no previous row to compare against, so it is never marked significant by this test.
+:::
+
 ---
 
 ## Confidence Level
@@ -154,6 +190,10 @@ The confidence threshold for determining significance.
 :::info
 You usually do not change this settings.
 Choose a higher level _(99%)_ for critical decisions.
+:::
+
+:::tip[See the number behind the marker]
+The pass/fail marker only tells you whether a cell crossed this threshold. To see the **actual, continuous confidence level** for every cell — independent of this setting — enable **Significance confidence level** in the [Cell Tooltip](tooltip.md#significance-confidence-level).
 :::
 
 ### Variance Method (Percentage Tables Only)

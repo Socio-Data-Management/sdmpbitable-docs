@@ -17,6 +17,10 @@ Instead of reading raw values for every brand/model in a group, Gap Mode collaps
 Gap Mode does not add a new calculation engine. It transforms the column tree *after* significance testing and *before* the bar/line scales are computed, replacing each group's partitions with up to three terminal columns. Everything downstream — headers, Data Bar, Data Line, masking, thresholds, freeze panes, Excel export — treats those gap columns like any other column, because that's exactly what they become.
 :::
 
+:::note[Gap Mode requires Data Bar]
+A **Bar**/**Bar only** gap column renders through the same engine as an ordinary [Data Bar](data-bar.md) — its colors, thickness, orientation and axis style come from that card. The two toggles are kept in sync automatically: turning **Gap mode** on turns **Data Bar** on too if it wasn't already (turning off [Data Line](data-line.md) in the process, since Data Bar and Data Line are mutually exclusive); turning **Data Bar** off while Gap Mode is active turns Gap Mode off with it, rather than leaving it rendering against a chart engine that's no longer configured.
+:::
+
 ---
 
 ## What each gap column shows
@@ -73,25 +77,33 @@ Changes made in the editor are saved back into **Gap columns (JSON)** and persis
 
 ## Significance drives color, the scale is computed per column
 
-Each gap column borrows its verdict from one of the table's three existing significance tests — reusing the same configuration described in [Significance Testing](../04-reference/significance.md), not a separate statistic:
+The three tables-wide significance tests (**Significance 1/2/3**, configured exactly as in [Significance Testing](../04-reference/significance.md)) don't map to gap columns one-for-one by slot number. Instead, **what a test compares determines which gap column it can decorate**:
 
-- **Gap vs average** ← **Significance 1**
-- **Gap vs 2nd** ← **Significance 2**
-- **Gap vs 3rd** ← **Significance 3**
+- **Gap vs average** is decorated by **any and all** of the three tests whose type is *not* **Partition Gap** — Item vs question item, Item versus Total, Regular expression, Previous visible column, Previous row… Several can target it **at once**: exactly like an ordinary table cell, icon/marker decorations from different tests **stack**, while font-color/background-color use the **first** active, significant test among them (Significance 1, then 2, then 3) — see [Combining tests with the same symbol](../04-reference/significance.md#combining-tests-with-the-same-symbol).
+- **Gap vs 2nd** and **Gap vs 3rd** are decorated by the **one** test (if any) whose type is set to **Partition Gap**. That single test is computed **twice**, freshly, specifically for Gap Mode: once as *main partition vs. Second partition*, once as *main partition vs. Third partition* — using the same **Significance level** and **Signif. Var. Method** settings as every other test, but a comparison no other test type can express (they all compare within the *current* column tree; Gap Mode's main/2nd/3rd are three separate columns being explicitly related to each other).
 
-For the comparison to make sense, configure:
+Set this up by assigning **one** of the three significance slots to **Partition Gap** (its own **Significance view option** — icon, font color, background color or border color — applies as usual), and leaving the other one or two slots on whichever test type should decorate **Gap vs average**:
 
-- **Significance 1** as **Item vs question item** (compares the main partition to the complement — i.e. to the rest of the group, which is what "vs average" needs).
-- **Significance 2** / **Significance 3** as **Regular expression**, each targeting the second/third partition.
+| Example test setup | Decorates |
+|---|---|
+| Significance 1 = *Item vs question item*, view = Background color | **Gap vs average** — colors the bar (or the number's background, depending on **Render**) |
+| Significance 2 = *Regular expression* (e.g. matching a prior year's masked columns), view = Icon | **Gap vs average** — an icon stacks alongside Significance 1's background |
+| Significance 3 = *Partition Gap*, view = Icon | **Gap vs 2nd** *and* **Gap vs 3rd** — main vs. **Second partition** / main vs. **Third partition** |
 
 :::warning[Missing test configuration]
-If a gap column is enabled but its matching significance test is left at **None**, the visual shows an orange warning banner under the table (*"Gap mode: no significance test set for … — those gaps are shown as 'not significant'"*) rather than silently rendering everything gray.
+If **Gap vs average** is shown but none of the three tests has a type other than *None*/*Partition Gap*, or if **Gap vs 2nd**/**Gap vs 3rd** is shown but no test is set to **Partition Gap**, the visual shows an orange warning banner under the table (*"Gap mode: no significance test set for … — those gaps are shown as 'not significant'"*) rather than silently rendering everything gray. Setting **more than one** test to **Partition Gap** also warns — only the lowest-numbered one is used.
 :::
 
 Two different numbers feed a gap column, and they are allowed to differ slightly:
 
-- The bar's **length** and the number's **value** come from the plain arithmetic gap (main − reference), computed by the Gap Mode transformation itself.
-- The bar's/number's **color** comes from the assigned significance test's verdict (higher / lower / not significant) — and a test like *Item vs question item* does not compare strictly to the same reference the gap was computed against, so a visually large gap can occasionally show as "not significant" colored, or vice versa. This mirrors how [Follow Signif mode](data-bar.md#bar-value--what-drives-the-length) already works on plain Data Bars.
+- The bar's **length** and the number's **value** come from the plain arithmetic gap (main − reference), computed by the Gap Mode transformation itself — this never depends on which significance test is active.
+- The bar's/number's **color** comes from the deciding test's verdict (higher / lower / not significant), as described above. For **Gap vs average**, a test like *Item vs question item* does not compare strictly to the group's total (it compares to the complement), so a visually large gap can occasionally show as "not significant" colored, or vice versa — this mirrors how [Follow Signif mode](data-bar.md#bar-value--what-drives-the-length) already works on plain Data Bars. **Gap vs 2nd**/**Gap vs 3rd** under **Partition Gap** don't have this mismatch: the verdict is computed against the *exact* same reference the gap itself is measuring.
+
+:::note[Bar vs. Number: what the deciding test's "view" actually changes]
+On a **Bar**/**Bar only** column, the bar's fill always follows the deciding test's verdict (higher/lower/not significant) — this is the same "Follow Signif Rule" behavior an ordinary [Data Bar](data-bar.md#bar-value--what-drives-the-length) already has, independent of that test's own **Significance view option**. Any *other* active test can still add an icon/marker on top, or take over the fill via **Background color** (first match wins, same rule as [Combining tests](../04-reference/significance.md#combining-tests-with-the-same-symbol)). **Border color**, on either render, colors the gap cell's own border — the one view that behaves identically whether the column renders as a bar or a plain number.
+
+On a **Number** column there is no bar to fall back on, so the deciding test's **Significance view option** is what decides everything: **Font color** colors the figure itself, **Background color** colors the cell, **Icon**/**Marker** adds a symbol next to the figure. Pick **Font color** if you want the plain colored number you'd get from a Bar/Number column before this behavior existed.
+:::
 
 Each gap column gets its **own bar scale** (`min`/`max` computed from the actual gaps found in that column) rather than sharing the table-wide axis Data Bar normally uses — so a *Gap vs average* column ranging −6…+21 points doesn't get visually crushed by a *Gap vs 2nd* column ranging −28…+3.
 
@@ -114,9 +126,15 @@ Because the transformation mutates the same column tree the rest of the visual a
 
 ---
 
+## Explaining a gap: the tooltip
+
+A gap column only ever shows the arithmetic result (main − reference) — not the two numbers that produced it. The [Cell Tooltip](../04-reference/tooltip.md#gap-mode-cells) fills that gap (pun intended): hovering a gap cell shows the **Gap**, the **Raw** (main partition's own value) and the **Reference** value side by side, at that column's own **Precision** setting.
+
+---
+
 ## Troubleshooting
 
 - **"Main partition … not found" warning** → the **Main partition** text must match a column label exactly (or be a valid regular expression). Check the column headers seen for that group, listed in the warning message.
 - **A whole group is left unchanged** → Gap Mode only transforms groups where the main partition actually resolves; groups without it keep their raw partitions and the warning lists which group(s) were skipped.
-- **A gap column is always gray** → its significance test is set to **None** — see [Significance drives color](#significance-drives-color-the-scale-is-computed-per-column) above.
+- **A gap column is always gray** → **Gap vs average** needs at least one of the three tests set to something other than *None*/*Partition Gap*; **Gap vs 2nd**/**Gap vs 3rd** need one test set to **Partition Gap** specifically — see [Significance drives color](#significance-drives-color-the-scale-is-computed-per-column) above.
 - **⚙ icon not visible** → it only appears in the report's **Edit** view (not Reading view) and only while **Gap mode** is on.

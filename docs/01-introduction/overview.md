@@ -75,6 +75,11 @@ SDM Cross Table Tool is ideal for:
 - Apply warnings for data quality issues
 - Flexible threshold rules based on cell value or base size
 
+### 9. Cell Tooltip
+- Native Power BI tooltip on hover, surfacing figures the table computes but doesn't necessarily display: row/column levels, value, both percentages, index, weighted and unweighted base
+- The **compared base** and a **continuous significance confidence level** behind each pass/fail marker — see [Cell Tooltip Reference](../04-reference/tooltip.md)
+- Available on both CrossTable and CrossTable InCell Charts
+
 ## Two visuals in this family
 
 SDM Cross Table Tool covers **CrossTable**, the full crosstab described on this page. A companion visual, **[CrossTable InCell Charts](../05-crosstable-charts/overview.md)**, builds the exact same hierarchical table but renders each cell as a small **Data Bar** or **Data Line** chart instead of a plain number. Both visuals share the same data roles, percentage/mean engine, significance tests, totals, thresholds, sorting and styling — only the cell-level presentation (and a handful of table-only features like Ranking, Cell Rules and Tile Mode) differs. See the [feature comparison](../05-crosstable-charts/overview.md#feature-comparison) to decide which one fits a given report.

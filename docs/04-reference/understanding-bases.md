@@ -26,6 +26,10 @@ The visual can display two different base rows (see [Totals & Subtotals](./total
 
 Both are configured in [Percentage Series](./percentage-series.md) or [Mean Series](./mean-series.md). They are aggregated the **same way** — only the source series differs. If the two disagree in a way that is not explained by weighting, an aggregation setting is wrong.
 
+:::tip[A third base, per cell]
+When [significance testing](./significance.md) is active, every cell is also tested against *something* — a complement, a total, a reference column. The **[Cell Tooltip](./tooltip.md#compared-base)** can show that third figure, the **compared base**, without adding a row to the table.
+:::
+
 ---
 
 ## How a base is aggregated
@@ -56,10 +60,10 @@ Because the two situations above are indistinguishable from the data model alone
 **Setting**: `Rows are repeated items (don't sum base)`
 **Location**: **Table contents** card
 **Type**: Toggle
-**Default**: **On**
+**Default**: **Off**
 
-- **On** (default) — rows are treated as repeated items answered by the same respondents. The base is **not** summed across rows; the per-item base is used for column totals **and** subtotals. This is the most frequent case (rating batteries, note-by-note tables).
-- **Off** — rows are treated as disjoint respondent groups. The base is **summed** across rows. Use this when your rows are a demographic or any variable where each respondent belongs to a single row.
+- **On** — rows are treated as repeated items answered by the same respondents. The base is **not** summed across rows; the per-item base is used for column totals **and** subtotals. Use this for rating batteries, note-by-note tables — any case where every respondent appears in every row.
+- **Off** (default) — rows are treated as disjoint respondent groups. The base is **summed** across rows. This is the most frequent case (demographics, or any variable where each respondent belongs to a single row).
 
 :::note
 This toggle only affects the **base** figures (both the weighted *Base* and the *Unweighted Base*, at leaves, subtotals and the grand total). Percentages and means are unaffected.

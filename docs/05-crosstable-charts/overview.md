@@ -28,7 +28,7 @@ Everything **not** related to that trade-off — data roles, series mapping, sig
 |---|:---:|:---:|
 | Percentage & Mean tables, hierarchical rows/columns | ✅ | ✅ |
 | Value / % Vertical / % Horizontal / Indice series | ✅ | ✅ |
-| Significance testing (Item vs Other, Item vs Total, Regex) | ✅ | ✅ |
+| Significance testing (Item vs Other, Item vs Total, Regex, Previous visible column, Previous row) | ✅ | ✅ |
 | Significance testing — **All Columns** (lettered A/B/C… symbols) | ✅ | ❌ *(see [Significance on Charts](significance-on-charts.md))* |
 | Totals, sub-totals, base rows | ✅ | ✅ |
 | Thresholds & masking (incl. Cell Base / Cell Unweighted Base) | ✅ | ✅ |
@@ -37,6 +37,7 @@ Everything **not** related to that trade-off — data roles, series mapping, sig
 | Table styles & 21 color themes | ✅ | ✅ |
 | Row header format override, freeze panes | ✅ | ✅ |
 | Row title fixed width | ✅ | ✅ |
+| **Cell Tooltip** (native Power BI tooltip on hover — bases, index, significance confidence…) | ✅ | ✅ *(not on "Group into one chart" merged cells — see [Cell Tooltip](../04-reference/tooltip.md#scope))* |
 | Zebra striping | ✅ | ❌ |
 | Cell text alignment override | ✅ | ❌ |
 | **Ranking** (badges, color gradients) | ✅ | ❌ |
