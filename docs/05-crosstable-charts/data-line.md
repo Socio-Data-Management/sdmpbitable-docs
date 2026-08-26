@@ -100,8 +100,8 @@ As with Data Bar, the per-test significance overlay does not apply to grouped li
 | **Show** | Toggle | On | Shows/hides the color legend drawn below the table. |
 | **Sort on label** | Toggle | Off | Off (default) lists categories in Power BI's own data order — the order that best matches how your query returns them. On sorts entries alphabetically by category name instead. |
 
-:::note[Shared with grouped Data Bar]
-This same **Legend** group also controls the legend when **Data Bar**'s [Grouping](data-bar.md#grouping) is active — there's no separate legend card under Data Bar.
+:::note[Independent from Data Bar's Legend]
+Data Bar has its **own** Legend group — they don't share settings, even though only one of the two can be active at a time (see [Data Bar](data-bar.md#legend)). Set Show/Sort separately for each if you switch between them.
 :::
 
 ---

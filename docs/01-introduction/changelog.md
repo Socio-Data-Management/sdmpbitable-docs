@@ -10,6 +10,22 @@ Depuis juillet 2026, la famille compte **deux visuels** : **CrossTable** (ce cha
 
 ---
 
+## CrossTable InCell Charts — Couleurs de séries & légende étendues au Data Bar *(août 2026)*
+
+Le color-picker natif par série et la carte **Legend**, jusqu'ici réservés au [Data Line groupé](../05-crosstable-charts/data-line.md#colors) (voir l'entrée « Couleurs de séries & légende » plus bas dans ce changelog), s'appliquent désormais de la même façon au **Data Bar** groupé — même mécanisme, repris du visuel sœur `linechart`. Voir [Data Bar → Colors](../05-crosstable-charts/data-bar.md#colors) et [Data Bar → Legend](../05-crosstable-charts/data-bar.md#legend).
+
+- **Carte *Data Bar* → groupe *Bar colors*** : affiche désormais une pastille de couleur par catégorie distincte quand **Group into one chart** est actif (à la place des dégradés positif/négatif/neutre, masqués dans ce mode) — personnalisable individuellement, persisté comme n'importe quel réglage de mise en forme.
+- **Nouvelle carte *Legend* sous *Data Bar*** : bascule **Show** / **Sort on label** propre à Data Bar. Auparavant ce réglage n'existait que sous *Data Line* et pilotait la légende du Data Bar groupé par ricochet — invisible et inaccessible dès que *Data Line* était éteint. Data Bar et Data Line ont maintenant chacun leur propre carte *Legend*, sans réglage partagé.
+- La couleur personnalisée par catégorie est lue sur les deux objets de persistance (`dataBarSettingsCard.dataBarSeriesColor` / `dataLineSettingsCard.dataLineSeriesColor`) : le color-picker qui s'affiche dépend uniquement du mode actif (Data Bar et Data Line restent exclusifs), chacun avec son propre stockage.
+
+---
+
+## CrossTable InCell Charts — Tooltip sur les cellules fusionnées « Group into one chart » *(août 2026)*
+
+Correction (remontée en test) — le tooltip natif ne fonctionnait pas du tout sur les cellules fusionnées en mode [Group into one chart](../05-crosstable-charts/data-bar.md#grouping) (Data Bar et Data Line groupés, quelle que soit l'orientation) : `renderGroupedColumnsCell` construit son `<td>` en dehors du chemin normal (`renderCell`), seul endroit où une cellule était jusque-là enregistrée pour la délégation d'événements du tooltip — la cellule fusionnée restait donc invisible pour lui. Le survol d'une cellule fusionnée affiche désormais un jeu de lignes par série regroupée (même contenu qu'une cellule ordinaire, répété par série). Voir [Cell Tooltip](../04-reference/tooltip.md#scope).
+
+---
+
 ## CrossTable InCell Charts — Nouveau test « Partition Gap » pour le Gap Mode *(août 2026)*
 
 Refonte de l'attribution des tests de significativité aux colonnes du [Gap Mode](../05-crosstable-charts/gap-mode.md) : ce n'était auparavant qu'un mapping fixe par numéro de slot (Signif 1 → Gap vs average, Signif 2 → Gap vs 2nd, Signif 3 → Gap vs 3rd), qui ne permettait ni d'empiler deux tests sur *Gap vs average*, ni de tester réellement « main vs 2e/3e partition ». Voir [Significance drives color](../05-crosstable-charts/gap-mode.md#significance-drives-color-the-scale-is-computed-per-column).

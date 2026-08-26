@@ -74,7 +74,9 @@ Draws a reference line at the zero position of the track, on top of the bar. **A
 
 ## Colors
 
-**Location**: Format pane → **Data Bar** card → **Bar colors** group.
+**Location**: Format pane → **Data Bar** card → **Bar colors** group. Which fields show depends on **Grouping**, below: the diverging colors here only matter with no grouping, and the per-category swatches only matter with grouping on — the visual shows/hides them automatically.
+
+### Single bar (no grouping)
 
 | Setting | Description |
 |---|---|
@@ -98,6 +100,14 @@ Negative from: #C0392B      Negative to: #FFFFFF
 When **Bar value** is set to a Follow Signif Rule, the bar's color is primarily driven by the test's own significance colors (see [Significance on Charts](significance-on-charts.md)) — **Positive/Negative from** only act as a fallback when no override color is configured for that test, and gradients/borders configured here do not apply in that case (the significance overlay supplies its own background, gradient direction included).
 :::
 
+### Grouped mode — Bar colors group
+
+When **Group into one chart** is on (see [Grouping](#grouping) below), the **Bar colors** group instead shows **one color swatch per distinct category** (e.g. Yes, No, Maybe) — Power BI's native per-series color picker, same mechanism as [Data Line](data-line.md#grouped-mode--series-colors-group). Each category gets a default color from the report's own color palette (the same theme-aware assignment Power BI uses for any chart's legend), and you can override any of them individually by clicking its swatch; the change is saved with the report like any other formatting choice.
+
+:::note[Color stability across groups]
+A category keeps the **same color everywhere**, even if it doesn't appear in every column-group — e.g. if one year only has Q3/Q4 while another has all four quarters, Q3 and Q4 still match the color they use elsewhere. Colors are assigned by category **name**, not by their position within a given group. Bar and Line overrides are stored independently (switching between the two doesn't carry your color picks across), but both fall back to the same report color palette when no override is set.
+:::
+
 ---
 
 ## Grouping
@@ -106,12 +116,25 @@ When **Bar value** is set to a Follow Signif Rule, the bar's color is primarily 
 
 Merges the last hierarchical level of columns (or rows) into a **single cell** containing one bar per series, each in its own series color, instead of one bar per individual cell. Useful when the last level is a small set of comparable categories (e.g. Yes/No, or three brands) that reads better as a small clustered chart than as separate columns.
 
-Series colors are assigned by category **name** (stable everywhere a category appears, even if it's missing from some groups) from the report's color palette — see Data Line's [Colors → Grouped mode](data-line.md#grouped-mode--series-colors-group) for the full behavior, including per-category overrides; it applies the same way here.
+Each series gets its own color, overridable individually — see [Colors → Grouped mode](#grouped-mode--bar-colors-group) above.
 
-A color legend for the series is shown under the table automatically when grouping is active, controlled by Data Line's [Legend](data-line.md#legend) group (**Show** / **Sort on label**) — there's no separate legend card under Data Bar.
+A color legend for the series is shown under the table automatically when grouping is active, controlled by Data Bar's own [Legend](#legend) group (**Show** / **Sort on label**).
 
 :::warning[Significance overlay not covered in grouped mode]
 The per-test significance overlay (marker/icon/font/background — see [Significance on Charts](significance-on-charts.md)) currently decorates **individual** bars only. When **Group into one chart** is on, grouped bars use their series color and do not show the significance overlay.
+:::
+
+### Legend
+
+**Location**: Format pane → **Data Bar** card → **Legend** group. Only visible/relevant when grouping is on.
+
+| Setting | Type | Default | Description |
+|---|---|---|---|
+| **Show** | Toggle | On | Shows/hides the color legend drawn below the table. |
+| **Sort on label** | Toggle | Off | Off (default) lists categories in Power BI's own data order — the order that best matches how your query returns them. On sorts entries alphabetically by category name instead. |
+
+:::note[Independent from Data Line's Legend]
+Data Bar and Data Line each have their **own** Legend group — they don't share settings, even though only one of the two can be active at a time (see [Data Line](data-line.md#legend)). Set Show/Sort separately for each if you switch between them.
 :::
 
 ---

@@ -13,11 +13,7 @@ It is easy to assume a table needs no tooltip — everything worth knowing is al
 
 ## Scope
 
-Cell Tooltip is available on both **CrossTable** and **CrossTable InCell Charts** — same settings, same content, same behavior.
-
-:::note[One gap on CrossTable InCell Charts]
-When [Data Bar or Data Line "Group into one chart"](../05-crosstable-charts/data-bar.md) merges several series into a single cell (one `<td>` holding multiple bars/points), the tooltip does not yet cover that merged cell — only "one cell = one bar/point" layouts are covered. Every other cell, including ungrouped Data Bar and Data Line cells, has the full tooltip.
-:::
+Cell Tooltip is available on both **CrossTable** and **CrossTable InCell Charts** — same settings, same content, same behavior. This also covers merged cells: when [Data Bar or Data Line "Group into one chart"](../05-crosstable-charts/data-bar.md) fuses several series into a single cell (one `<td>` holding multiple bars/points), hovering it shows one set of tooltip lines **per series**, labeled by that series' column path — same content options as an ordinary cell, just repeated once per merged series.
 
 ---
 

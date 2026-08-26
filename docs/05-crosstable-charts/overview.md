@@ -37,7 +37,7 @@ Everything **not** related to that trade-off — data roles, series mapping, sig
 | Table styles & 21 color themes | ✅ | ✅ |
 | Row header format override, freeze panes | ✅ | ✅ |
 | Row title fixed width | ✅ | ✅ |
-| **Cell Tooltip** (native Power BI tooltip on hover — bases, index, significance confidence…) | ✅ | ✅ *(not on "Group into one chart" merged cells — see [Cell Tooltip](../04-reference/tooltip.md#scope))* |
+| **Cell Tooltip** (native Power BI tooltip on hover — bases, index, significance confidence…) | ✅ | ✅ *(including "Group into one chart" merged cells — see [Cell Tooltip](../04-reference/tooltip.md#scope))* |
 | Zebra striping | ✅ | ❌ |
 | Cell text alignment override | ✅ | ❌ |
 | **Ranking** (badges, color gradients) | ✅ | ❌ |
