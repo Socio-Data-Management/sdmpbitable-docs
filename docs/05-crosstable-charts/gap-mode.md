@@ -31,7 +31,11 @@ A **Bar**/**Bar only** gap column renders through the same engine as an ordinary
 | **Gap vs 2nd** | Second partition (`gapSecondPartition`) | Main partition minus the named **second partition**. |
 | **Gap vs 3rd** | Third partition (`gapThirdPartition`) | Main partition minus the named **third partition**. |
 
-Only the gaps you configure are produced — leave **Second partition** / **Third partition** empty (and/or turn off **Gap vs average column**) to drop the corresponding column. If **no** gap column resolves in a given group of columns, that group is left untouched (raw partitions still show).
+Only the gaps you configure are produced — leave **Second partition** / **Third partition** empty (and/or turn off **Gap vs average column**) to drop the corresponding column. If **no** gap column resolves in a given group of columns (none of the configured Second/Third patterns match anything in that group), that group is left untouched (raw partitions still show).
+
+:::note[A group missing the main partition itself is rendered blank, not left untouched]
+This is different from the case above: if the **main partition** doesn't exist in a given group at all (common on a **side-by-side** table where each side-by-side table doesn't carry the exact same set of partitions — e.g. a model sold in one country but not another), that group still gets the **same gap columns** as every other group, but **blank** — no bar, no number — rather than keeping its original, differently-shaped set of partition columns. This keeps every side-by-side table's column structure identical. See [Troubleshooting](#troubleshooting).
+:::
 
 ---
 
@@ -105,6 +109,10 @@ On a **Bar**/**Bar only** column, the bar's fill always follows the deciding tes
 On a **Number** column there is no bar to fall back on, so the deciding test's **Significance view option** is what decides everything: **Font color** colors the figure itself, **Background color** colors the cell, **Icon**/**Marker** adds a symbol next to the figure. Pick **Font color** if you want the plain colored number you'd get from a Bar/Number column before this behavior existed.
 :::
 
+:::note[On a Bar column, the numeric label never mirrors the bar's own color]
+The bar's fill follows the deciding test's verdict, as described above — but the **numeric label** next to it only takes a color from an **active test whose view is Font color**. Absent one, the label stays in that column's configured **Neutral color** (see the ⚙ editor above), regardless of whether the bar itself is green or red. A green bar next to a green number is a coincidence of both following the *same* test's positive verdict — not the label "matching its bar".
+:::
+
 Each gap column gets its **own bar scale** (`min`/`max` computed from the actual gaps found in that column) rather than sharing the table-wide axis Data Bar normally uses — so a *Gap vs average* column ranging −6…+21 points doesn't get visually crushed by a *Gap vs 2nd* column ranging −28…+3.
 
 ---
@@ -134,7 +142,7 @@ A gap column only ever shows the arithmetic result (main − reference) — not 
 
 ## Troubleshooting
 
-- **"Main partition … not found" warning** → the **Main partition** text must match a column label exactly (or be a valid regular expression). Check the column headers seen for that group, listed in the warning message.
-- **A whole group is left unchanged** → Gap Mode only transforms groups where the main partition actually resolves; groups without it keep their raw partitions and the warning lists which group(s) were skipped.
+- **"Main partition … not found" warning** → the **Main partition** text must match a column label exactly (or be a valid regular expression), in **at least one** group across the whole table (side-by-side tables included) — Gap Mode can't locate where to insert gap columns for the table type otherwise. Check the column headers seen, listed in the warning message.
+- **A group renders blank instead of showing gaps** → that specific group doesn't have a column matching **Main partition** (while another group elsewhere in the table does) — see the note under [What each gap column shows](#what-each-gap-column-shows). The warning banner ("main partition missing in *N* column group(s) — those groups are left blank") tells you how many groups this affects; this is expected when a partition (e.g. a model) genuinely isn't present everywhere.
 - **A gap column is always gray** → **Gap vs average** needs at least one of the three tests set to something other than *None*/*Partition Gap*; **Gap vs 2nd**/**Gap vs 3rd** need one test set to **Partition Gap** specifically — see [Significance drives color](#significance-drives-color-the-scale-is-computed-per-column) above.
 - **⚙ icon not visible** → it only appears in the report's **Edit** view (not Reading view) and only while **Gap mode** is on.

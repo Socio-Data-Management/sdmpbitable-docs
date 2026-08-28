@@ -87,6 +87,8 @@ Data Bar's **Positive/Negative from/to** (in the *Data Bar* card) color the bar 
 
 The [significance legend](../04-reference/significance.md#significance-legend) (labels, suffixes, font) works identically and can be shown under the table regardless of whether the underlying cells are plain numbers or charts.
 
+**Position** (`legendPosition`) · **Options**: Top, Bottom · **Default**: Bottom — CrossTable InCell Charts-only addition. Moves the whole legend above or below the table; its own left/center/right layout (centered with one active test, spread left/right with two or three — see [Significance Legend → Layout](../04-reference/significance.md#layout)) is unchanged. Independent from the [Data Bar/Data Line series legend's Position](data-bar.md#legend), which additionally offers left/center/right control — the two legends can be placed on opposite sides of the table so they never compete for space.
+
 ---
 
 ## Grouped charts

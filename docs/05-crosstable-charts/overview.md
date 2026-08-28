@@ -33,9 +33,9 @@ Everything **not** related to that trade-off — data roles, series mapping, sig
 | Totals, sub-totals, base rows | ✅ | ✅ |
 | Thresholds & masking (incl. Cell Base / Cell Unweighted Base) | ✅ | ✅ |
 | Sorting (rows & columns) | ✅ | ✅ |
-| Logos (column & row headers) | ✅ | ✅ |
-| Table styles & 21 color themes | ✅ | ✅ |
-| Row header format override, freeze panes | ✅ | ✅ |
+| Logos (column & row headers) | ✅ *(dedicated data roles — see [Logos](../04-reference/logos.md))* | ✅ *(unified [Table Headers](table-headers.md) editor + lookup)* |
+| Table styles & 21 color themes | ✅ | ✅ *(+ Snow theme — see [Color Themes](../04-reference/formating/formatting-styles.md#color-themes))* |
+| Row header format override, freeze panes | ✅ | ✅ *(via [Table Headers](table-headers.md))* |
 | Row title fixed width | ✅ | ✅ |
 | **Cell Tooltip** (native Power BI tooltip on hover — bases, index, significance confidence…) | ✅ | ✅ *(including "Group into one chart" merged cells — see [Cell Tooltip](../04-reference/tooltip.md#scope))* |
 | Zebra striping | ✅ | ❌ |
@@ -63,9 +63,13 @@ CrossTable InCell Charts uses the **same data roles** as CrossTable:
 | **Column Variables** | Column dimension(s) — hierarchical, supports multiple levels |
 | **Values** | Numeric measure(s) populating the cells (count, mean, base, unweighted base, significance series…) |
 | **Merge Formula** | Optional DAX expression merging modalities |
-| **Column Logo Lv1/Lv2/Lv3**, **Row Logo Lv1/Lv2** | Optional base64 image measures for header logos |
+| **Additional Series** | Optional measures, each constant per column/row category — feeds [Table Headers](table-headers.md)' Logo series and Data Bar/Data Line's Color series, picked by measure name in the relevant card. |
 
 See [Percentage Series](../04-reference/percentage-series.md) and [Mean Series](../04-reference/mean-series.md) for how to map `Values` to Value / Base / Unweighted Base / Significance roles — this mapping drives both the numeric content **and** what a Data Bar / Data Line can chart (see [Data Bar](data-bar.md#bar-value--what-drives-the-length)).
+
+:::note[Header logos don't need a data role at all]
+The recommended way to put a logo in a header is the **Header logos** lookup (label → base64, resolved entirely in the visual) — see [Table Headers → Header logos](table-headers.md#header-logos--the-lookup-editor). **Additional Series** (above) is only needed for the cost profile a lookup can't cover: cases where a header's logo needs to be dynamically *computed*, not just looked up by category name.
+:::
 
 ---
 
@@ -75,7 +79,8 @@ See [Percentage Series](../04-reference/percentage-series.md) and [Mean Series](
 - [Data Line](data-line.md) — connected points across cells: markers, thickness, grouping, group separators.
 - [Significance on Charts](significance-on-charts.md) — how significance test results are shown when the cell content is a chart instead of a number.
 - [Gap Mode](gap-mode.md) — replace a column group's partitions with 1–3 "main vs. average / vs. competitor" gap columns, styled through a dedicated ⚙ editor.
-- Everything else (series, totals, thresholds, sorting, styles, logos, licensing) is documented under [CrossTable Reference](../04-reference/table-content.md) and applies unchanged.
+- [Table Headers](table-headers.md) — per-level column/row header presentation (background, font, logo, layout, free-form CSS) through two ⚙ editors, plus a zero-cost logo lookup.
+- Everything else (series, totals, thresholds, sorting, styles, licensing) is documented under [CrossTable Reference](../04-reference/table-content.md) and applies unchanged.
 
 :::note[Licensing]
 CrossTable InCell Charts is licensed independently from CrossTable — it is a separate product listing with its own Free/Pro editions (Free shows the "Powered by Socio Data Management" watermark and disables Excel export; Pro removes both). See [Editions Comparison](../01-introduction/editions.md).

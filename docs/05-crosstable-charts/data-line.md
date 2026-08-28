@@ -77,6 +77,12 @@ When **Group into one chart** is on (see [Grouping](#grouping) below), the **Ser
 A category keeps the **same color everywhere**, even if it doesn't appear in every column-group — e.g. if one year only has Q3/Q4 while another has all four quarters, Q3 and Q4 still match the color they use elsewhere. Colors are assigned by category **name**, not by their position within a given group.
 :::
 
+### Color series — driving colors from a measure
+
+**Setting**: Color series (`dataLineColorSeries`) · Format pane → **Data Line** card → **Series colors** group · Only visible when grouping is on
+
+An alternative to manually clicking each category's swatch: pick a measure bound to the **Additional Series** data role (one value per category, e.g. a `#RRGGBB` hex string) and every category takes its color from that measure instead. Leave it on **None** to keep manually-picked/default palette colors. See [Data Bar → Color series](data-bar.md#color-series--driving-colors-from-a-measure) — same mechanism, independent storage.
+
 ---
 
 ## Grouping
@@ -99,6 +105,7 @@ As with Data Bar, the per-test significance overlay does not apply to grouped li
 |---|---|---|---|
 | **Show** | Toggle | On | Shows/hides the color legend drawn below the table. |
 | **Sort on label** | Toggle | Off | Off (default) lists categories in Power BI's own data order — the order that best matches how your query returns them. On sorts entries alphabetically by category name instead. |
+| **Position** | Top left/center/right, Bottom left/center/right | Bottom center | Where the legend sits relative to the table. It aligns to the chosen edge/center on a single row (wrapping only if it's too wide to fit), rather than being confined to a fixed third of the table's width. |
 
 :::note[Independent from Data Bar's Legend]
 Data Bar has its **own** Legend group — they don't share settings, even though only one of the two can be active at a time (see [Data Bar](data-bar.md#legend)). Set Show/Sort separately for each if you switch between them.

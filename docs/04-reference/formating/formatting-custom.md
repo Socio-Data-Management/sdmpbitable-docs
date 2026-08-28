@@ -11,6 +11,10 @@ Fine-tune fonts, colors, and backgrounds for specific table elements to create h
 These settings correspond to **`topLevelHeaderSettings`**, **`subLevelHeaderSettings`**, **`rowHeaderSettings`**, and **`cellSettings`** in the configuration model.
 :::
 
+:::info[CrossTable InCell Charts uses a different mechanism for headers]
+The **Cell Format** section below still applies to both visuals. For **column and row headers**, CrossTable InCell Charts replaced the level-capped `Top-Level`/`Sub-Level Column Header` and `Row header format` cards described here with a unified, uncapped ⚙ editor — see [Table Headers](../../05-crosstable-charts/table-headers.md) instead.
+:::
+
 ---
 
 ## Overview

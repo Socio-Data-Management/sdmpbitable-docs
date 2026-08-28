@@ -5,6 +5,10 @@ title: Logos in Headers
 
 # Logos in Headers Reference
 
+:::info[CrossTable InCell Charts uses a different mechanism]
+This page describes **CrossTable**'s fixed logo data roles (`colLogoLvN`/`rowLogoLvN`) and its **Logos** card. **CrossTable InCell Charts** replaced both with a unified, uncapped ⚙ editor and a zero-cost label→logo lookup — see [Table Headers](../05-crosstable-charts/table-headers.md#logos-on-a-header) instead.
+:::
+
 ## Overview
 
 Logos let you display **images inside row and column headers** — for example company or brand logos in a competitor comparison, or product icons in a key-account table.

@@ -64,6 +64,7 @@ Apply a color palette to your chosen style theme. These coordinate colors work t
 | Forest ![forest](/img/colors/forest.png)          | Natural, organic, sustainable            | Greens, browns, earth tones     | Environmental, sustainable business            |
 | Gold ![gold](/img/colors/gold.png)                | Luxury, premium, formal                  | Gold, dark blue, cream          | Premium products, formal events                |
 | Light ![light](/img/colors/light.png)              | Clean, minimal, modern                   | Whites, light grays, accent color| Most business reports, web-friendly           |
+| Snow *(CrossTable InCell Charts only)* | Ultra-clean, minimal | Pure white header background, dark gray text | Reports where even Light's light-gray header feels too heavy |
 | Dark ![dark](/img/colors/dark.png)                | Night mode, tech, modern dashboards      | Darks, lights for contrast      | Dark dashboards, night viewing                 |
 | Colorful ![colorful](/img/colors/colorful.png)        | Engaging, playful, diverse               | Multi-color rainbow             | Engaging reports, diverse categories           |
 | Slate ![slate](/img/colors/slate.png)           | Professional, sophisticated, neutral     | Grays, dark grays, blue-grays   | Professional reports, neutral tone             |

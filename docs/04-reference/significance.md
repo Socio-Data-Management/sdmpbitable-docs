@@ -292,6 +292,10 @@ When at least one significance test uses **Font Color** display, the legend rend
 | 1 test active | Centered below the table |
 | 2 or 3 tests active | Blocks spread across the row (first left-aligned, last right-aligned, others distributed between) |
 
+:::note[CrossTable InCell Charts adds a Position field]
+CrossTable InCell Charts' Legend sub-card has an extra **Position** setting (**Top**/**Bottom**, default Bottom) controlling whether the legend sits above or below the table. It only moves the whole legend — the left/right layout described in the table above is unchanged. See [Significance on Charts → Legend](../05-crosstable-charts/significance-on-charts.md#legend).
+:::
+
 ### Font Settings
 
 All legend text shares a single **FontControl** (font family, bold, italic, underline, size) configurable in the Legend sub-card.

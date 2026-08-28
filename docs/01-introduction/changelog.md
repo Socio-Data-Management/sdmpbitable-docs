@@ -10,6 +10,48 @@ Depuis juillet 2026, la famille compte **deux visuels** : **CrossTable** (ce cha
 
 ---
 
+## CrossTable InCell Charts — Data Bar groupé : affichage des valeurs *(août 2026)*
+
+Les barres fusionnées par [Group into one chart](../05-crosstable-charts/data-bar.md#grouping) n'affichaient jusqu'ici **aucun chiffre** — seule la longueur de la barre était visible. Deux nouveaux réglages sur la carte *Data Bar*, remontés en test :
+
+- **Nouveau réglage Show values** (`dataBarShowValue`, défaut : activé) : affiche/masque le libellé chiffré de la barre. S'applique aussi bien à une barre simple qu'à des barres groupées — c'est ce même réglage qui permet enfin d'afficher un chiffre sur les barres groupées. Voir [Data Bar → Show values](../05-crosstable-charts/data-bar.md#show-values).
+- **Nouveau réglage Background** (`dataBarValueBackground`, défaut : activé, barres groupées uniquement) : en mode groupé, le libellé est écrit dans la couleur de SA PROPRE barre, ce qui peut produire du texte illisible sur une barre de même couleur (bleu sur bleu, orange sur orange) quand la barre remplit une grande partie de la cellule. Activé (par défaut), une pastille blanche semi-transparente est posée derrière le chiffre, qui reste lisible même à cheval sur sa barre, sans réduire la hauteur/largeur des barres. Désactivé, une marge dédiée est réservée au-dessus/en dessous (ou à côté, selon l'orientation) de chaque barre — les barres sont alors dessinées légèrement plus courtes pour laisser cette place, sans pastille. Voir [Data Bar → Background](../05-crosstable-charts/data-bar.md#background-grouped-bars-only).
+- **Correction associée — ascenseur horizontal permanent en barres groupées verticales** : le trait d'axe zéro débordait de 2px de chaque côté de la dernière cellule fusionnée d'une ligne (débord volontaire, prévu pour paraître continu d'une colonne à l'autre sur une barre simple, où un padding l'absorbe) — sans ce padding sur une cellule fusionnée, ce débord franchissait le bord du tableau et déclenchait un ascenseur horizontal permanent. Corrigé : ce débord ne s'applique plus aux barres (et lignes) groupées.
+
+---
+
+## CrossTable InCell Charts — Mode Écarts : groupes sans partition principale, couleur du texte *(août 2026)*
+
+Deux corrections sur le [Gap Mode](../05-crosstable-charts/gap-mode.md), remontées en test sur un tableau **side-by-side** (plusieurs tables, ex. un pays par table) :
+
+- **Un groupe sans la partition principale est maintenant rendu VIDE, pas laissé tel quel.** Auparavant, quand la partition principale (ex. un modèle) n'existait dans AUCUNE colonne d'une table donnée (ex. absente en France, présente en Allemagne), cette table entière gardait sa structure de colonnes d'origine — plus large que les tables transformées à côté — ce qui produisait un tableau non rectangulaire d'une table à l'autre et, en pratique, des colonnes blanches/mal alignées. La profondeur des partitions est désormais déterminée **une seule fois pour toutes les tables** (sur la première où le motif se trouve réellement), ce qui permet de localiser "le" groupe même dans une table où le motif n'apparaît pas, et d'y produire les **mêmes colonnes d'écart, vides**, plutôt qu'un pan entier de colonnes d'origine. Le bandeau d'avertissement dit maintenant *"...those groups are left blank"* (au lieu de *"left unchanged"*).
+- **La couleur du texte d'un écart en rendu Bar ne suit plus jamais la couleur de la barre.** Sur une colonne d'écart en rendu **Bar**, le libellé chiffré à côté de la barre reprenait la couleur positive/négative **de la barre elle-même** dès qu'aucune autre règle de significativité (vue *Font color*) n'était active — un écart positif affichait donc un chiffre vert à côté d'une barre verte, même sans rapport avec un test dédié. Le texte reste désormais dans la couleur **Neutral** configurée pour la colonne tant qu'aucune autre règle ne le colore explicitement — voir [Gap Mode → Bar vs. Number](../05-crosstable-charts/gap-mode.md#significance-drives-color-the-scale-is-computed-per-column).
+
+---
+
+## CrossTable InCell Charts — Positionnement des légendes *(août 2026)*
+
+- **Nouveau réglage Position sur la légende de séries** (Data Bar et Data Line groupés — carte *Legend* de chacun) : *Top left/center/right*, *Bottom left/center/right* (défaut : *Bottom center*). La légende s'aligne désormais réellement au bord choisi, sur une seule ligne quand elle tient, au lieu d'être confinée à un tiers de la largeur du tableau (correction d'un premier essai qui provoquait un retour à la ligne prématuré côté gauche/droite).
+- **Nouveau réglage Position sur la légende de significativité** (carte *Significance* → *Legend*) : *Top* / *Bottom* uniquement — sa propre disposition horizontale (centrée avec un seul test actif, répartie gauche/droite avec deux, voir [Significance Legend](../04-reference/significance.md#significance-legend)) reste inchangée, ce réglage ne pilote que l'axe haut/bas. Voir [Significance on Charts → Legend](../05-crosstable-charts/significance-on-charts.md#legend).
+- Les deux légendes se positionnent **indépendamment** l'une de l'autre — utile pour les séparer visuellement (ex. légende de séries en bas à droite, légende de significativité en bas à gauche) plutôt que de les empiler.
+
+---
+
+## CrossTable InCell Charts — En-têtes personnalisables : éditeur unifié, logos par lookup, layout Hiérarchique *(août 2026)*
+
+Refonte complète de la présentation des en-têtes de colonne/ligne. Voir la nouvelle page [Table Headers](../05-crosstable-charts/table-headers.md).
+
+- **Éditeur ⚙ « Table Headers » (Column Headers / Row Headers)** remplace les anciens réglages fixes plafonnés (`colLogoLv1-3`/`rowLogoLv1-2` comme 5 data roles séparées, `Top-Level`/`Sub-Level Column Header`, `Row header format`) par **deux listes JSON éditables**, une par niveau, gérées via une icône ⚙ (même moteur que l'éditeur du [Gap Mode](../05-crosstable-charts/gap-mode.md#per-column-presentation--the--editor)) : background, police, logo (mesure), disposition — **sans plafond de niveaux côté colonnes** (l'ancienne limite de 3 niveaux stylés disparaît), ligne plafonnée à 2 niveaux (limite architecturale réelle du regroupement de lignes).
+- **Mode couleur Inherit / Custom** par niveau : ajouter un niveau juste pour un logo ne force plus un fond blanc/texte noir sur tout le niveau — *Inherit* (défaut) laisse le thème du tableau décider.
+- **Logo Series** (mesure de la data role *Additional Series*) remplace les 5 anciennes data roles dédiées `colLogoLvN`/`rowLogoLvN`.
+- **Nouveau lookup « Header Logos »** (éditeur ⚙ dédié, libellé → logo base64) : résout les logos **entièrement côté visuel**, sans coût de requête — recommandé plutôt que *Logo series* dès que le logo ne dépend que de la catégorie (ex. un drapeau par pays), une mesure liée à la data role *Values* du Matrix étant sinon évaluée/transmise pour **chaque cellule**, ce qui peut à lui seul déclencher une troncature de la matrice sur un gros tableau.
+- **Layout de ligne « Hierarchical »** : sur un regroupement de lignes à 2 niveaux, le niveau 1 (ex. le nom du sous-tableau) peut désormais s'afficher en **bandeau pleine largeur** au-dessus de ses lignes filles, au lieu de la colonne fusionnée (*rowspan*) historique — réglage *Row layout* (*Side column* / *Hierarchical*) dans l'éditeur Row Headers, par niveau.
+- **Champ « Additional CSS »** par niveau (colonne comme ligne) : échappatoire CSS libre pour tout ce que les champs structurés ne couvrent pas (bordures en pointillés, écriture verticale, dégradés…) — les fragments `url(...)` sont retirés (même politique que les champs image, pas de chargement de ressource distante).
+- **Nouveau thème de couleur « Snow »** : fond d'en-tête blanc pur, texte gris très foncé.
+- **Corrections associées** : la case d'angle (coin haut-gauche) reprend maintenant le fond/texte custom du niveau 1 quand *Custom* est choisi (elle ne l'héritait pas auparavant) ; un plantage du webview (`TRUNCATION_ERROR` non intercepté) pouvant survenir sur un gros tableau a été corrigé — la troncature de la matrice affiche maintenant un message au lieu de faire planter le visuel.
+
+---
+
 ## CrossTable InCell Charts — Couleurs de séries & légende étendues au Data Bar *(août 2026)*
 
 Le color-picker natif par série et la carte **Legend**, jusqu'ici réservés au [Data Line groupé](../05-crosstable-charts/data-line.md#colors) (voir l'entrée « Couleurs de séries & légende » plus bas dans ce changelog), s'appliquent désormais de la même façon au **Data Bar** groupé — même mécanisme, repris du visuel sœur `linechart`. Voir [Data Bar → Colors](../05-crosstable-charts/data-bar.md#colors) et [Data Bar → Legend](../05-crosstable-charts/data-bar.md#legend).

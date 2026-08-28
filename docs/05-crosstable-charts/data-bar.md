@@ -29,6 +29,31 @@ For **Cell Value**, the bar always tracks whichever series you have checked in T
 
 ---
 
+## Show values
+
+**Setting**: Show values (`dataBarShowValue`) · **Type**: Toggle · **Default**: On
+
+Shows or hides the bar's numeric label. This applies equally to a **single bar** (one per cell) and to bars merged by [Group into one chart](#grouping) — grouped bars couldn't show a value at all before this setting existed. Turn it off (in either mode) to let the bar's length speak for itself, e.g. for a cleaner, less cluttered visual comparison.
+
+---
+
+## Background *(grouped bars only)*
+
+**Setting**: Background (`dataBarValueBackground`) · **Type**: Toggle · **Default**: On · Only shown when [grouping](#grouping) is on and **Show values** is on
+
+In grouped mode, each series draws its value directly next to (or on) its own bar, in that bar's own color. On a bar that fills most of the cell, that can put same-colored text over the bar itself — dark blue on dark blue, orange on orange — which is unreadable. Two ways to keep it legible:
+
+| Background | Behavior |
+|---|---|
+| **On** (default) | A small translucent white pill is drawn behind the value wherever it lands, including directly on top of the bar. Bars keep the full height/width of the cell. |
+| **Off** | No pill. Instead, a small margin is reserved above/below the bar (vertical bars) or beside it (horizontal bars) so the value always sits next to its bar, never on top of it — bars are drawn slightly shorter to make room for that margin. |
+
+:::tip[When to turn it off]
+Turn **Background** off if you'd rather have genuinely shorter bars with plain-colored numbers beside them — e.g. for a flatter, more print/export-friendly look than a translucent pill gives you.
+:::
+
+---
+
 ## Force sign
 
 **Setting**: Force sign (+/-) · **Type**: Toggle · **Default**: Off
@@ -108,6 +133,12 @@ When **Group into one chart** is on (see [Grouping](#grouping) below), the **Bar
 A category keeps the **same color everywhere**, even if it doesn't appear in every column-group — e.g. if one year only has Q3/Q4 while another has all four quarters, Q3 and Q4 still match the color they use elsewhere. Colors are assigned by category **name**, not by their position within a given group. Bar and Line overrides are stored independently (switching between the two doesn't carry your color picks across), but both fall back to the same report color palette when no override is set.
 :::
 
+### Color series — driving colors from a measure
+
+**Setting**: Color series (`dataBarColorSeries`) · Format pane → **Data Bar** card → **Bar colors** group · Only visible when grouping is on
+
+An alternative to manually clicking each category's swatch: pick a measure bound to the **Additional Series** data role (one value per category, e.g. a `#RRGGBB` hex string) and every category takes its color from that measure instead. Leave it on **None** to keep manually-picked/default palette colors. See [Table Headers → Logos on a header](table-headers.md#logos-on-a-header) for the sibling mechanism (**Additional Series** also feeds header logos).
+
 ---
 
 ## Grouping
@@ -119,6 +150,8 @@ Merges the last hierarchical level of columns (or rows) into a **single cell** c
 Each series gets its own color, overridable individually — see [Colors → Grouped mode](#grouped-mode--bar-colors-group) above.
 
 A color legend for the series is shown under the table automatically when grouping is active, controlled by Data Bar's own [Legend](#legend) group (**Show** / **Sort on label**).
+
+Grouped bars can show their value like a single bar can (see [Show values](#show-values)) — since a value can land directly on its own bar in this mode, [Background](#background-grouped-bars-only) controls how that stays readable.
 
 :::warning[Significance overlay not covered in grouped mode]
 The per-test significance overlay (marker/icon/font/background — see [Significance on Charts](significance-on-charts.md)) currently decorates **individual** bars only. When **Group into one chart** is on, grouped bars use their series color and do not show the significance overlay.
@@ -132,6 +165,7 @@ The per-test significance overlay (marker/icon/font/background — see [Signific
 |---|---|---|---|
 | **Show** | Toggle | On | Shows/hides the color legend drawn below the table. |
 | **Sort on label** | Toggle | Off | Off (default) lists categories in Power BI's own data order — the order that best matches how your query returns them. On sorts entries alphabetically by category name instead. |
+| **Position** | Top left/center/right, Bottom left/center/right | Bottom center | Where the legend sits relative to the table. It aligns to the chosen edge/center on a single row (wrapping only if it's too wide to fit), rather than being confined to a fixed third of the table's width. |
 
 :::note[Independent from Data Line's Legend]
 Data Bar and Data Line each have their **own** Legend group — they don't share settings, even though only one of the two can be active at a time (see [Data Line](data-line.md#legend)). Set Show/Sort separately for each if you switch between them.
@@ -143,7 +177,7 @@ Data Bar and Data Line each have their **own** Legend group — they don't share
 
 **Setting**: Value number format *(Table Format card, shared with the rest of the table)* · **Options**: None, k/M/B, Auto · **Default**: None
 
-Controls whether large raw values (not percentages, not indices) are abbreviated on the bar's numeric label — e.g. `1.2M` instead of `1200000`. This keeps the label from crowding out the bar itself on wide-range mean/count tables.
+Controls whether large raw values (not percentages, not indices) are abbreviated on the bar's numeric label — e.g. `1.2M` instead of `1200000`. This keeps the label from crowding out the bar itself on wide-range mean/count tables. To show or hide the label entirely, see [Show values](#show-values); for grouped bars specifically, see [Background](#background-grouped-bars-only) for how the label stays readable over its own bar.
 
 ---
 
