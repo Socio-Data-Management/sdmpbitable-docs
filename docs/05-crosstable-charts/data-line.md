@@ -97,6 +97,14 @@ Same principle as Data Bar's [Grouping](data-bar.md#grouping): merges the last h
 As with Data Bar, the per-test significance overlay does not apply to grouped lines — grouped points use their series color only.
 :::
 
+:::tip[The merged level's old header label is now redundant]
+See [Table Headers → Hiding a header level](table-headers.md#hiding-a-header-level) to remove a now-redundant column or row label cleanly, instead of leaving it in place once the series legend already shows the same category names.
+:::
+
+:::note[Group last-level rows: no connecting line across sub-tables]
+With **Group last-level rows** and 2-level row grouping (a sub-table per top-level row category, e.g. one per country), each sub-table only ever produces one merged cell per column — there's no second point in the same sub-table to connect to **vertically**. Connecting each series' point from one sub-table down to the next (e.g. the same year, across countries) isn't implemented yet; you get isolated points there rather than a broken line. The horizontal case (connecting across columns *within* one sub-table, the far more common use — e.g. a trend across years) works as expected.
+:::
+
 ### Legend
 
 **Location**: Format pane → **Data Line** card → **Legend** group. Only visible/relevant when grouping is on.

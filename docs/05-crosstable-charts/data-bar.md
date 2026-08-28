@@ -157,6 +157,10 @@ Grouped bars can show their value like a single bar can (see [Show values](#show
 The per-test significance overlay (marker/icon/font/background — see [Significance on Charts](significance-on-charts.md)) currently decorates **individual** bars only. When **Group into one chart** is on, grouped bars use their series color and do not show the significance overlay.
 :::
 
+:::tip[The merged level's old header label is now redundant]
+Once a column or row level is merged into a grouped chart, its individual header label (e.g. each category name that used to head its own column, or label its own row) usually just repeats what the series legend already shows. See [Table Headers → Hiding a header level](table-headers.md#hiding-a-header-level) to remove it cleanly — add a block for that level in the relevant ⚙ editor and uncheck **Show this header**.
+:::
+
 ### Legend
 
 **Location**: Format pane → **Data Bar** card → **Legend** group. Only visible/relevant when grouping is on.

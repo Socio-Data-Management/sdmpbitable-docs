@@ -32,6 +32,7 @@ A level with **no** block configured simply shows the active style theme's defau
 
 | Field | Type | Default | Description |
 |---|---|---|---|
+| **Show this header** | Toggle | On | Unchecking it hides this level's header row (columns) or column (rows) — see [Hiding a header level](#hiding-a-header-level) below. All other fields for this level are hidden in the editor while it's off, since there's nothing left to style. |
 | **Header colors** | Inherit / Custom | Inherit | *Inherit* lets the [style theme](../04-reference/formating/formatting-styles.md) decide this level's background and font color — the recommended default when you're only adding a level for its logo. *Custom* reveals **Background** and **Font color** below. |
 | **Background** | Color | White | *(Custom only)* Background of every header cell at this level — including the corner cell, for Column level 1. |
 | **Font color** | Color | Black | *(Custom only)* Text color at this level. |
@@ -45,6 +46,20 @@ A level with **no** block configured simply shows the active style theme's defau
 | **Additional CSS** | Free text (multi-line) | *(empty)* | Raw CSS declarations appended to this level's generated style rule — see [Additional CSS](#additional-css) below. |
 
 Changes save back into the underlying JSON field (`Column headers` / `Row headers`) and persist with the report, like any other formatting property.
+
+---
+
+## Hiding a header level
+
+To hide a column or row header level, **add a level block in the relevant ⚙ editor and uncheck "Show this header"** — there's no separate on/off setting elsewhere; this field *is* the mechanism. A level with no block configured is always shown at its theme default, so hiding one means adding a block for it (via **Add level**) specifically to turn it off.
+
+This is a genuine removal, not a CSS-level hide: the visual doesn't create that header row (columns) or column (rows) at all, rather than rendering it invisibly. That matters because a naive hide (`visibility: hidden`, which still reserves the space, or `display: none` on a single row-header cell, which shifts every cell after it out of alignment) gets either wasted whitespace or a misaligned table — neither of which happens here. The corner cell's span shrinks to match whichever levels remain.
+
+The most common reason to do this: a row or column level whose label stopped being meaningful once merged into a [grouped chart](data-bar.md#grouping) — e.g. group **Awareness**/**Familiarity** into one chart per row (**Group last-level rows**) and their old per-row labels no longer say anything a category-colored legend entry doesn't already say. Add a block for that row level and uncheck **Show this header**.
+
+:::note[Row headers: hiding also affects the Base/Unweighted Base/Signif Base row labels]
+On row headers, the per-row label level and the label column used by the **Base**/**Unweighted Base**/**Signif Base** total rows are the same column — hiding one hides the other too, so those total rows keep the same column count as the data rows above them (a total row can't have one more column than the data rows without breaking alignment).
+:::
 
 ---
 
@@ -140,3 +155,4 @@ Any `url(...)` fragment is silently stripped before use — the same "no externa
 - **Table got slow / truncated after adding a logo** → if you're using **Logo series**, switch to **Header logos** (the lookup editor) — see the cost explanation [above](#header-logos--the-lookup-editor).
 - **Additional CSS doesn't seem to apply** → structured fields (Background, Font color…) are written with `!important`; add `!important` to your own declaration if it's meant to override one of them.
 - **Row layout: Hierarchical has no effect** → it only applies to Row Header **Level 1**, and only when the table actually has 2-level row grouping; it's currently ignored in side-by-side (Table of Tables) mode.
+- **I don't see an on/off switch to hide a header level** → there isn't a separate one; open the relevant ⚙ editor, **Add level** for that level if it doesn't have a block yet, and uncheck **Show this header** — see [Hiding a header level](#hiding-a-header-level).
