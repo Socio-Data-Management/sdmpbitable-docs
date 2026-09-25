@@ -13,6 +13,10 @@ title: Table Headers
 This page describes a mechanism that only exists in CrossTable InCell Charts. CrossTable itself still uses the fixed level-suffixed settings and dedicated logo data roles documented under [Logos in Headers](../04-reference/logos.md) and [Custom Element Formatting](../04-reference/formating/formatting-custom.md).
 :::
 
+:::tip[Want to bind logos from a DAX measure?]
+See the [Header Logos tutorial](tutorial-header-logos.md) for a full, click-by-click walkthrough — from base64-encoding your images to wiring a `CONCATENATEX` measure into the **Header logos** lookup.
+:::
+
 **Location**: Format pane → **Table Headers** card, holding two JSON text fields (`Column headers`, `Row headers`) managed through their own **⚙ gear icons**, plus a **Header logos** field with its own **⚙**. The gear icons appear at the top-right of the visual in the report's **Edit** view.
 
 ---
@@ -27,6 +31,8 @@ Click the **🏛️** icon (Column Headers) or **📝** icon (Row Headers) to op
 | **Row Headers** | Level 1 (outer, only meaningful with 2-level row grouping) / Level 2 (inner) | 2 — row grouping never produces more than 2 row levels in this visual. |
 
 A level with **no** block configured simply shows the active style theme's default — you only need to add a level to override something.
+
+📸 **Screenshot — Format pane / editor dialog** `tableheaders-editor-open.png` — the Column Headers (or Row Headers) ⚙ editor open, showing one configured level block with its fields.
 
 ### Fields (per level)
 
@@ -47,6 +53,8 @@ A level with **no** block configured simply shows the active style theme's defau
 
 Changes save back into the underlying JSON field (`Column headers` / `Row headers`) and persist with the report, like any other formatting property.
 
+📸 **Screenshot — rendered result** `tableheaders-logoplacement-montage.png` — the same header with a logo, compared across the three **Logo placement** options: Logo only, Logo above text, Logo under text.
+
 ---
 
 ## Hiding a header level
@@ -60,6 +68,9 @@ The most common reason to do this: a row or column level whose label stopped bei
 :::note[Row headers: hiding also affects the Base/Unweighted Base/Signif Base row labels]
 On row headers, the per-row label level and the label column used by the **Base**/**Unweighted Base**/**Signif Base** total rows are the same column — hiding one hides the other too, so those total rows keep the same column count as the data rows above them (a total row can't have one more column than the data rows without breaking alignment).
 :::
+
+📸 **Screenshot — rendered result** `tableheaders-hidelevel-before.png` — a table with the redundant row level still shown (e.g. after grouping Awareness/Familiarity into one chart, the old per-row labels).
+📸 **Screenshot — rendered result** `tableheaders-hidelevel-after.png` — the same table with that level's **Show this header** unchecked: the level is gone, corner cell span shrunk to match.
 
 ---
 
@@ -89,6 +100,29 @@ CONCATENATEX(
     ","
 ) & "]"
 ```
+
+See the [Header Logos tutorial](tutorial-header-logos.md) for the full walkthrough, from base64-encoding your images to binding this measure.
+
+#### Named logo tables — more than one lookup in the same field
+
+By default every entry in **Header logos** lands in one shared namespace — any level whose label matches gets that logo. If two unrelated sets of logos happen to share a label (or you'd simply rather keep them apart — e.g. country flags at one row level and brand marks at another, both produced by the same DAX measure into one JSON array), tag each entry with an optional **`table`** field:
+
+```json
+[
+  { "label": "France",  "logo": "data:image/png;base64,...", "table": "countries" },
+  { "label": "Brand A", "logo": "data:image/png;base64,...", "table": "brands" }
+]
+```
+
+Entries with **no** `table` field stay in the default (untagged) namespace and keep applying automatically to any level that hasn't opted into a named table — this is fully backward compatible with a plain flat lookup.
+
+To make a level use one named table specifically, pick it from that level's **Logo series** dropdown — named tables found in your **Header logos** JSON appear there (prefixed 🖼️), alongside the normal **Additional Series** measures. A level can use *either* a named lookup table *or* a **Logo series** measure, never both at once — picking one clears the other.
+
+📸 **Screenshot — Format pane settings** `tableheaders-namedtable-dropdown.png` — a level's **Logo series** dropdown open, showing a 🖼️-prefixed named table entry alongside normal Additional Series measures.
+
+:::note[Renamed or deleted table]
+If a level points at a named table that no longer exists in **Header logos** (renamed, or its entries removed), that level silently falls back to showing the plain text label — exactly as if no logo were configured — rather than erroring.
+:::
 
 ### Logo series
 
@@ -122,6 +156,9 @@ Side column                      Hierarchical
 
 The banner row picks up **Level 1's own** Background/Font/Additional CSS — style it like any other level. Combine it with [Additional CSS](#additional-css) to get, for example, a dashed border framing each section.
 
+📸 **Screenshot — rendered result** `tableheaders-rowlayout-sidecolumn.png` — a 2-level row grouping with Level 1's **Row layout** set to **Side column** (the historical narrow first-column look).
+📸 **Screenshot — rendered result** `tableheaders-rowlayout-hierarchical.png` — the same table with **Hierarchical**: Level 1's label as a full-width banner row above its Level 2 group.
+
 :::note[Field is per level, layout scope is Level 1 today]
 **Row layout** is exposed on every row level in the editor, but only **Level 1**'s value has an effect today — this visual currently only ever groups rows two levels deep. The per-level field is forward-looking, for a planned N-dimension version where each row level will pick its own layout independently.
 :::
@@ -140,6 +177,8 @@ A free-text field, per level, for anything the structured fields above can't exp
 border: 2px dashed #999999 !important;
 border-radius: 6px;
 ```
+
+📸 **Screenshot — rendered result** `tableheaders-additionalcss-example.png` — a header level styled with the CSS above: a dashed border framing that level's cells.
 
 :::warning[No remote resources]
 Any `url(...)` fragment is silently stripped before use — the same "no external network access" policy applied to logo images (see [Logos → Security & certification](../04-reference/logos.md#security--certification)) extends to this free-form field, so it can't be used to load a remote background image or font.

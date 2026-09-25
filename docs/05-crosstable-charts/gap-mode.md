@@ -13,6 +13,10 @@ Instead of reading raw values for every brand/model in a group, Gap Mode collaps
 
 **Location**: Format pane → **Gap Mode** card → master toggle **Gap mode**.
 
+:::tip[New to Gap Mode?]
+This page is the exhaustive field reference. For a guided, click-by-click setup on a concrete example (including the significance test wiring, which is the part most people get stuck on), see the [Gap Mode tutorial](tutorial-gap-mode.md).
+:::
+
 :::note[A transformation, not a new engine]
 Gap Mode does not add a new calculation engine. It transforms the column tree *after* significance testing and *before* the bar/line scales are computed, replacing each group's partitions with up to three terminal columns. Everything downstream — headers, Data Bar, Data Line, masking, thresholds, freeze panes, Excel export — treats those gap columns like any other column, because that's exactly what they become.
 :::

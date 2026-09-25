@@ -85,20 +85,12 @@ Displays index values (typically with 100 as base). Useful for comparing relativ
 
 ## Empty Datasets
 
-### Clear on Empty dataset
-**Label**: Clear on Empty dataset  
-**Type**: Toggle  
-**Default**: Off
+When the incoming dataset contains **no rows** — most commonly when a page or report filter excludes everything — the table is never drawn (no empty "shell" made of a column header and a `Base` row at 0), and the Excel export button is hidden whatever the *Show Excel Export Button* setting says, since there would be nothing to export.
 
-Controls what the visual shows when the incoming dataset contains **no rows** — most commonly when a page or report filter excludes everything.
+What the visual shows instead — a message you style yourself, or nothing at all — is controlled by the **Global Threshold** card, shared with CrossTable InCell Charts. That card also hides the table on a test of your own (a base below your publication threshold, say): see [Global Threshold](../06-common-settings/global-threshold.md).
 
-Without this option, an empty dataset would still draw an empty "shell" (a column header plus a `Base` row at 0), which can look like the visual is broken. This toggle lets you choose a cleaner behavior instead:
-
-- **Off (default)** — the visual displays a localized **"No data to display"** message. The message is translated into every language the visual supports.
-- **On** — the visual renders **nothing at all**, clearing any previous content. Power BI is still notified that rendering has completed, so the visual does not appear stuck in a loading state.
-
-:::info[The Excel export button is never shown on an empty dataset]
-Regardless of the *Show Excel Export Button* setting, the export button is always hidden when there is no data, since there would be nothing to export.
+:::info[*Clear on Empty dataset* has been replaced]
+The toggle that used to live here only chose between a hard-coded *"No data to display"* message and a blank screen. It is gone, replaced by the Global Threshold card — its **Empty Panel** property has the opposite polarity, and the old value is not carried over. See [Coming from *Clear on Empty dataset*](../06-common-settings/global-threshold.md#coming-from-clear-on-empty-dataset).
 :::
 
 ---

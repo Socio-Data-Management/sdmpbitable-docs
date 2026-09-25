@@ -48,6 +48,9 @@ Instead of coloring table cell backgrounds/borders and printing letters, each ac
 
 Configure the view **per test** (Significance 1 / 2 / 3 each have their own **Significance view option**), exactly as in CrossTable.
 
+📸 **Screenshot — rendered result** `sigcharts-overlay-databar-views.png` — the same significant Data Bar cell shown 4 times, one per usable view (Font color, Background color, Marker, Icon), for side-by-side comparison.
+![Data Line point with Icon view, then with Marker view — Font/Background have no effect on a line](../images/sigcharts-overlay-dataline-views.png)
+
 :::note[Gap Mode is the one exception]
 This table describes an ordinary Data Bar/Data Line cell. [Gap Mode](gap-mode.md) cells are a genuine cell (not a bare chart mark), so **Border color** *does* work there — see [Gap Mode → Bar vs. Number](gap-mode.md#significance-drives-color-the-scale-is-computed-per-column).
 :::
@@ -56,6 +59,8 @@ This table describes an ordinary Data Bar/Data Line cell. [Gap Mode](gap-mode.md
 
 - **Font color** and **Background color** are single values — if more than one active test requests them on the same cell, the **first** matching test (1, then 2, then 3) wins.
 - **Marker** and **Icon** **stack** — you can see, for example, test 1's icon *and* test 2's marker on the same bar tip at once.
+
+📸 **Screenshot — rendered result** `sigcharts-stacking-example.png` — a bar tip showing two decorations at once: one test's icon and another test's marker, stacked.
 
 ---
 
@@ -74,12 +79,18 @@ This table describes an ordinary Data Bar/Data Line cell. [Gap Mode](gap-mode.md
 Data Bar's **Positive/Negative from/to** (in the *Data Bar* card) color the bar based on its **sign**, regardless of significance. Significance's **Background start/Gradient end** (in the *Significance* card) color it based on a **test's verdict**, and only take effect when *Bar value* is set to a *Follow Signif Rule* and that test's view is *Background color*. When both could apply, the significance colors win — see [Data Bar Colors](data-bar.md#colors).
 :::
 
+![Significance colors group — Positive/Negative Background start, Gradient end, Gradient direction](../images/sigcharts-gradient-settings.png)
+![Follow Signif Rule bars rendered with the significance gradient above](../images/sigcharts-gradient-example.png)
+
 ---
 
 ## Marker shapes & custom icons
 
 - **Marker shape** — Circle, Square, Diamond or Triangle, set per test (Significance 1 / 2 / 3), used when that test's view is **Marker**.
 - **Custom icon (base64)** — replace the default green/red triangle with your own image, set per test and per direction (**Custom icon positive**, **Custom icon negative**), used when that test's view is **Icon**.
+
+📸 **Screenshot — rendered result** `sigcharts-markershapes-montage.png` — the four marker shapes (Circle, Square, Diamond, Triangle) compared side by side on otherwise identical bars.
+![Custom base64 icons instead of the default green/red triangle — two examples](../images/sigcharts-customicon-example.png)
 
 ---
 
@@ -88,6 +99,9 @@ Data Bar's **Positive/Negative from/to** (in the *Data Bar* card) color the bar 
 The [significance legend](../04-reference/significance.md#significance-legend) (labels, suffixes, font) works identically and can be shown under the table regardless of whether the underlying cells are plain numbers or charts.
 
 **Position** (`legendPosition`) · **Options**: Top, Bottom · **Default**: Bottom — CrossTable InCell Charts-only addition. Moves the whole legend above or below the table; its own left/center/right layout (centered with one active test, spread left/right with two or three — see [Significance Legend → Layout](../04-reference/significance.md#layout)) is unchanged. Independent from the [Data Bar/Data Line series legend's Position](data-bar.md#legend), which additionally offers left/center/right control — the two legends can be placed on opposite sides of the table so they never compete for space.
+
+📸 **Screenshot — rendered result** `sigcharts-legend-top.png` — the significance legend shown above the table (**Position**: Top).
+📸 **Screenshot — rendered result** `sigcharts-legend-bottom.png` *(optional)* — the same legend shown below the table (**Position**: Bottom, the default).
 
 ---
 

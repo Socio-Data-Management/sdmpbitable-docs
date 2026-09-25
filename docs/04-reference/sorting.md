@@ -43,12 +43,65 @@ If you use this setting for numeric labels like "1", "2", "3", the **'10'** labe
 
 
 #### Column Value
-Sorts rows based on values from a specific column you select.
+Sorts rows based on the values found in one specific column of the table, which you designate with a **column path**.
 
 **Use Cases**:
 - Sort products by highest sales
 - Rank regions by satisfaction score
 - Order responses by frequency
+
+##### Writing the column path
+
+**Setting**: Row Sort on column (visible only when Row Sorting = *Column Value*)  
+**Type**: Text input  
+**Format**: One column label per hierarchy level, separated by a pipe `|`
+
+The path walks the **column hierarchy from left to right**: the first segment is a label of the first (top) column level, the second segment a label of the second level, and so on, until it reaches the column whose values must drive the sort.
+
+**Example with two column levels** — a table crossed by *Gender > Age*:
+
+```
+                    Male                      Female
+             18-34       35-54         18-34       35-54
+Product A     12          18            25          31
+Product B     34          22            17          28
+Product C     21          40            39          14
+```
+
+| To sort the rows on...                 | Enter this path   |
+|----------------------------------------|-------------------|
+| the *Female / 35-54* column            | `Female\|35-54`   |
+| the *Male / 18-34* column              | `Male\|18-34`     |
+| the *Female* subtotal (whole group)    | `Female`          |
+| the grand **Total** column             | *(leave empty)*   |
+
+With the path `Female|35-54` and a *Descending* order, the rows of the example above are reordered on that single column: **Product A (31), Product B (28), Product C (14)**.
+
+##### Path rules
+
+| Rule | Detail |
+|---|---|
+| **Separator** | The pipe character `\|`. One segment per column level, top level first. |
+| **Case & spaces** | Ignored. `female \| 35-54` is the same as `Female\|35-54`. |
+| **Matching** | The **exact** displayed header label, matched in full. This is *not* a regex and *not* a partial match (unlike the pattern used by [Significance](significance.md)). |
+| **Quotes** | Optional. `"Female"\|"35-54"` is equivalent to `Female\|35-54`. |
+| **Empty path** | Sorts on the row **Total** column. |
+| **Partial path** | Fewer segments than there are levels targets the **subtotal** of that column group (`Female` on a 2-level table = the Female subtotal). |
+| **Number of levels** | Any depth is supported — a 3-level table accepts `2025\|France\|My Brand`. |
+
+:::tip Finding the exact paths of your table
+The **Regex match status** read-only field of the *Significance* card lists all the column paths that actually exist in your table. It displays them with a ` > ` separator (`Female > 35-54`), so replace ` > ` with `|` before pasting a path into the sort field.
+:::
+
+:::caution
+If the path matches no column, **no error is displayed**: every row gets a null sort value and the rows simply stay in their original order. Check the spelling of each segment, and remember that the labels are the ones *displayed* in the table (after any renaming or masking).
+
+Rows that have **no value** in the designated column are always pushed to the **end** of the table, whatever the sorting order.
+:::
+
+:::info
+The [Column Property](#column-property) setting (Value / Horizontal Percentage / Indice) decides *which* number of the designated cell is used. For instance `Female|35-54` combined with *Horizontal Percentage* sorts the rows on the horizontal percentage of that cell.
+:::
 
 ---
 
@@ -244,5 +297,8 @@ A: Check the exact spelling and case of row labels
 
 **Q: Column value sort uses wrong column**  
 A: Verify you selected the correct column in "Row Sort Column" setting
+
+**Q: I set "Column Value" sorting but nothing moves**  
+A: The column path matched no column, so all rows share a null sort value. Check every segment of the path against the labels displayed in the table, and make sure the segments are separated by a pipe `|` (not by ` > `, which is only the display format of the *Regex match status* field).
 
 For more help, see the [Quick Start Guide](../02-getting-started/quick-start.md).

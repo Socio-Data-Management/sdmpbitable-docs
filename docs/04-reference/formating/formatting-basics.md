@@ -235,6 +235,57 @@ This is particularly useful when you have the same column variables but differen
 
 ---
 
+## Row Sizing & Spacing
+
+### Row Height
+**Setting**: Row height (px)  
+**Type**: Number (0-∞)  
+**Default**: 0 (automatic)
+
+Forces a **minimum** height for every data row, in pixels. This never truncates content — a row with more content (wrapped labels, larger fonts) still grows taller than the value you set; `0` simply lets each row use its natural height.
+
+**Use cases**:
+- Airier layouts: give every row consistent visual breathing room
+- Aligning row rhythm across multiple tables/visuals on the same report page
+- Preventing short rows from looking cramped next to taller ones elsewhere in the table
+
+**Tips**:
+- Leave at 0 (automatic) unless you have a specific layout reason
+- This is a floor, not a fixed height — tall content is never clipped
+
+### Row Group Spacing
+**Setting**: Row group spacing  
+**Type**: Number (px, minimum 0)  
+**Default**: 0 (no gap)
+
+Adds a vertical gap between consecutive **row groups** — the sub-tables that appear when rows have two hierarchy levels (one top-level category, e.g. a country, each with its own set of sub-rows). Only has a visible effect with exactly 2 row levels; with a single row level there's nothing to space apart.
+
+**Visual effect**:
+```
+Row group spacing: 0                Row group spacing: 12px
+┌─────────────┬─────┐               ┌─────────────┬─────┐
+│ France      │     │               │ France      │     │
+│  Product A  │ 100 │               │  Product A  │ 100 │
+│  Product B  │  85 │               │  Product B  │  85 │
+│ Germany     │     │               └─────────────┴─────┘
+│  Product A  │ 120 │                     (gap)
+│  Product B  │  95 │               ┌─────────────┬─────┐
+└─────────────┴─────┘               │ Germany     │     │
+                                     │  Product A  │ 120 │
+                                     │  Product B  │  95 │
+                                     └─────────────┴─────┘
+```
+
+**Use cases**:
+- Visually separating one sub-table (one country, one wave, one segment) from the next
+- Making a stacked-sub-tables layout easier to scan at a glance
+
+**Tips**:
+- No effect unless rows have exactly 2 levels (one sub-table per top-level category)
+- `0` keeps the historical, contiguous layout
+
+---
+
 ## Header Visibility
 
 ### Show Column Header

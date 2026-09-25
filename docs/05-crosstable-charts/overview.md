@@ -11,6 +11,22 @@ Think of it as a Power BI custom visual dedicated to the "in-cell chart" pattern
 
 ---
 
+## What it looks like
+
+**Data Bar** — a diverging bar per cell, table-wide axis, single or grouped (see [Data Bar](data-bar.md)):
+
+![Data Bar examples — diverging horizontal bars per cell, single-series and grouped variants](../images/overview-databar-example.png)
+
+**Data Line** — a connected point per cell, forming a sparkline-like trend across columns (see [Data Line](data-line.md)):
+
+![Data Line examples — connected points across columns, single-series and grouped variants](../images/overview-dataline-example.png)
+
+**Gap Mode** — a column group collapsed into "main vs. average / vs. competitor" gap columns, configured through its own card and ⚙ editor (see [Gap Mode](gap-mode.md) and the [Gap Mode tutorial](tutorial-gap-mode.md)):
+
+![Gap Mode example — partition columns replaced by colored gap bars, with the Main/Second/Third partition pickers shown below](../images/overview-gapmode-example.png)
+
+---
+
 ## Why a separate visual?
 
 CrossTable InCell Charts was split out from CrossTable so each visual can stay focused:
@@ -78,8 +94,8 @@ The recommended way to put a logo in a header is the **Header logos** lookup (la
 - [Data Bar](data-bar.md) — diverging bar chart per cell: modes, orientation, colors and gradients, border, zero-axis style, grouping.
 - [Data Line](data-line.md) — connected points across cells: markers, thickness, grouping, group separators.
 - [Significance on Charts](significance-on-charts.md) — how significance test results are shown when the cell content is a chart instead of a number.
-- [Gap Mode](gap-mode.md) — replace a column group's partitions with 1–3 "main vs. average / vs. competitor" gap columns, styled through a dedicated ⚙ editor.
-- [Table Headers](table-headers.md) — per-level column/row header presentation (background, font, logo, layout, free-form CSS) through two ⚙ editors, plus a zero-cost logo lookup.
+- [Gap Mode](gap-mode.md) — replace a column group's partitions with 1–3 "main vs. average / vs. competitor" gap columns, styled through a dedicated ⚙ editor. See also the [Gap Mode tutorial](tutorial-gap-mode.md) for a full worked example.
+- [Table Headers](table-headers.md) — per-level column/row header presentation (background, font, logo, layout, free-form CSS) through two ⚙ editors, plus a zero-cost logo lookup. See also the [Header Logos tutorial](tutorial-header-logos.md) for wiring a DAX measure into it.
 - Everything else (series, totals, thresholds, sorting, styles, licensing) is documented under [CrossTable Reference](../04-reference/table-content.md) and applies unchanged.
 
 :::note[Licensing]

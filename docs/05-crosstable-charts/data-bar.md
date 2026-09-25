@@ -35,6 +35,9 @@ For **Cell Value**, the bar always tracks whichever series you have checked in T
 
 Shows or hides the bar's numeric label. This applies equally to a **single bar** (one per cell) and to bars merged by [Group into one chart](#grouping) — grouped bars couldn't show a value at all before this setting existed. Turn it off (in either mode) to let the bar's length speak for itself, e.g. for a cleaner, less cluttered visual comparison.
 
+![Data Bar with Show values on — numeric label visible next to each bar](../images/databar-showvalue-on.png)
+![Data Bar with Show values off — bar length only, no label](../images/databar-showvalue-off.png)
+
 ---
 
 ## Background *(grouped bars only)*
@@ -52,6 +55,9 @@ In grouped mode, each series draws its value directly next to (or on) its own ba
 Turn **Background** off if you'd rather have genuinely shorter bars with plain-colored numbers beside them — e.g. for a flatter, more print/export-friendly look than a translucent pill gives you.
 :::
 
+![Grouped Data Bar with Background on — translucent pill behind values landing on their bar](../images/databar-background-on.png)
+![Grouped Data Bar with Background off — shorter bars, values sit in the reserved margin](../images/databar-background-off.png)
+
 ---
 
 ## Force sign
@@ -59,6 +65,8 @@ Turn **Background** off if you'd rather have genuinely shorter bars with plain-c
 **Setting**: Force sign (+/-) · **Type**: Toggle · **Default**: Off
 
 When on, positive values are always prefixed with an explicit `+` (e.g. `+4.2`) instead of relying on the natural minus sign for negatives only. Useful when the bar represents an écart and you want the direction to be unambiguous even when read out of context (tooltip, export).
+
+![Data Bar with Force sign on — positive values prefixed with an explicit +](../images/databar-forcesign-example.png)
 
 ---
 
@@ -71,7 +79,10 @@ When on, positive values are always prefixed with an explicit `+` (e.g. `+4.2`) 
 | **Vertical axis** (default) | Vertical line, centered in the cell | Horizontal bars extending left/right | To the right of the bar |
 | **Horizontal axis** | Horizontal line, aligned the same way across a table row | Vertical bars extending up/down | Above the bar |
 
-Use **Vertical axis** for the classic "one bar per row, reading down a column" layout (the most common case — see the [Overview](overview.md) screenshot). Use **Horizontal axis** when you want bars to grow upward like a mini bar chart within each row, sharing a common baseline across the row.
+Use **Vertical axis** for the classic "one bar per row, reading down a column" layout (the most common case — see the [Overview → What it looks like](overview.md#what-it-looks-like) screenshot). Use **Horizontal axis** when you want bars to grow upward like a mini bar chart within each row, sharing a common baseline across the row.
+
+![Vertical axis — horizontal bars extending left/right, one per row](../images/databar-orientation-vertical.png)
+![Horizontal axis — vertical bars extending up/down, shared baseline across the row](../images/databar-orientation-horizontal.png)
 
 :::note[Column alignment]
 In **Vertical axis** orientation, the numeric label's natural width varies from row to row (sign, digit count). The visual automatically keeps every bar's zero axis aligned to the same pixel position down a column, regardless of label width — you don't need to do anything for bars to line up vertically.
@@ -94,6 +105,8 @@ In **Vertical axis** orientation, the numeric label's natural width varies from 
 **Setting**: Zero axis (`dataBarAxisStyle`) · **Options**: None, Line, Double line, Dotted line, Dashed line, Axis line · **Default**: None
 
 Draws a reference line at the zero position of the track, on top of the bar. **Axis line** renders a drafting-style chain (long–short–long–short) reminiscent of technical/engineering axes; the other styles are self-explanatory.
+
+![Zero axis styles compared — None, Line, Double line, Dotted line, Dashed line, Axis line](../images/databar-zeroaxis-styles.png)
 
 ---
 
@@ -121,6 +134,9 @@ Positive from: #4472C4      Positive to: #FFFFFF
 Negative from: #C0392B      Negative to: #FFFFFF
 ```
 
+![Bar colors group — Positive/Negative from/to and Neutral/Border fields](../images/databar-colors-settings.png)
+![Resulting gradient — positive bars fading blue to white, negative bars red to white](../images/databar-colors-gradient-example.png)
+
 :::note[Follow Signif mode overrides colors]
 When **Bar value** is set to a Follow Signif Rule, the bar's color is primarily driven by the test's own significance colors (see [Significance on Charts](significance-on-charts.md)) — **Positive/Negative from** only act as a fallback when no override color is configured for that test, and gradients/borders configured here do not apply in that case (the significance overlay supplies its own background, gradient direction included).
 :::
@@ -128,6 +144,8 @@ When **Bar value** is set to a Follow Signif Rule, the bar's color is primarily 
 ### Grouped mode — Bar colors group
 
 When **Group into one chart** is on (see [Grouping](#grouping) below), the **Bar colors** group instead shows **one color swatch per distinct category** (e.g. Yes, No, Maybe) — Power BI's native per-series color picker, same mechanism as [Data Line](data-line.md#grouped-mode--series-colors-group). Each category gets a default color from the report's own color palette (the same theme-aware assignment Power BI uses for any chart's legend), and you can override any of them individually by clicking its swatch; the change is saved with the report like any other formatting choice.
+
+![Bar colors group in grouped mode — one native color swatch per category](../images/databar-colors-grouped-settings.png)
 
 :::note[Color stability across groups]
 A category keeps the **same color everywhere**, even if it doesn't appear in every column-group — e.g. if one year only has Q3/Q4 while another has all four quarters, Q3 and Q4 still match the color they use elsewhere. Colors are assigned by category **name**, not by their position within a given group. Bar and Line overrides are stored independently (switching between the two doesn't carry your color picks across), but both fall back to the same report color palette when no override is set.
@@ -139,6 +157,8 @@ A category keeps the **same color everywhere**, even if it doesn't appear in eve
 
 An alternative to manually clicking each category's swatch: pick a measure bound to the **Additional Series** data role (one value per category, e.g. a `#RRGGBB` hex string) and every category takes its color from that measure instead. Leave it on **None** to keep manually-picked/default palette colors. See [Table Headers → Logos on a header](table-headers.md#logos-on-a-header) for the sibling mechanism (**Additional Series** also feeds header logos).
 
+📸 **Screenshot** `databar-colorseries-settings.png` *(optional, still pending)* — the **Color series** dropdown itself, with an **Additional Series** measure selected (distinct from the per-category swatches shown just above).
+
 ---
 
 ## Grouping
@@ -146,6 +166,10 @@ An alternative to manually clicking each category's swatch: pick a measure bound
 **Setting**: Group into one chart (`dataBarGroupBy`) · **Options**: No grouping, Group last-level columns, Group last-level rows · **Default**: No grouping
 
 Merges the last hierarchical level of columns (or rows) into a **single cell** containing one bar per series, each in its own series color, instead of one bar per individual cell. Useful when the last level is a small set of comparable categories (e.g. Yes/No, or three brands) that reads better as a small clustered chart than as separate columns.
+
+![Group into one chart — No grouping / Group last-level columns / Group last-level rows](../images/databar-grouping-settings.png)
+
+![Grouped Data Bar result — each cell shows a small cluster of colored bars instead of separate columns](../images/databar-grouping-example.png)
 
 Each series gets its own color, overridable individually — see [Colors → Grouped mode](#grouped-mode--bar-colors-group) above.
 
@@ -171,6 +195,8 @@ Once a column or row level is merged into a grouped chart, its individual header
 | **Sort on label** | Toggle | Off | Off (default) lists categories in Power BI's own data order — the order that best matches how your query returns them. On sorts entries alphabetically by category name instead. |
 | **Position** | Top left/center/right, Bottom left/center/right | Bottom center | Where the legend sits relative to the table. It aligns to the chosen edge/center on a single row (wrapping only if it's too wide to fit), rather than being confined to a fixed third of the table's width. |
 
+![Color legend for a grouped table](../images/databar-legend-example.png)
+
 :::note[Independent from Data Line's Legend]
 Data Bar and Data Line each have their **own** Legend group — they don't share settings, even though only one of the two can be active at a time (see [Data Line](data-line.md#legend)). Set Show/Sort separately for each if you switch between them.
 :::
@@ -182,6 +208,8 @@ Data Bar and Data Line each have their **own** Legend group — they don't share
 **Setting**: Value number format *(Table Format card, shared with the rest of the table)* · **Options**: None, k/M/B, Auto · **Default**: None
 
 Controls whether large raw values (not percentages, not indices) are abbreviated on the bar's numeric label — e.g. `1.2M` instead of `1200000`. This keeps the label from crowding out the bar itself on wide-range mean/count tables. To show or hide the label entirely, see [Show values](#show-values); for grouped bars specifically, see [Background](#background-grouped-bars-only) for how the label stays readable over its own bar.
+
+![Value number format options — None, Thousands (k), Millions (M), Billions (B), Automatic](../images/databar-valueformat-example.png)
 
 ---
 

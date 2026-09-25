@@ -10,6 +10,32 @@ Depuis juillet 2026, la famille compte **deux visuels** : **CrossTable** (ce cha
 
 ---
 
+## CrossTable & InCell Charts — Nouvelle carte « Global Threshold » *(2 septembre 2026)*
+
+Le réglage **Clear on Empty dataset** (carte *Table Contents*) est remplacé par une **carte dédiée, identique dans les deux visuels** : voir la nouvelle page [Global Threshold](../06-common-settings/global-threshold.md), première page de la nouvelle section **Common Settings** — les réglages communs à CrossTable et CrossTable InCell Charts y sont documentés une seule fois, au lieu d'être répétés de chaque côté. Le panneau lui-même est mutualisé avec la famille SDM Smart Graph Visuals.
+
+La carte couvre **deux cas où le tableau n'est pas dessiné du tout** (à ne pas confondre avec la carte *Thresholds*, qui agit cellule par cellule et laisse le tableau affiché) :
+
+**1. Dataset vide** — nouveau toggle **Empty Panel** (défaut : activé), de polarité INVERSE à l'ancien réglage : activé, le dataset vide affiche un panneau ; désactivé, le visuel ne dessine strictement rien (l'équivalent de l'ancien *Clear on Empty dataset* activé).
+
+**2. Test de votre choix** — nouveau **Conditional Message** accompagné de trois réglages qui se lisent comme une phrase : **Test if** (opérande gauche, numérique, typiquement une mesure liée par **fx** — une base, un nombre de répondants), **Is** (`>`, `=` ou `<`) et **To** (opérande droit). Quand le test est vérifié, le tableau n'est pas dessiné et ce second message s'affiche à la place — le cas typique étant une base trop faible pour être publiée. Pas de toggle : le test EST l'interrupteur, et les valeurs par défaut (`0 < 0`) le laissent inactif. Le test n'est évalué que sur un dataset **non vide** : un dataset vide affiche toujours le premier message.
+
+- **Messages traduits tant qu'ils ne sont pas modifiés** : `No Data to display` et `Not enough data to display` sont rendus dans les 10 langues du visuel ; un texte saisi à la main est repris tel quel, et un message vidé donne un panneau totalement vierge. Les deux champs acceptent une règle **fx** — attention, une mesure évaluée sur un dataset vide renvoie souvent `BLANK()`, auquel cas la constante saisie reprend la main (le message conditionnel, lui, n'est affiché que sur un dataset peuplé).
+- **Mise en forme complète du panneau**, commune aux deux messages : alignement horizontal et vertical, police (famille, taille, gras/italique/souligné), couleur du texte, couleur de fond et **transparence** (0–100 %, défaut 100 % — le fond est donc invisible tant qu'on ne baisse pas cette valeur). Couleurs, transparence et taille de police acceptent également une règle **fx**.
+- **Coupe nette, sans reprise de l'ancienne valeur** : un rapport qui avait *Clear on Empty dataset* **activé** affiche désormais le message par défaut — il faut y décocher *Empty Panel* pour retrouver l'écran vide.
+- Inchangé : sur un dataset vide, le tableau n'est jamais dessiné (plus de « coquille » en-tête + ligne `Base` à 0) et le bouton d'export Excel n'est jamais affiché. Il en va de même quand le test conditionnel est vérifié.
+
+---
+
+## CrossTable — Row height & Row group spacing *(31 août – 1er septembre 2026)*
+
+Deux nouveaux réglages sur la carte **Table Options**, jusqu'ici réservés (en totalité ou en partie) à CrossTable InCell Charts :
+
+- **Row height** (hauteur de ligne minimale, en px, 0 = automatique) : force une hauteur MINIMALE par ligne de données, sans jamais tronquer le contenu — une ligne au contenu plus haut (libellé sur plusieurs lignes, police plus grande) reste plus haute que la valeur réglée. Voir [Table Options → Row Height](../04-reference/formating/formatting-basics.md#row-height).
+- **Row group spacing** (espacement entre groupes de lignes, en px, 0 = pas d'espace) : insère un espace vertical entre deux sous-tableaux consécutifs, visible uniquement quand les lignes ont 2 niveaux (un sous-tableau par catégorie de niveau 1, ex. un par pays). Voir [Table Options → Row Group Spacing](../04-reference/formating/formatting-basics.md#row-group-spacing).
+
+---
+
 ## CrossTable InCell Charts — Data Bar groupé : affichage des valeurs *(août 2026)*
 
 Les barres fusionnées par [Group into one chart](../05-crosstable-charts/data-bar.md#grouping) n'affichaient jusqu'ici **aucun chiffre** — seule la longueur de la barre était visible. Deux nouveaux réglages sur la carte *Data Bar*, remontés en test :

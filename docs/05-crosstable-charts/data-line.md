@@ -36,6 +36,9 @@ Identical semantics to Data Bar's [Bar value](data-bar.md#bar-value--what-drives
 
 Choose **Vertical lines** to see how a metric evolves as you read down the rows (e.g. one line per KPI column). Choose **Horizontal lines** to see, within a single row, how the metric moves across an ordered set of columns (e.g. a wave-over-wave or year-over-year trend).
 
+![Vertical lines — one line per column, connecting row N to row N+1 down the table](../images/dataline-orientation-vertical.png)
+![Horizontal lines — one line per row, connecting column N to column N+1 across the table](../images/dataline-orientation-horizontal.png)
+
 ---
 
 ## Line & markers
@@ -46,11 +49,16 @@ Choose **Vertical lines** to see how a metric evolves as you read down the rows 
 | **Show markers** | Toggle | On | Draws a dot at every data point, on top of the line. |
 | **Marker size (px)** | Number | 5 | Diameter of the marker dot. |
 
+![Show markers on — a visible dot at every data point](../images/dataline-markers-example.png)
+![Show markers off — connecting segments only, no dots](../images/dataline-nomarkers-example.png)
+
 ---
 
 ## Zero axis
 
 **Setting**: Zero axis (`dataLineAxisStyle`) · Same options and behavior as Data Bar's [Zero axis](data-bar.md#zero-axis) (None, Line, Double line, Dotted line, Dashed line, Axis line) — drawn as a reference line along the value axis.
+
+![Zero axis styles compared across repeated rows](../images/dataline-zeroaxis-styles.png)
 
 ---
 
@@ -69,9 +77,13 @@ Choose **Vertical lines** to see how a metric evolves as you read down the rows 
 
 Unlike Data Bar, Data Line does not offer a gradient "to" color or a border toggle — the line itself is always a solid color, and only the markers carry the positive/negative/neutral distinction.
 
+![Series colors (Line color) field, single-line mode](../images/dataline-colors-settings.png)
+
 ### Grouped mode — Series colors group
 
 When **Group into one chart** is on (see [Grouping](#grouping) below), the **Series colors** group instead shows **one color swatch per distinct category** (e.g. Qtr1, Qtr2, Qtr3, Qtr4) — Power BI's native per-series color picker. Each category gets a default color from the report's own color palette (the same theme-aware assignment Power BI uses for any chart's legend), and you can override any of them individually by clicking its swatch; the change is saved with the report like any other formatting choice.
+
+![Series colors group in grouped mode — one native color swatch per category](../images/dataline-colors-grouped-settings.png)
 
 :::note[Color stability across groups]
 A category keeps the **same color everywhere**, even if it doesn't appear in every column-group — e.g. if one year only has Q3/Q4 while another has all four quarters, Q3 and Q4 still match the color they use elsewhere. Colors are assigned by category **name**, not by their position within a given group.
@@ -83,6 +95,8 @@ A category keeps the **same color everywhere**, even if it doesn't appear in eve
 
 An alternative to manually clicking each category's swatch: pick a measure bound to the **Additional Series** data role (one value per category, e.g. a `#RRGGBB` hex string) and every category takes its color from that measure instead. Leave it on **None** to keep manually-picked/default palette colors. See [Data Bar → Color series](data-bar.md#color-series--driving-colors-from-a-measure) — same mechanism, independent storage.
 
+📸 **Screenshot — Format pane settings** `dataline-colorseries-settings.png` *(optional, still pending)* — the **Color series** dropdown itself (single field, not the per-category swatches above), with an **Additional Series** measure selected.
+
 ---
 
 ## Grouping
@@ -91,7 +105,13 @@ An alternative to manually clicking each category's swatch: pick a measure bound
 
 Same principle as Data Bar's [Grouping](data-bar.md#grouping): merges the last hierarchical level into a single cell, drawing one point per series (each in its own series color, see [Colors](#colors) above) instead of one point per individual cell, with a color legend shown under the table.
 
+![Group into one chart dropdown — No grouping / Group last-level columns / Group last-level rows](../images/dataline-grouping-settings.png)
+
+![Grouped Data Line result — one connected mini-trend per series in each cell](../images/dataline-grouping-example.png)
+
 **Group separators** *(toggle, default On)* — when grouping is active, draws a subtle vertical separator at each upper-level group boundary (where the line necessarily breaks), so the break stays visually readable even with table borders turned off.
+
+![Group separators — a subtle vertical rule at each group boundary](../images/dataline-groupseparators-example.png)
 
 :::warning[Significance overlay not covered in grouped mode]
 As with Data Bar, the per-test significance overlay does not apply to grouped lines — grouped points use their series color only.
@@ -114,6 +134,8 @@ With **Group last-level rows** and 2-level row grouping (a sub-table per top-lev
 | **Show** | Toggle | On | Shows/hides the color legend drawn below the table. |
 | **Sort on label** | Toggle | Off | Off (default) lists categories in Power BI's own data order — the order that best matches how your query returns them. On sorts entries alphabetically by category name instead. |
 | **Position** | Top left/center/right, Bottom left/center/right | Bottom center | Where the legend sits relative to the table. It aligns to the chosen edge/center on a single row (wrapping only if it's too wide to fit), rather than being confined to a fixed third of the table's width. |
+
+![Grouped Data Line color legend below the table](../images/dataline-legend-example.png)
 
 :::note[Independent from Data Bar's Legend]
 Data Bar has its **own** Legend group — they don't share settings, even though only one of the two can be active at a time (see [Data Bar](data-bar.md#legend)). Set Show/Sort separately for each if you switch between them.

@@ -1,0 +1,8 @@
+{
+  "label": "Common Settings",
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "description": "Cards that are identical in CrossTable and CrossTable InCell Charts — same properties, same behavior, documented once here"
+  }
+}
