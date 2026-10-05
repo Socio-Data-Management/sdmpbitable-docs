@@ -10,6 +10,15 @@ Depuis juillet 2026, la famille compte **deux visuels** : **CrossTable** (ce cha
 
 ---
 
+## CrossTable InCell Charts — Légende Data Line : trait et logos *(5 octobre 2026)*
+
+Dans le mode **Group into one chart**, la légende des séries de **Data Line** évolue :
+
+- **Repère en trait** : la pastille carrée devant le nom de la série devient un **trait** de la couleur de la série, plus cohérent avec des lignes. La légende de **Data Bar** garde son carré.
+- **Nouveau réglage Content** (carte *Data Line* → *Legend*) : **Text only** (défaut, comportement précédent), **Logo + Text** ou **Logo only**. Le logo est celui déjà fourni par *Header Logos* / *Logo series* pour le niveau groupé ; une série sans logo retombe sur son nom, et en *Logo only* le nom reste visible au survol. On peut masquer ce niveau dans l'en-tête (champ *show* de l'éditeur Table Headers) sans perdre les logos dans la légende. Voir [Data Line → Legend](../05-crosstable-charts/data-line.md#legend).
+
+---
+
 ## CrossTable & InCell Charts — Nouvelle carte « Global Threshold » *(2 septembre 2026)*
 
 Le réglage **Clear on Empty dataset** (carte *Table Contents*) est remplacé par une **carte dédiée, identique dans les deux visuels** : voir la nouvelle page [Global Threshold](../06-common-settings/global-threshold.md), première page de la nouvelle section **Common Settings** — les réglages communs à CrossTable et CrossTable InCell Charts y sont documentés une seule fois, au lieu d'être répétés de chaque côté. Le panneau lui-même est mutualisé avec la famille SDM Smart Graph Visuals.
