@@ -37,6 +37,7 @@ The tooltip is opt-in. Once activated, a **Tooltip content** sub-card appears wi
 | Value | The cell's value — a count in a percentage table, the average in a mean table | On |
 | Vertical % | The cell's vertical percentage (percentage tables only) | On |
 | Horizontal % | The cell's horizontal percentage (percentage tables only) | Off |
+| Cell % | The cell's value divided by its own base, see [Cell Percentage](table-content.md#cell-percentage) (percentage tables only) | Off |
 | Index | The cell's index | Off |
 | Weighted base | The cell's weighted base (the same figure used as the significance test's own denominator) | Off |
 | Unweighted base | The cell's unweighted (respondent) base | Off |
@@ -44,7 +45,7 @@ The tooltip is opt-in. Once activated, a **Tooltip content** sub-card appears wi
 | Significance confidence level | The continuous confidence level of the active significance test(s) (see [below](#significance-confidence-level)) | Off |
 
 :::tip
-Vertical % and Horizontal % are automatically skipped on **mean** tables even if toggled on — percentages have no meaning there. Everything else (Value, Index, both bases) applies to both table types.
+Vertical %, Horizontal % and Cell % are automatically skipped on **mean** tables even if toggled on — percentages have no meaning there. Everything else (Value, Index, both bases) applies to both table types.
 :::
 
 Row and column levels are labeled **Row** / **Column** when the table has a single level, or **Row 1**, **Row 2**… / **Column 1**, **Column 2**… when it has several — matching the order they appear in the header hierarchy, outermost first.

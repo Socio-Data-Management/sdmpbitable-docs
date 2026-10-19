@@ -10,6 +10,17 @@ Depuis juillet 2026, la famille compte **deux visuels** : **CrossTable** (ce cha
 
 ---
 
+## CrossTable & InCell Charts — Pourcentage de cellule (Cell Percentage) *(septembre 2026)*
+
+Nouvel affichage **Cell Percentage** (carte *Table Contents*, tableaux de pourcentages) : la valeur de chaque cellule divisée par **sa propre base**, lue directement dans la *Base Series* au croisement. Le pourcentage vertical, lui, divise par le total de colonne. Utile quand le modèle fournit déjà le bon dénominateur pour chaque cellule, par exemple une base qui varie d'une ligne à l'autre. Voir [Table Contents → Cell Percentage](../04-reference/table-content.md#cell-percentage).
+
+- **Exclusif avec le pourcentage vertical** : activer l'un désactive l'autre.
+- **Remplace le pourcentage vertical partout** : tests de significativité (proportion = Cell %, effectif = base de la cellule), Data Bar / Data Line et Gap Mode (InCell Charts), export Excel.
+- **Nouvelles options** : *Cell Percentage* dans le tri (*Column Property*) et le ranking, ligne *Cell %* dans le tooltip, variable `cellPct` (fraction 0–1) dans les Cell Rules de CrossTable.
+- Désactivé par défaut : aucun rapport existant ne change.
+
+---
+
 ## CrossTable InCell Charts — Légende Data Line : trait et logos *(5 octobre 2026)*
 
 Dans le mode **Group into one chart**, la légende des séries de **Data Line** évolue :

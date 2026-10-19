@@ -19,7 +19,7 @@ title: Data Bar
 
 | Mode | What the bar represents |
 |---|---|
-| **Cell Value** | The same quantity that would otherwise be displayed in the cell, following the usual priority: Value → Vertical % → Horizontal % → Indice, as configured in [Table Content](../04-reference/table-content.md). In a mean table this can be negative (e.g. a satisfaction score below a neutral midpoint), giving a genuinely diverging bar. |
+| **Cell Value** | The same quantity that would otherwise be displayed in the cell, following the usual priority: Value → Vertical % (or [Cell %](../04-reference/table-content.md#cell-percentage) when turned on) → Horizontal % → Indice, as configured in [Table Content](../04-reference/table-content.md). In a mean table this can be negative (e.g. a satisfaction score below a neutral midpoint), giving a genuinely diverging bar. |
 | **Compare to Regex** | The **écart** (difference) between the cell and a reference column found by a regular expression — same regex-matching logic as [Significance Testing → Regular expression](../04-reference/significance.md#regular-expression). Configure the regex in **Reference regex**. |
 | **Follow Signif 1 / 2 / 3 Rule** | The **écart** captured by significance test 1, 2 or 3 (see [Significance Testing](../04-reference/significance.md) for how the tests themselves are configured). The bar's color additionally reflects the test's verdict — see [Significance on Charts](significance-on-charts.md). |
 

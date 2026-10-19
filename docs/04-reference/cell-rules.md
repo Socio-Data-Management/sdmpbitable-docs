@@ -58,6 +58,7 @@ These come straight from the visual's own calculations:
 |---|---|---|
 | `pctV` | Vertical percentage (share of the column) | **fraction 0–1** (`0.33` = 33 %) |
 | `pctH` | Horizontal percentage (share of the row) | **fraction 0–1** |
+| `cellPct` | [Cell percentage](table-content.md#cell-percentage) (value / the cell's own base) | **fraction 0–1** |
 | `indice` | Index vs. the level subtotal | base **100** (100 = average) |
 | `value` | Cell value: count (frequency tables) or mean (mean tables) | raw |
 | `base` | Weighted base | raw |
@@ -68,7 +69,7 @@ These come straight from the visual's own calculations:
 **Operators**: `=`, `!=`, `<`, `>`, `<=`, `>=`.
 
 :::warning[Percentages are fractions]
-`pctV` and `pctH` are stored as **fractions**, not percentages. Write `pctV < 0.10` for "below 10 %", **not** `pctV < 10`. (`indice` on the other hand is on a base-100 scale.)
+`pctV`, `pctH` and `cellPct` are stored as **fractions**, not percentages. Write `pctV < 0.10` for "below 10 %", **not** `pctV < 10`. (`indice` on the other hand is on a base-100 scale.)
 :::
 
 ```

@@ -169,13 +169,14 @@ Controls whether sorted values go low-to-high or high-to-low.
 
 ### Column Property
 **Setting**: Column property  
-**Options**: Value, Horizontal Percentage, Indice  
+**Options**: Value, Horizontal Percentage, Cell Percentage, Indice  
 **Default**: Value
 
 When using "Column Value" sort, choose which metric to sort by.
 
 - **Value**: Value of cells (AND Vertical Percentage)
 - **Horizontal Percentage**: Percentage within row
+- **Cell Percentage**: Value divided by the cell's own base (see [Cell Percentage](table-content.md#cell-percentage)). Unlike the vertical percentage, it can give a different order from Value when bases vary from row to row.
 - **Indice**: Index value
 
 :::tip

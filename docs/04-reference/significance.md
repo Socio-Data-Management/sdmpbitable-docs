@@ -381,6 +381,10 @@ Significance tests require special data series:
 - **Significance Series**: The counts/values used for testing
 - **Base Series**: The total base for calculating proportions
 
+:::info[Which percentage is tested?]
+By default the proportion tested is the **vertical percentage**, with the **column total** as sample size. When [Cell Percentage](table-content.md#cell-percentage) is turned on, it replaces the vertical percentage in every test type: the proportion tested is the cell's value divided by its own base, and the sample size is that **cell's own base**. The same data can therefore give a different verdict depending on which percentage is selected.
+:::
+
 ### For Mean Tables:
 - **Mean Series**: The mean values to test
 - **Standard Deviation Series**: Measure of variability

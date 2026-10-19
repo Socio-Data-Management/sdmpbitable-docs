@@ -29,10 +29,10 @@ Turns ranking on/off for all cells in the table.
 ### Cell Value Property
 **Setting**: Cell value  
 **Type**: Dropdown  
-**Options**: Value, Horizontal Percentage, Indice  
+**Options**: Value, Horizontal Percentage, Cell Percentage, Indice  
 **Default**: Value
 
-Which metric to rank by within each column.
+Which metric to rank by within each column. **Cell Percentage** (value divided by the cell's own base, see [Cell Percentage](table-content.md#cell-percentage)) can rank differently from Value when bases vary from row to row.
 :::info
 the metric used for ranking **DOES NOT** need to be displayed in the table. You can rank on one metric while displaying another.
 :::

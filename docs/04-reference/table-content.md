@@ -24,6 +24,7 @@ Used to analyze distributions, proportions, and response rates.
 - **Values**: Raw count or sum
 - **Vertical Percentage (%)**: Percentage within each column
 - **Horizontal Percentage (%)**: Percentage within each row
+- **Cell Percentage (%)**: Each cell's value divided by its own base (alternative to the vertical percentage)
 - **Indice**: Index value (typically 100 = average)
 
 **Example**: In a survey of 100 respondents:
@@ -71,6 +72,43 @@ Shows each cell's value as a percentage of its column total. Useful for comparin
 **Default**: Off
 
 Shows each cell's value as a percentage of its row total. Useful for comparing category distribution within segments.
+
+### Cell Percentage
+**Label**: Cell percentage  
+**Type**: Toggle  
+**Default**: Off
+
+Shows each cell's value divided by **its own base**, read directly from the Base Series at that crossing:
+
+```
+Cell Percentage = Value (row × column) / Base (row × column)
+```
+
+**How it differs from the vertical percentage**: the vertical percentage divides by the **column total** of the Base Series, which the visual builds by going through the rows. Cell Percentage only looks at the current crossing. Use it when your model already provides the right denominator for every cell, for example a base that varies from one row to the next (items asked to different sub-samples, a rating scale with a per-item base, a "value + its base" pair computed in DAX).
+
+**Example**:
+```
+                   Value    Base (per cell)    Cell %
+Brand A / North     120          300           40%
+Brand B / North      90          150           60%   ← asked only to half the sample
+```
+With the vertical percentage, both rows would be divided by the same column total.
+
+**Subtotals and totals**: on a group row or column, value and base are both summed over the children, and the ratio of the two sums is shown. No extra setting is needed.
+
+**Mutually exclusive with Vertical Percentage**: both use the same slot in the cell and act as the table's main percentage, so turning one on turns the other off automatically.
+
+**It replaces the vertical percentage everywhere downstream**, not just in the display:
+- **Significance tests**: the proportion tested is the Cell Percentage, and the sample size is the cell's own base instead of the column total. The same data can therefore give a different verdict depending on which percentage is selected. See [Significance Testing](significance.md#series-configuration-for-testing).
+- **Sorting and ranking**: *Cell Percentage* becomes available as a [Column Property](sorting.md#column-property) and a [Ranking](ranking.md) cell value.
+- **Tooltip**: a separate *Cell %* line can be shown, see [Tooltip](tooltip.md).
+- **Cell rules** (CrossTable): available as the `cellPct` variable, see [Cell Rules](cell-rules.md).
+- **CrossTable InCell Charts**: Data Bars, Data Lines and the [Gap Mode](../05-crosstable-charts/gap-mode.md) use it as the cell's quantity.
+- **Excel export**: exported in place of the vertical percentage.
+
+:::note
+Cell Percentage only applies to **percentage** tables. It is left empty on mean tables.
+:::
 
 ### Indice
 **Label**: Show indice  

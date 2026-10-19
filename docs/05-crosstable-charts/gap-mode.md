@@ -123,7 +123,7 @@ Each gap column gets its **own bar scale** (`min`/`max` computed from the actual
 
 ## Other data role priority & table type
 
-Gap columns follow the same **Value → Vertical % → Horizontal % → Indice** priority as the rest of the table (see [Table Content](../04-reference/table-content.md)) for what "the" quantity being compared actually is: percentage points on a Percentage table, the raw mean on a Mean table.
+Gap columns follow the same **Value → Vertical % → Horizontal % → Indice** priority as the rest of the table (see [Table Content](../04-reference/table-content.md); when [Cell Percentage](../04-reference/table-content.md#cell-percentage) is turned on, it takes the place of the vertical %, including in the *Partition Gap* test) for what "the" quantity being compared actually is: percentage points on a Percentage table, the raw mean on a Mean table.
 
 ---
 
