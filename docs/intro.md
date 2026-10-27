@@ -24,6 +24,10 @@ The **Socio Data Management Cross Table Tool for Power BI** is a powerful custom
 This documentation also covers **[CrossTable InCell Charts](05-crosstable-charts/overview.md)**, a companion visual that renders the same cross-tab data as small diverging **Data Bar** or **Data Line** charts inside each cell, instead of plain numbers. Same engine, same data roles — pick the visual that fits how you want a given table to read.
 :::
 
+:::info[New: SDM Xtended Table]
+**[SDM Xtended Table](07-xtendedtable/01-introduction/overview.md)** is the cross-tab with **any number of row and column levels**, per-level header editors and a per-level sample model. It has its own documentation section.
+:::
+
 ### Get Started
 
 Choose your path:

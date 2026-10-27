@@ -1,0 +1,424 @@
+---
+sidebar_position: 4
+title: Significance Testing
+---
+
+# Significance Testing Reference
+
+## Overview
+
+![significance regex level2](../../images/signif-regex-level2.png)
+
+The Socio Data Management Power BI cross table tool lets you identify statistically significant differences between groups in your data in several manner, depending on your configuration.
+All feattures includes:
+- Three independent significance tests per table
+- Multiple test types (All columns, Item vs other, Item vs total, Regex, Previous visible column, Previous row)
+- Various display options (icon, font color, background color, border color)
+- Configurable confidence levels (90%, 95%, 99%)
+- Configurable variance methods for percentage tables (pooled, separate, separate with an effective base)
+- Bases that respect your sample design through the per-level [Sample across items](sample-across-items.md) property
+
+---
+
+## Test Configuration
+
+### Significance Test 1
+**Setting**: Significance 1  
+**Options**: None, All columns, Item vs other question item, Item versus Total (Base), Regular expression, Previous visible column, Previous row  
+**Default**: None
+
+### Significance Test 2
+**Setting**: Significance 2  
+**Options**: Same as above  
+**Default**: None
+
+### Significance Test 3
+**Setting**: Significance 3  
+**Options**: Same as above  
+**Default**: None
+
+Each test compares different aspects of your data. The three tests are fully independent — each has its own type, display option, regex, and custom icons — and they are **not mutually exclusive**: several tests can point at the same cell, and you are free to give two or three of them the **same symbol** (see [Combining tests with the same symbol](#combining-tests-with-the-same-symbol)).
+
+---
+
+## Test Types Explained
+
+### None
+No significance testing is performed.
+
+### All Columns
+Compares each column against all others in the table.
+
+:::note[You are limited to 156 unique symbols for marking significance. Here is a list of the 156 symbols:]
+`ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzαβγδεζηθικλμνξοπρστυφχψωΓΔΘΛΞΠΣΦΨΩ🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ`
+:::
+
+**Use Case**: Determine which regions have significantly different satisfaction scores
+
+**Example**:
+<table><tr>
+<td>![alt text](../../images/signif-allcolumns-settings.png)</td>
+<td>![alt text](../../images/signif-allcolumns.png)</td>
+</tr></table>
+Note that when you have more than one level of column, the significance markers will appear differently per level to avoid confusion.
+![alt text](../../images/signif-abcd-2levels.png)
+
+
+### Item vs Other Question Item
+Compares one response option against all others.
+:::important
+This test is the most used for survey data analysis. You should always prefer this test vs _'Against Total'_ when comparing response options.
+:::
+
+**Use Case**: Highlight if one product preference is significantly different
+
+**Example**:
+
+![alt text](../../images/signif-background.png)
+
+### Item versus Total (Base)
+Compares each item to the overall average at the same level.
+:::warning
+This test has been implemented for legacy purpose and is not generally recommended for any analysis. The reason is that observation (population) of the tested values should _**always be independent**_. In this test the observations of each cell is included in the total so it does not ensure this independency rule.
+Unless you have a **good** reason, prefer the _'Item vs Other Question Item'_ test instead.
+:::
+
+### Regular Expression
+Uses a regex pattern to identify columns to compare.
+
+This option is extremely useful when you are focusing on a brand, a population or a product and want to know which _"competitors"_ are significantly lower or higher.
+
+**Example 1**: _You want to compare the age group "50-70 years" against all other age groups in a satisfaction survey._
+
+In this example, we have two levels of columns but the regex matches only one item on the first level (50-70):
+<table><tr>
+<td>![alt text](../../images/signif-regex-level1-settings.png)</td>
+<td>![alt text](../../images/signif-regex-level1.png)</td>
+</tr></table>
+
+_The regex pattern used here is `50-70` which matches partially the column with label "50-70 years"._
+
+**Example 2**: _You want to compare respondents who answered "yes, once or twice" against all other response options in a survey question split by age groups._
+
+In this second example, we match on level two, "yes, once" ich matches columns "Yes, once or twice" under each age group:
+In this case, only every columns compares to this matched column in each subgroup:
+<table><tr>
+<td>![alt text](../../images/signif-regex-level2-settings.png)</td>
+<td>![alt text](../../images/signif-regex-level2.png)</td>
+</tr></table>
+
+#### Regex level
+**Setting**: Regex level
+**Options**: Same Level, Level 1, Level 2
+**Default**: Same Level
+
+Controls **on which column depth the regex looks for the reference** _and_ **how the comparison cascades** through the column hierarchy.
+
+- **Same Level** _(default — historical behavior)_  
+  The regex is matched anywhere in the column hierarchy and the reference column is compared with its **direct siblings** (cells sharing the same parent). No comparison is propagated to deeper aggregations.
+
+- **Level 1**  
+  The regex must match at the **first column level**. For every cell at any deeper aggregation, the reference is the cell sharing the same coordinates _except_ for the level‑1 dimension, where the value matches the regex.
+
+- **Level 2**  
+  Same logic, but the regex is anchored at the **second column level**.
+
+Levels 1 and 2 are the first two column levels; deeper levels are reached by the cascade. With more than three column levels, use **Same Level** or anchor the regex on one of the first two levels.
+
+**Example**: with columns _Year > Country > Brand_ and the regex `2024` at **Level 1**, the test produces:
+
+| Compared cell | Reference (regex-matched) |
+|---|---|
+| `2025` aggregate | `2024` aggregate |
+| `2025 / FR` aggregate | `2024 / FR` aggregate |
+| `2025 / FR / Renault` leaf | `2024 / FR / Renault` leaf |
+| `2026 / UK / Peugeot` leaf | `2024 / UK / Peugeot` leaf |
+| … | … |
+
+The reference branch (`2024`) itself is never flagged.
+
+A read‑only **Regex match status** field is displayed under the regex input. It shows the column paths actually matched by the current regex (or a sample of available column titles when nothing matches), making it easy to diagnose a regex that does not produce the expected highlights.
+
+### Previous Visible Column
+
+Compares each column to the nearest **visible** column before it, at the same depth in the column hierarchy — skipping over any columns hidden by a [Mask Pattern](table-content.md#masking).
+
+**Use Case**: Track a single brand's evolution year over year, or any period-over-period comparison, without cluttering the table with every other response option.
+
+This test is what makes a "previous period" comparison work even when you have hidden most of the columns. For example, with columns *Year > Brand* and a mask that keeps only `MyBrand` visible under each year (`NOT BrandName = "MyBrand"`), each year effectively shows a single leaf column. This test aligns each one with the previous **visible** leaf column — 2022 vs. 2021, 2023 vs. 2022, and so on — even though `2022 / MyBrand` and `2021 / MyBrand` don't share the same immediate parent column-wise; they're simply the two closest visible leaves in table order.
+
+:::note
+The very first visible column at a given depth has no previous visible column to compare against, so it is never marked significant by this test.
+:::
+
+:::tip
+This test runs at **every level** of the column hierarchy independently, not just the leaves. If your top-level columns (e.g. the years themselves) aren't masked, you'll also get a year-over-year comparison at that level, in addition to the leaf-level one.
+:::
+
+### Previous Row
+
+Compares each row to the **previous row** in the table, in the same column — a row-over-row equivalent of *Previous visible column*, useful when your rows are an ordered sequence (a scale, a ranking, consecutive periods represented as rows instead of columns).
+
+**Use Case**: Flag which item in an ordered list of rated items jumps significantly compared to the one just above it.
+
+Unlike *All Columns* (which uses each **column's** own total as the sample size), this test uses each **row's** own base — consistent with a last row level declared **Shared** in [Sample Across Items](sample-across-items.md), where every row is an item with its own respondent base.
+
+:::caution[Filtered base measures can silently break significance]
+If your base measure is a filtered `SUM` (e.g. filtered to hide structurally-blank rows), the base feeding these tests can desynchronize from what's actually displayed — see [Understanding Bases → filtered base measure pitfall](understanding-bases.md#pitfall-a-filtered-base-measure-desynchronizes-native-subtotals).
+:::
+
+:::note
+Native Power BI subtotal rows are automatically skipped — both as a row being tested and as a candidate "previous row" — so a subtotal never gets compared, and the row right after it compares against the last real data row above the subtotal, not the subtotal itself.
+:::
+
+:::note
+The first row in the table (or the first row after any leading subtotal) has no previous row to compare against, so it is never marked significant by this test.
+:::
+
+---
+
+## Confidence Level
+
+### Significance Level
+**Setting**: Significance level  
+**Options**: 90%, 95%, 99%  
+**Default**: 95%
+
+The confidence threshold for determining significance.
+
+- **90%**: More lenient (flags more differences)
+- **95%**: Standard business level
+- **99%**: Strict scientific standard
+
+:::info
+You usually do not change this settings.
+Choose a higher level _(99%)_ for critical decisions.
+:::
+
+:::tip[See the number behind the marker]
+The pass/fail marker only tells you whether a cell crossed this threshold. To see the **actual, continuous confidence level** for every cell — independent of this setting — enable **Significance confidence level** in the [Cell Tooltip](tooltip.md#significance-confidence-level).
+:::
+
+### Variance Method (Percentage Tables Only)
+
+**Setting**: Signif. Var. Method  
+**Options**: Pooled proportion, Separate, Separate (effective base)  
+**Default**: Pooled  
+
+How variance is calculated when comparing percentages.
+
+- **Pooled**: Treats all groups as one population (more conservative)
+- **Separate**: Treats groups separately (more sensitive to differences)
+- **Separate (effective base)**: Same as Separate, but each group's variance uses a ready-made **effective base** read from the [Effective base series](percentage-series.md#effective-base-series) instead of the raw base: `t = (P1 − P2) / √(P1(1−P1)/EffBase1 + P2(1−P2)/EffBase2)`. Use it for weighted samples, where the effective base (raw N × design effect) is smaller than N. P1 and P2 still come from the values and base series; when a cell has no effective base, its raw base is used.
+
+:::tip
+In usual situation, leave the default to **Pooled proportion**.<br/>
+Choose **Separate proportion** option when group sizes differ greatly.
+:::
+---
+
+## Display Options
+
+### View Option
+**Setting**: Significance view option  
+**Options**: Icon, Font Color, Background Color, Cell border Color  
+**Default**: Icon
+
+How significant values are marked:
+
+**Icon**: Small symbol/marker appears in cell (Red for significantly lower, Green for significantly higher)
+<table><tr>
+<td>![alt text](../../images/signif-icon-settings.png)</td>
+<td>![alt text](../../images/signif-icon.png)</td>
+</tr></table>
+
+:::tip[Custom Icon Images]
+You can replace the default green/red SVG triangles with your own images. When the view option is set to **Icon**, two additional fields appear in the significance settings:
+- **Custom icon positive (base64)**: Paste a base64 data URI (`data:image/png;base64,…`) to use a custom image for positive significance.
+- **Custom icon negative (base64)**: Paste a base64 data URI for negative significance.
+
+Leave either field empty to keep the default SVG triangle for that direction. Custom images are displayed at 12 × 12 px, vertically centered in the cell.
+:::
+
+**Font Color**: Text color changes red or green to highlight significance
+<table><tr>
+<td>![alt text](../../images/signif-fontcolor-settings.png)</td>
+<td>![alt text](../../images/signif-fontcolor.png)</td>
+</tr></table>
+
+**Background Color**: Cell background changes red or green to highlight significance
+<table><tr>
+<td>![alt text](../../images/signif-background-settings.png)</td>
+<td>![alt text](../../images/signif-background.png)</td>
+</tr></table>
+
+:::note[***Option for backGround color***]
+<table><tr>
+<td style={{width: "20%"}} >![alt text](../../images/signif-custom-background.png)</td>
+<td>When you choose background color, you can also choose to apply a **gradient** custom colors instead of a solid color. Choosing this option will make a new option appear to solect the gradient colors and the orientation of gradient.</td>
+</tr></table>
+:::
+
+**Border Color**: Cell border changes red or green to highlight significance
+<table><tr>
+<td>![alt text](../../images/signif-bordercolor-settings.png)</td>
+<td>![alt text](../../images/signif-bordercolor.png)</td>
+</tr></table>
+
+---
+
+## Significance Legend
+
+The **Legend** sub-card (inside Significance Settings) adds an automatic legend below the table that explains the significance markers to report readers. Enable it with the **Show legend** toggle at the top of the sub-card.
+
+### Display Modes
+
+The legend automatically adapts its content to match the display mode(s) actively used by your significance test(s):
+
+#### Background / Border mode
+When at least one significance test uses **Background** or **Border** display, the legend shows three colored squares with editable labels:
+- A square in the **neutral cell** background color → label defaults to "Not significantly different"
+- A square in the **positive significance** color → label defaults to "Significantly higher"
+- A square in the **negative significance** color → label defaults to "Significantly lower"
+
+All three labels support the **fx** button (DAX measure binding) for dynamic, filter-context-sensitive text.
+
+#### Icon mode
+When at least one significance test uses **Icon** display, the legend shows the actual icons (custom image or default SVG triangles) beside an editable text label for each active significance test (**Signif 1 label**, **Signif 2 label**, **Signif 3 label**). A matching **Signif _n_ label suffix** field lets you append a dynamic value (via the **fx** button) without creating a dedicated DAX measure for the full text — the program concatenates the two parts with a space.
+
+#### Font Color mode
+When at least one significance test uses **Font Color** display, the legend renders "123/123" in green (positive) and red (negative) beside an editable text label for each active significance test. The same suffix fields apply.
+
+### Layout
+
+| Active significance tests | Legend layout |
+|---|---|
+| 1 test active | Centered below the table |
+| 2 or 3 tests active | Blocks spread across the row (first left-aligned, last right-aligned, others distributed between) |
+
+### Font Settings
+
+All legend text shares a single **FontControl** (font family, bold, italic, underline, size) configurable in the Legend sub-card.
+
+### Label Settings
+
+| Setting | Description | Default |
+|---|---|---|
+| Neutral label | Label for the neutral color square (background/border mode) | "Not significantly different" |
+| Positive label | Label for the positive color square (background/border mode) | "Significantly higher" |
+| Negative label | Label for the negative color square (background/border mode) | "Significantly lower" |
+| Signif 1 label | Text label for significance 1 (icon / font color mode) | *(empty)* |
+| Signif 1 label suffix | Dynamic suffix appended after the Signif 1 label | *(empty)* |
+| Signif 2 label | Text label for significance 2 (icon / font color mode) | *(empty)* |
+| Signif 2 label suffix | Dynamic suffix appended after the Signif 2 label | *(empty)* |
+| Signif 3 label | Text label for significance 3 (icon / font color mode) | *(empty)* |
+| Signif 3 label suffix | Dynamic suffix appended after the Signif 3 label | *(empty)* |
+
+All label fields support the **fx** button for DAX measure binding, allowing the legend text to update dynamically based on filter context.
+
+:::tip Composing dynamic labels without extra measures
+The suffix fields are designed for cases where the label has a fixed prefix and a dynamic part. For example, set **Signif 1 label** to `"Significantly different from"` (constant) and bind **Signif 1 label suffix** to a DAX measure that returns the currently selected reference value. The visual concatenates them with a space — no need to create a dedicated measure just to produce the full sentence.
+:::
+
+---
+
+## Advanced Testing
+
+### Multiple Test Configuration
+
+You can configure up to **three** tests, each independently:
+- Different display methods for each test
+- Different test types simultaneously
+- Regex patterns for flexible comparison
+
+<table><tr>
+<td>![alt text](../../images/signif-dual-settings.png)</td>
+<td>![alt text](../../images/signif-dual.png)</td>
+</tr></table>
+
+### Combining tests with the same symbol
+
+The tests are **not mutually exclusive**. Because each test writes its own result on every cell, you can point several tests at the same cell and, if you wish, mark them with the **same symbol** (same view option and, for icons, the same custom image).
+
+This is what lets you express an **OR** relationship. For example, to flag every cell that is significantly different from **column A _or_ column B**, set up two `Regular expression` tests — one matching A, the other matching B — and give both the **same icon**. A cell that is significant against either reference then carries that single symbol.
+
+:::note
+When two or three tests resolve to the **same icon** on the **same cell**, the icon is drawn **once** (the union is not duplicated). Font-color, background and border modes stack as CSS classes, so keep those on distinct tests if you want to tell them apart.
+:::
+
+### Sample design and the "rest of the sample"
+
+Tests such as *Item vs other question item* compare a cell with the complement of its group. For a battery of items answered by the **same** respondents, summing the other items' bases inflates that complement. Declare such levels **Shared** (or **Native**) in the header editors so the complement is built correctly — see [Sample Across Items](sample-across-items.md).
+
+### Hide First Variable
+Hides the first variable in comparative displays for cleaner visuals (see masking in [table-content](table-content.md#masking)).
+
+---
+
+## Statistical Background (For Reference)
+
+### What Tests Are Used?
+
+For percentage tables: **Chi-square test** of independence  
+For mean tables: **T-tests** or **ANOVA** (depending on number of groups)
+
+### Interpretation
+
+A cell marked as significant means:
+- The difference between groups is unlikely due to chance
+- At the chosen confidence level
+- Given the sample sizes
+
+### Important Notes
+
+- Significance depends on sample size (large samples show more differences)
+- Practical significance ≠ statistical significance (a 1% difference might be statistically significant but not practically important)
+- Always consider context, not just statistics
+
+---
+
+## Series Configuration for Testing
+
+Significance tests require special data series:
+
+### For Percentage Tables:
+- **Significance Series**: The counts/values used for testing
+- **Base Series**: The total base for calculating proportions
+
+:::info[Which percentage is tested?]
+By default the proportion tested is the **vertical percentage**, with the **column total** as sample size. When [Cell Percentage](table-content.md#cell-percentage) is turned on, it replaces the vertical percentage in every test type: the proportion tested is the cell's value divided by its own base, and the sample size is that **cell's own base**. The same data can therefore give a different verdict depending on which percentage is selected.
+:::
+
+### For Mean Tables:
+- **Mean Series**: The mean values to test
+- **Standard Deviation Series**: Measure of variability
+- **Count Series**: Sample size
+
+Configure these in data settings under:
+- "Significance Series" (percentage tables)
+- "Mean Series for Significance" (mean tables)
+
+---
+
+## Best Practices
+
+1. **Choose Appropriate Test**: Match test type to your question (all columns vs vs-total)
+2. **Clear Display**: Use one view option per test for clarity
+3. **Document Level**: Note which significance level you're using in reports
+4. **Consider Sample Size**: Small sample sizes can miss real differences
+5. **Practical Significance**: Don't rely solely on statistics; consider business context
+
+---
+
+## Troubleshooting
+
+**Q: Significance markers don't appear**  
+A: Ensure you've configured significance series in data settings
+
+**Q: All cells are marked significant**  
+A: Your significance level might be too lenient (90%); try 99%
+
+**Q: No cells marked significant**  
+A: Check sample sizes; very small groups won't show significance
+
+For more help, see the [Quick Start Guide](../02-getting-started/quick-start.md) or contact support.

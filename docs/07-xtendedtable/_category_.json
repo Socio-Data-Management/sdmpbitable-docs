@@ -1,0 +1,8 @@
+{
+  "label": "XtendedTable",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "SDM Xtended Table: the cross-tab visual with any number of row and column levels, per-level header editors and a per-level sample model"
+  }
+}

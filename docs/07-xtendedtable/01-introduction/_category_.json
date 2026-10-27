@@ -1,0 +1,8 @@
+{
+  "label": "Introduction",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn about SDM Xtended Table and what's available in each edition"
+  }
+}

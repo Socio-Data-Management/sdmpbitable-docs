@@ -79,6 +79,22 @@ This toggle only affects the **base** figures (both the weighted *Base* and the 
 
 ---
 
+## Pitfall: a filtered base measure desynchronizes native subtotals
+
+This is a different failure mode from the row-inflation symptom above, and it is easy to confuse with it. It shows up when the **base measure itself is filtered**, typically because a BLANK row needs to be hidden — e.g. a DAX measure such as `A9_SignifBase = SUM(TableA9[weight])` combined with a visual-level filter **"A9_SignifBase is not blank"**.
+
+:::warning[Why this happens]
+With `Rows are repeated items` **Off** (the default), Power BI computes every subtotal/total column with its native **Subtotal API**: the measure is *re-evaluated* in an expanded filter context for the whole group, it is **not** a sum of the values already shown in the visible rows. If the base measure is a `SUM` that is filtered to drop structurally-blank rows, that re-evaluation can still pull in weight that doesn't correspond to anything displayed. The result: a subtotal/total that silently disagrees with what you get by summing the visible rows by hand — even though every individual visible cell looks correct, and the discrepancy carries over into significance tests computed against that base.
+:::
+
+**How to recognize it**: recompute a total by hand from the rows Power BI actually displays — if it doesn't match the subtotal/total Power BI shows, and the ratio is *not* a clean "× number of rows" (that's the unrelated repeated-items symptom in the box above), suspect this instead.
+
+**Fix** — either of:
+- Turn `Rows are repeated items` **On**. This moves subtotal calculation away from the native Subtotal API to a per-row sum of the values actually displayed, which stays consistent with a filtered measure.
+- Or avoid filtering the measure altogether: drag the raw weight **column** into the data well instead of a filtered `SUM` measure. A plain column aggregation is resolved via a row-level relational join *before* aggregation, so structurally-blank rows disappear naturally with no desync — but then you lose the option to filter on anything other than the join itself.
+
+---
+
 ## Layout matters: Hierarchical vs Side-by-Side columns
 
 The column layout changes how the base is presented, but the row rule above is the same in both.
@@ -125,3 +141,4 @@ In a **mean** table, the base doubles as the **weight**: a subtotal mean is `Σ(
 - **A demographic table shows a base that is too small (looks like one group)** → rows are disjoint groups; turn `Rows are repeated items` **Off**.
 - **Base and Unweighted Base differ by more than weighting** → check that both series are mapped correctly in [Percentage Series](./percentage-series.md) / [Mean Series](./mean-series.md), and that the unweighted base series is the raw respondent count.
 - **Means are correct but bases are not** → this is expected when the row axis is misconfigured; fix it with the toggle — the means will not change.
+- **A subtotal/total doesn't match the sum of visible rows, but it's not a clean ×N multiple** → see [Pitfall: a filtered base measure desynchronizes native subtotals](#pitfall-a-filtered-base-measure-desynchronizes-native-subtotals). Your base measure is likely filtered (e.g. to hide BLANK rows) while `Rows are repeated items` is Off; either turn it On or feed the raw weight column instead of the filtered measure.

@@ -164,6 +164,10 @@ Compares each row to the **previous row** in the table, in the same column — a
 
 Unlike *All Columns* (which uses each **column's** own total as the sample size), this test uses each **row's** own base — consistent with the [Rows are repeated items](understanding-bases.md#the-rows-are-repeated-items-toggle) setting, where every row is an independent item with its own respondent base.
 
+:::caution[Filtered base measures can silently break significance]
+If your base measure is a filtered `SUM` (e.g. filtered to hide structurally-blank rows), the base feeding these tests can desynchronize from what's actually displayed — see [Understanding Bases → filtered base measure pitfall](understanding-bases.md#pitfall-a-filtered-base-measure-desynchronizes-native-subtotals).
+:::
+
 :::note
 Native Power BI subtotal rows are automatically skipped — both as a row being tested and as a candidate "previous row" — so a subtotal never gets compared, and the row right after it compares against the last real data row above the subtotal, not the subtotal itself.
 :::

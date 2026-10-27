@@ -409,6 +409,9 @@ A: Your data likely isn't weighted; consider hiding unweighted row
 **Q: Base values look wrong**  
 A: Check series mapping; ensure you're using the correct measure
 
+**Q: A subtotal/total doesn't match the sum of the rows you actually see**  
+A: If your base measure is a filtered `SUM` (e.g. to hide BLANK rows), Power BI's native subtotal calculation can desynchronize from the visible rows. See [Understanding Bases → filtered base measure pitfall](understanding-bases.md#pitfall-a-filtered-base-measure-desynchronizes-native-subtotals).
+
 **Q: Subtotals don't appear**  
 A: Subtotals only show with hierarchical column structures (2+ levels)
 
@@ -426,6 +429,7 @@ A: Try positioning them at bottom, or reduce font size in formatting
 - [Percentage Series](percentage-series.md) — Map base data series
 - [Mean Series](mean-series.md) — Configure count series
 - [Thresholds](thresholds.md) — Mask low base values
+- [Understanding Bases](understanding-bases.md) — How bases are aggregated, the `Rows are repeated items` toggle, and the filtered-measure pitfall
 
 ---
 
