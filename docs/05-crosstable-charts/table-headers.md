@@ -21,14 +21,14 @@ See the [Header Logos tutorial](tutorial-header-logos.md) for a full, click-by-c
 
 ---
 
-## The ⚙ editors — Column Headers / Row Headers
+## The ⚙ editors — Column editor / Row editor
 
-Click the **🏛️** icon (Column Headers) or **📝** icon (Row Headers) to open the editor. Each opens the same schema-driven dialog used elsewhere in the visual (e.g. [Gap Mode's column editor](gap-mode.md#per-column-presentation--the--editor)), with **one block per header level** and an **Add level** button:
+Click the **🏛️** icon (**Column editor**) or **📝** icon (**Row editor**) to open the editor. Each opens the same schema-driven dialog used elsewhere in the visual (e.g. [Gap Mode's column editor](gap-mode.md#per-column-presentation--the--editor)), with **one block per header level** and an **Add level** button:
 
 | Editor | Levels | Cap |
 |---|---|---|
-| **Column Headers** | One block per column-header depth (Level 1 = outermost) | None — add as many levels as your column hierarchy has. |
-| **Row Headers** | Level 1 (outer, only meaningful with 2-level row grouping) / Level 2 (inner) | 2 — row grouping never produces more than 2 row levels in this visual. |
+| **Column editor** | One block per column-header depth (Level 1 = outermost) | None — add as many levels as your column hierarchy has. |
+| **Row editor** | Level 1 (outer, only meaningful with 2-level row grouping) / Level 2 (inner) | 2 — row grouping never produces more than 2 row levels in this visual. |
 
 A level with **no** block configured simply shows the active style theme's default — you only need to add a level to override something.
 
@@ -49,11 +49,24 @@ A level with **no** block configured simply shows the active style theme's defau
 | **Logo placement** | Logo only / Logo above text / Logo under text | Logo above text | How the logo combines with the header label — no effect if no logo resolves for a given header. |
 | **Logo size (px)** | 8–100 | 24 | Logo height at this level. |
 | **Row layout** *(Row Headers only)* | Side column / Hierarchical | Side column | See [Row layout: Side column vs. Hierarchical](#row-layout-side-column-vs-hierarchical) below. |
+| **Column separator** *(Column editor only)* | None / Dotted / Dashed / Axis / Solid / Double | None | Draws a vertical line on the **left** of every column group of this level (except the first group of its parent), through the headers, the data cells and the base rows. See [Column separators](#column-separators) below. |
+| **Separator color** / **Separator width (px)** | Color / 1–8 | Grey / 1 | *(when a separator style is set)* Color and thickness of the line. A *Double* line is at least 3 px wide so both strokes stay visible. |
+| **Sample across items** | Disjoint / Shared / Native | Disjoint | How the base of a total or sub-total is built from the items of this level. See [Sample Across Items](sample-across-items.md). |
 | **Additional CSS** | Free text (multi-line) | *(empty)* | Raw CSS declarations appended to this level's generated style rule — see [Additional CSS](#additional-css) below. |
 
 Changes save back into the underlying JSON field (`Column headers` / `Row headers`) and persist with the report, like any other formatting property.
 
 📸 **Screenshot — rendered result** `tableheaders-logoplacement-montage.png` — the same header with a logo, compared across the three **Logo placement** options: Logo only, Logo above text, Logo under text.
+
+---
+
+## Column separators
+
+Set **Column separator** on a column level to separate its groups visually — for example a dashed line between each *Year* of a *Year > Brand* hierarchy. The line sits on the left edge of the first column of each group (header, data cells and base rows alike), so it stays continuous from the top of the table to the bottom. The first group under a parent never gets one: the line separates siblings, it doesn't frame the table.
+
+- **Axis** draws a long-short-long-short stroke, handy for a chart table where the separator should read as a baseline.
+- The separator also applies to the merged cells of **Group into one chart** and **Group last-level rows**.
+- With the **Total** column on, the first level-0 group is separated from it.
 
 ---
 

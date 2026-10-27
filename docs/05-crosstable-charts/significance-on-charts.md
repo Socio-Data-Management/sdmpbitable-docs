@@ -34,6 +34,20 @@ All the remaining test types produce a simple **verdict per cell** — higher (+
 
 ---
 
+## Variance method and effective base
+
+The **Signif. Var. Method** setting of the Significance card also offers **Separate (effective base)** here, on top of *Pooled proportion* and *Separate* (percentage tables only):
+
+`t = (P1 − P2) / √( P1(1−P1)/EffBase1 + P2(1−P2)/EffBase2 )`
+
+P1 and P2 still come from your values and base series; only the variance uses the **effective base** — typically the raw N × the design effect, so it is smaller than the weighted base on a weighted sample.
+
+**Choosing this method opens one more slot in the Series usage card: "Effective Base Series".** Map it to a measure returning the effective base of each cell (leave it on *None* and each cell falls back to its raw base). The sub-totals and column totals of that series follow the same rules as the weighted base — summed or not according to [Sample Across Items](sample-across-items.md).
+
+One method for all tests: **Significance level** and **Signif. Var. Method** apply to every active significance test (1, 2, 3) *and* to the Partition Gap test of [Gap Mode](gap-mode.md), so a gap is never tested with a different formula from the verdicts next to it.
+
+---
+
 ## The chart overlay
 
 Instead of coloring table cell backgrounds/borders and printing letters, each active, **significant** test applies its configured **view** as a chart decoration:

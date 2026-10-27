@@ -63,6 +63,9 @@ Everything **not** related to that trade-off — data roles, series mapping, sig
 | **Data Line** (in-cell connected point / sparkline) | ❌ | ✅ |
 | **Gap Mode** (main-vs-average / main-vs-competitor gap columns) | ❌ | ✅ |
 | Row height control, abbreviated value format (k/M/B) | ❌ | ✅ |
+| **Sample across items** per level (Disjoint / Shared / Native) — replaces *Multiple answer ?* and *Rows are repeated items* | ❌ | ✅ *(see [Sample Across Items](sample-across-items.md))* |
+| Significance variance on an **effective base** (weighted samples) | ❌ | ✅ *(see [Significance on Charts](significance-on-charts.md#variance-method-and-effective-base))* |
+| **Column separators** between column groups | ❌ | ✅ *(see [Table Headers](table-headers.md#column-separators))* |
 | Excel export (Pro) | ✅ | ✅ |
 
 If you need Ranking, Cell Rules or Tile Mode, use CrossTable. If you want the crosstab's numbers turned into small in-cell bars or trend lines, use CrossTable InCell Charts. Nothing stops you from placing both visuals on the same report page side by side — they read the same kind of data model.
