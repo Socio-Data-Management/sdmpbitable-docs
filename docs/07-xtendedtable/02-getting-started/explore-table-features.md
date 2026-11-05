@@ -220,9 +220,8 @@ This composite section includes multiple cards:
 - Selection mode
 - Percentage symbol display
 - Decimal precision
-- Freeze panes
-- Row title width and row height
-- Row group spacing
+- Freeze panes and forbid horizontal scroll
+- Row title width
 - Column header visibility
 - Transparent background
 
@@ -257,6 +256,7 @@ This card replaces the Top level / Sub level / Row header format cards and the L
 - Whether the level is shown, and whether it gets a sub-total (columns)
 - The *Logo series* (an *Additional Series* measure returning a base64 image) and the logo mode and size
 - For rows: side column or full-width band, and an additional CSS field
+- The size of the data columns and rows (auto, equal, minimal or fixed), the gap before each group, and how long column titles are cut
 
 **Key decisions here**:
 - Provide logos through a measure (*Logo series*) or, when they only depend on the label, through the **Header Logos** lookup (no query cost)

@@ -67,7 +67,7 @@ Gap columns don't get individual Format-pane slices (that would mean the same do
 
 | Field | Options / Range | Default | Description |
 |---|---|---|---|
-| **Title** | Text | *Gap vs average* / *Gap vs 2nd* / *Gap vs 3rd* | Header label for the column. |
+| **Title** | Text | *Gap vs average* / *Gap vs 2nd* / *Gap vs 3rd* | Header label for the column. Accepts `%[Field name]` placeholders for a title that follows the data — see [below](#a-title-that-follows-the-data). |
 | **Render** | Bar, Bar only, Number | Bar for *Gap vs average*, Number for the others | **Bar** = diverging bar + numeric label (like Data Bar). **Bar only** = bar without the label. **Number** = colored figure only, no bar. |
 | **Precision** | 0–6 decimals | 0 | Decimals shown on the numeric label. |
 | **Force sign** | Toggle | Off | Always prefix positive gaps with `+`. |
@@ -80,6 +80,29 @@ Gap columns don't get individual Format-pane slices (that would mean the same do
 | **Show separator** + **Separator color** | Toggle + Color | Off / `#CCCCCC` | Draws a vertical rule to the left of the column — useful to set a gap column visually apart from the raw partitions kept via **Keep main partition column**. |
 
 Changes made in the editor are saved back into **Gap columns (JSON)** and persist with the report, like any other formatting property.
+
+### A title that follows the data
+
+A **Title** typed in the editor is fixed text. To have it change with the report's filters — the current wave, the number of candidates, a label computed in DAX — use a **title constant**: a measure bound through *fx* on the [Title Constants](title-constants.md) card, referenced in the title between `%[` and `]`.
+
+| Typed in **Title** | Rendered, with `ConstantNum1` resolving to 14 |
+|---|---|
+| `Rank` | Rank |
+| `Rank (/%[ConstantNum1])` | Rank (/14) |
+| `%[ConstantNum1]` | 14 |
+
+The placeholder is **substituted inside** the text: everything around it is kept, several placeholders in one title work, and a title without any is left untouched. The picker under the **Title** box lists the constants currently configured — with a preview of their value — and inserts the reference for you, so the spelling always matches. Name matching ignores case, spaces and punctuation.
+
+- A name matching **no** constant is left on screen as `%[Typo]`, so a misspelling is visible rather than silent.
+- A constant that resolves to nothing leaves the title empty, which falls back to that column's default title.
+
+:::tip[Why a constant rather than a field in a well]
+A label measure dropped in **Values** is returned by the engine for *every* intersection of the matrix — thousands of copies of the same string, plus an extra measure that shifts the position of all the others. A title constant is evaluated once, outside the data wells. Placing the field in a well does still work as a silent fallback (`%[My measure]` resolves against the fields present, taking their first value), but the ⚙ picker deliberately does not offer it.
+:::
+
+:::note[Why not the *fx* button directly in the editor?]
+Power BI's **fx** button is drawn by the host next to a Format-pane slice, and a rule it builds resolves to one value for one property. The ⚙ editor's columns all share a *single* formatting property (**Gap columns (JSON)**), so fx has nothing to attach to there. The Title Constants card is the way round: the fx buttons live on the card, where the host can draw them, and the editor references their result. The same syntax is available in the **Column title** of the Funnel visual's extra-columns editor.
+:::
 
 ---
 

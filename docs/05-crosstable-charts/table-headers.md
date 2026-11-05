@@ -51,12 +51,29 @@ A level with **no** block configured simply shows the active style theme's defau
 | **Row layout** *(Row Headers only)* | Side column / Hierarchical | Side column | See [Row layout: Side column vs. Hierarchical](#row-layout-side-column-vs-hierarchical) below. |
 | **Column separator** *(Column editor only)* | None / Dotted / Dashed / Axis / Solid / Double | None | Draws a vertical line on the **left** of every column group of this level (except the first group of its parent), through the headers, the data cells and the base rows. See [Column separators](#column-separators) below. |
 | **Separator color** / **Separator width (px)** | Color / 1–8 | Grey / 1 | *(when a separator style is set)* Color and thickness of the line. A *Double* line is at least 3 px wide so both strokes stay visible. |
+| **Show sub-total column** *(Column editor only)* | Toggle | On | Displays the sub-total column of this level's groups. See [Sub-total column](#sub-total-column) below. |
 | **Sample across items** | Disjoint / Shared / Native | Disjoint | How the base of a total or sub-total is built from the items of this level. See [Sample Across Items](sample-across-items.md). |
 | **Additional CSS** | Free text (multi-line) | *(empty)* | Raw CSS declarations appended to this level's generated style rule — see [Additional CSS](#additional-css) below. |
 
 Changes save back into the underlying JSON field (`Column headers` / `Row headers`) and persist with the report, like any other formatting property.
 
 📸 **Screenshot — rendered result** `tableheaders-logoplacement-montage.png` — the same header with a logo, compared across the three **Logo placement** options: Logo only, Logo above text, Logo under text.
+
+---
+
+## Sub-total column
+
+Each column level that has sub-columns can display a **sub-total column** summing them (e.g. a *Total Country* column in a `Country > Brand` hierarchy). It is the **Show sub-total column** field of the column level — **On by default at every level** — which replaces CrossTable's two fixed *Show Level 1/2 Sub-Total* switches of the [Totals](../04-reference/totals.md) card.
+
+- It has no effect on the last (deepest) column level, which has no sub-columns.
+- A table with four column levels therefore shows sub-totals at levels 1, 2 and 3 by default; uncheck the ones you don't want — there is no longer a cap at two levels.
+- Header, data cells and base rows stay aligned: switching a sub-total off removes it everywhere.
+- The field stays available even when the level's header is hidden with **Show this header**: you can hide a level's label and still keep its sub-total.
+- Sub-total columns are dropped altogether — whatever this field says — in the modes where they have no meaning: **Group into one chart**, **Group last-level rows**, side-by-side column groups, and a mean table with a single value series.
+
+:::caution[Reports built before this change]
+The move from the two *Show Level 1/2 Sub-Total* switches to this per-level field is a clean cut: a report that had one of them **off** gets its sub-total back (the new field defaults to On). Uncheck **Show sub-total column** on the matching column level to restore the intended layout.
+:::
 
 ---
 

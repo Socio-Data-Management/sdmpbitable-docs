@@ -39,9 +39,10 @@ The tooltip is opt-in. Once activated, a **Tooltip content** sub-card appears wi
 | Horizontal % | The cell's horizontal percentage (percentage tables only) | Off |
 | Cell % | The cell's value divided by its own base, see [Cell Percentage](table-content.md#cell-percentage) (percentage tables only) | Off |
 | Index | The cell's index | Off |
-| Weighted base | The cell's weighted base (the same figure used as the significance test's own denominator) | Off |
+| Weighted base | The cell's weighted base (the same figure used as the significance test's own denominator). On InCell Charts, with the **Separate (effective base)** variance method, the **Effective base** the test actually used is listed right below it (see [below](#effective-base)) | Off |
 | Unweighted base | The cell's unweighted (respondent) base | Off |
-| Compared base | The base of the group this cell was statistically compared against (see [below](#compared-base)) | Off |
+| Compared base | The base of the group this cell was statistically compared against — on InCell Charts, plus its **Compared effective base** with the effective-base variance method (see [below](#compared-base)) | Off |
+| Tested & compared values *(InCell Charts only)* | The proportion (or mean) of the cell and of the group it was compared against, exactly as fed to the significance test (see [below](#tested--compared-values)) | Off |
 | Significance confidence level | The continuous confidence level of the active significance test(s) (see [below](#significance-confidence-level)) | Off |
 
 :::tip
@@ -89,6 +90,41 @@ Every significance test compares the cell against *something*: the complement of
 | All Columns | *(not available — this mode compares against every other column at once, so there is no single "compared" base)* |
 
 If more than one significance test is active on a cell, the tooltip lists one **Compared base** line per active test — numbered **Compared base 1**, **Compared base 2**… in the same order as the tests, exactly like [Significance confidence level](#significance-confidence-level) above.
+
+---
+
+## Effective base
+
+:::info[CrossTable InCell Charts only]
+The two lines below exist in CrossTable InCell Charts. CrossTable shows the plain bases only.
+:::
+
+With the **Separate (effective base)** variance method (see [Significance Testing](significance.md)), the test does not use the weighted base but the **effective base** supplied by your *Effective base* series. The tooltip then adds:
+
+- **Effective base** (under the **Weighted base** toggle): the effective base of the tested cell,
+- **Compared effective base** (under the **Compared base** toggle): the effective base of the group it was compared against.
+
+These are the values that enter the variance of the test, after the fallback to the plain base when no effective base is available for a cell. With another variance method, these lines do not appear.
+
+---
+
+## Tested & compared values
+
+:::info[CrossTable InCell Charts only]
+The **Tested & compared values** toggle exists in CrossTable InCell Charts.
+:::
+
+For a data scientist who wants to check a result by hand, the confidence level and the bases are not enough: the test also needs the two proportions (or means) it compared. **Tested value** is the one of the hovered cell, **Compared value** the one of the other side — with more decimals than the table shows.
+
+- In a percentage table the tested value is the **vertical %** or, when [Cell %](table-content.md#cell-percentage) is on, the cell %. The compared value is computed the same way on the other side of the comparison (for the complement test: Σ values / Σ bases of the other items).
+- In a mean table they are the two means.
+- With several active tests, lines are numbered like the other tooltip lines.
+
+With *Tested value*, *Compared value*, the bases (**Base**, **Compared base**) and, when relevant, their effective counterparts, every input of the test is on screen: z and the confidence level can be recomputed independently.
+
+:::note
+The **Base** line shows the cell's own base. In vertical % mode the test uses the **column total** as the cell's `n`, which equals that base for a single row but accumulates across rows otherwise.
+:::
 
 ---
 

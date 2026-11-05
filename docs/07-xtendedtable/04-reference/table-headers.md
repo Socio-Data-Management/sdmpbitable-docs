@@ -7,7 +7,7 @@ title: Table Headers
 
 ## Overview
 
-**Table Headers** controls how column and row header levels look — background, font, an optional logo, sub-total columns, column separators, the sample type of the level's items, and (for row headers) the layout of each level. It is driven by **two schema-driven editors** — Column Headers and Row Headers — each managing an open-ended list of per-level blocks, **one block per hierarchy level, with no cap on the number of levels**.
+**Table Headers** controls how column and row header levels look and are laid out — background, font, an optional logo, title cut, sub-total columns, column width and row height, gaps between groups, column separators, the sample type of the level's items, and (for row headers) the layout of each level. It is driven by **two schema-driven editors** — Column Headers and Row Headers — each managing an open-ended list of per-level blocks, **one block per hierarchy level, with no cap on the number of levels**.
 
 :::info[Replaces the fixed, level-capped settings of CrossTable]
 CrossTable uses fixed, level-suffixed settings (`Column Logo Lv1/Lv2/Lv3` and `Row Logo Lv1/Lv2` data roles, *Top-Level* / *Sub-Level Column Header* and *Row header format* cards, *Show Level 1/2 Sub-Total*, *Multiple answer*, *Rows are repeated items*). SDM Xtended Table has none of them: everything that depends on a header level is a field of that level's block in the ⚙ editors described below. The **Cell format** card ([Custom Element Formatting](formating/formatting-custom.md)) is unchanged.
@@ -30,6 +30,8 @@ Click the **Column editor** icon or the **Row editor** icon to open the editor. 
 | **Column Headers** | One block per column-header depth (Level 1 = outermost) | None — add as many levels as your column hierarchy has. |
 | **Row Headers** | One block per row depth, outermost first; the **last** level is the row labels themselves (the leaf rows) | None — add as many levels as your row hierarchy has. |
 
+Within a block, the fields are grouped in three collapsible sections: **Header** (open by default: colors, font, logo, additional CSS and, for columns, the title cut), **Sub-total** (the sub-total column style and the *Sample across items* property) and **Layout** (size, gap before each group, separator, row layout). The **Show this header** switch stays outside the sections, always visible.
+
 A level with **no** block configured simply shows the active style theme's default — you only need to add a level to override something.
 
 📸 **Screenshot — Format pane / editor dialog** `tableheaders-editor-open.png` — the Column Headers (or Row Headers) ⚙ editor open, showing one configured level block with its fields.
@@ -49,6 +51,11 @@ A level with **no** block configured simply shows the active style theme's defau
 | **Logo placement** | Columns, Rows | Logo only / Logo above text / Logo under text | Logo above text | How the logo combines with the header label — no effect if no logo resolves for a given header. |
 | **Logo size (px)** | Columns, Rows | 8–100 | 24 | Logo height at this level. |
 | **Additional CSS** | Columns, Rows | Free text (multi-line) | *(empty)* | Raw CSS declarations appended to this level's generated style rule — see [Additional CSS](#additional-css) below. |
+| **Title cut (when horizontal scroll is forbidden)** | Columns | Ellipsis / 2 lines + ellipsis / As many lines as needed | Ellipsis | How long titles of this level are cut when **Forbid horizontal scroll** is on — see [Title cut](#title-cut-when-horizontal-scroll-is-forbidden). Only shown while the level's header is shown. |
+| **Width (last level only)** | Columns | Auto / Distribute equally / Minimal / Fixed (px) | Auto | Width of the data columns — see [Size](#size-width-and-height). |
+| **Height of each group of this level** | Rows | Auto / Distribute equally / Minimal / Fixed (px) | Minimal | Height of each row (last level) or of each sub-table (outer levels) — see [Size](#size-width-and-height). |
+| **Width / Height (px)** | Columns, Rows | 10–2000 | 100 (columns) / 30 (rows) | Only shown when the size mode is *Fixed*. |
+| **Gap before each group (px)** | Columns, Rows | 0–100 | 0 | Space before each group of this level — see [Gaps between groups](#gaps-between-groups). |
 | **Row layout** | Rows | Side column / Hierarchical | Side column | See [Row layout](#row-layout-side-column-vs-hierarchical) below. |
 | **Show sub-total column** | Columns | Toggle | On | Shows the sub-total column of this level (the one that sums its sub-columns) — see [Sub-total columns](#sub-total-columns-column-levels). |
 | **Sub-total colors** … **Sub-total underline** | Columns | Same as the header fields | Inherit from theme | Style of this level's sub-total column (header and cells). Only shown while *Show sub-total column* is on. |
@@ -165,7 +172,7 @@ Side column                      Hierarchical
 
 Layouts can be **mixed** across levels — for example Level 1 as a banner and Level 2 as a side column. A banner row picks up **its own level's** Background / Font / Additional CSS — style it like any other level. Combine it with [Additional CSS](#additional-css) to get, for example, a dashed border framing each section.
 
-The **Row layout** field has no effect on the **last** row level (the leaf rows), whose labels are always the row-label column. Combine row layouts with **Row group spacing** ([Table Options](formating/formatting-basics.md#row-group-spacing)) to add a vertical gap between consecutive sub-tables.
+The **Row layout** field has no effect on the **last** row level (the leaf rows), whose labels are always the row-label column. Combine row layouts with a [Gap before each group](#gaps-between-groups) to add a vertical space between consecutive sub-tables.
 
 📸 **Screenshot — rendered result** `tableheaders-rowlayout-sidecolumn.png` — a 2-level row grouping with Level 1's **Row layout** set to **Side column** (the narrow first-column look).
 📸 **Screenshot — rendered result** `tableheaders-rowlayout-hierarchical.png` — the same table with **Hierarchical**: Level 1's label as a full-width banner row above its Level 2 group.
@@ -173,6 +180,49 @@ The **Row layout** field has no effect on the **last** row level (the leaf rows)
 :::note[Known limits]
 Side-by-side (Table of Tables) mode and freeze panes are not specially handled for banner rows — a banner scrolls normally, and side-by-side mode ignores the Hierarchical setting.
 :::
+
+---
+
+## Size: width and height
+
+The **Layout** section of a level sets the size of what that level lays out. The same four modes exist for columns (**Width**) and rows (**Height of each group of this level**):
+
+| Mode | Columns (last level) | Rows |
+|---|---|---|
+| **Auto** | The browser distributes the width and the table grows to fill the visual width. *(Default for columns)* | The natural heights are stretched so the rows fill the visual height. |
+| **Distribute equally** | All data columns get the same width, sharing the available width. | All groups of the level get the same height, sharing the available height. |
+| **Minimal** *(just what is needed)* | Each column takes only the width it needs; empty space is left on the right. | Each row takes only the height it needs; empty space is left at the bottom. *(Default for rows, i.e. the historical behavior.)* |
+| **Fixed (px)** | Every data column is exactly the given number of pixels wide. | Every group is exactly the given number of pixels high. |
+
+- **Columns**: the setting is read on the **last** column level (the leaf columns); parent levels are simple spans over them.
+- **Rows**: each row level can be set independently. On the **last** level, *Height* applies to **each row**; on an outer level it applies to **each group** of that level (for example each country of a `Country > Brand` hierarchy), and the inner levels then share the height of their parent's group. This replaces the former *Row height (px)* Table option.
+- A *Fixed* height is a target for the whole group, including any [gap](#gaps-between-groups).
+
+---
+
+## Gaps between groups
+
+The **Gap before each group (px)** field adds empty space in front of each group of the level, **in standard mode and in Tile mode alike**. It replaces the former *Row group spacing* Table option and the *Group gap* / *Sub-group gap* / *Row gap* Tile-mode settings, and works at **any** level.
+
+- **Columns**: horizontal space before each group of the level (not before the first group of its parent). A [column separator](#column-separators-column-levels) of the same level is drawn **centered inside** that space. The gap is also applied before the level's sub-total column.
+- **Rows, outer level**: a vertical spacer row before each group of the level, i.e. between two consecutive sub-tables (one country, one wave…). The spacer is a real empty row, not a border, so it doesn't disturb zebra striping or frozen rows. With a single sub-table there is nothing to space.
+- **Rows, last level**: space **between two consecutive leaf rows**.
+
+`0` (default) means no gap.
+
+---
+
+## Title cut (when horizontal scroll is forbidden)
+
+When Table options → [**Forbid horizontal scroll**](formating/formatting-basics.md#forbid-horizontal-scroll) is on, the table is fitted to the width of the visual: a column can no longer widen to fit its title, so titles are cut. The **Title cut** field of each column level chooses how:
+
+| Option | Rendering |
+|---|---|
+| **Ellipsis** *(default)* | One line, ending with "…" |
+| **2 lines + ellipsis** | Up to two lines, ending with "…" if it still doesn't fit |
+| **As many lines as needed** | The title wraps on as many lines as necessary |
+
+The field has no effect while horizontal scroll is allowed.
 
 ---
 
@@ -192,7 +242,7 @@ See [Totals](totals.md) for how total and sub-total values are computed.
 
 ## Column separators (column levels)
 
-The **Column separator** field draws a vertical line on the left of each group of the level — useful to visually delimit the countries of a `Country > Brand` hierarchy, for example without resorting to Tile Mode gaps. Pick a style (**Dotted**, **Dashed**, **Axis**, **Solid**, **Double**), then a **Separator color** and a **Separator width (px)**. **None** (default) draws nothing.
+The **Column separator** field draws a vertical line on the left of each group of the level — useful to visually delimit the countries of a `Country > Brand` hierarchy, for example without resorting to gaps. Pick a style (**Dotted**, **Dashed**, **Axis**, **Solid**, **Double**), then a **Separator color** and a **Separator width (px)**. **None** (default) draws nothing. If the level also has a [gap](#gaps-between-groups), the line is centered in the gap.
 
 ---
 
@@ -240,4 +290,6 @@ Any `url(...)` fragment is silently stripped before use — the same "no externa
 - **Additional CSS doesn't seem to apply** → structured fields (Background, Font color…) are written with `!important`; add `!important` to your own declaration if it's meant to override one of them.
 - **Row layout: Hierarchical has no effect** → it applies to the **outer** row levels only (not the last level), and it's ignored in side-by-side (Table of Tables) mode.
 - **I don't see an on/off switch to hide a header level** → there isn't a separate one; open the relevant ⚙ editor, **Add level** for that level if it doesn't have a block yet, and uncheck **Show this header** — see [Hiding a header level](#hiding-a-header-level).
+- **Long column titles are cut / my table no longer scrolls horizontally** → **Forbid horizontal scroll** is on; switch it off, or choose another [Title cut](#title-cut-when-horizontal-scroll-is-forbidden) per level.
+- **I can't find Row height, Row group spacing or the Tile mode gaps** → they moved into the editors: see [Size](#size-width-and-height) and [Gaps between groups](#gaps-between-groups).
 - **A sub-total column appeared that I didn't ask for** → *Show sub-total column* is On by default at every column level; uncheck it on the levels where you don't want one.

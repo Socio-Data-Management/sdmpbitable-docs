@@ -10,6 +10,28 @@ Depuis juillet 2026, la famille compte **deux visuels** : **CrossTable** (ce cha
 
 ---
 
+## CrossTable InCell Charts — Taille des logos de légende *(2 novembre 2026)*
+
+Nouveau réglage **Logo size (px)** (carte *Data Line* → *Legend*) : la hauteur des logos affichés dans la légende des séries, en pixels (défaut **14**, la taille fixe précédente — aucun rapport existant ne change). La largeur suit le ratio de chaque image, plafonnée proportionnellement, donc rien n'est déformé. Sans effet quand *Content* vaut *Text only*. Voir [Data Line → Legend](../05-crosstable-charts/data-line.md#legend).
+
+---
+
+## CrossTable InCell Charts — Sous-totaux par niveau et tooltip « vérifier le calcul » *(29 octobre 2026)*
+
+**Sous-totaux de colonne réglés par niveau.** Les deux bascules *Show Level 1 Sub-Total* / *Show Level 2 Sub-Total* de la carte **Totals** disparaissent : chaque niveau de colonne porte désormais sa propre case **Show sub-total column** dans l'éditeur ⚙ *Column Headers* (cochée par défaut), comme dans SDM Xtended Table. Voir [Table Headers → Sub-total column](../05-crosstable-charts/table-headers.md#sub-total-column).
+
+- **Plus de plafond à deux niveaux** : une hiérarchie de colonnes à quatre niveaux affiche ses sous-totaux aux niveaux 1, 2 et 3.
+- **Coupe nette** : un rapport qui avait désactivé un de ces deux réglages retrouve le sous-total ; il faut décocher *Show sub-total column* sur le niveau concerné.
+- Les modes où un sous-total n'a aucun sens (*Group into one chart*, *Group last-level rows*, side-by-side, moyenne à une seule série) les suppriment toujours, sans toucher au réglage.
+
+**Trois nouvelles informations dans le tooltip**, alignées sur SDM Xtended Table — de quoi refaire un test de significativité à la main (voir [Cell Tooltip](../04-reference/tooltip.md)) :
+
+- **Tested & compared values** (nouveau contenu) : la proportion (ou la moyenne) de la cellule et celle du groupe auquel elle est comparée, telles qu'injectées dans le test, avec plus de décimales que l'affichage.
+- **Effective base** et **Compared effective base** : avec la méthode de variance *Separate (effective base)*, les bases effectivement utilisées par le test s'ajoutent sous *Weighted base* et *Compared base*.
+- Rien n'est calculé tant que ces lignes ne sont pas affichées : aucun coût sur les gros tableaux.
+
+---
+
 ## CrossTable & InCell Charts — Pourcentage de cellule (Cell Percentage) *(septembre 2026)*
 
 Nouvel affichage **Cell Percentage** (carte *Table Contents*, tableaux de pourcentages) : la valeur de chaque cellule divisée par **sa propre base**, lue directement dans la *Base Series* au croisement. Le pourcentage vertical, lui, divise par le total de colonne. Utile quand le modèle fournit déjà le bon dénominateur pour chaque cellule, par exemple une base qui varie d'une ligne à l'autre. Voir [Table Contents → Cell Percentage](../04-reference/table-content.md#cell-percentage).

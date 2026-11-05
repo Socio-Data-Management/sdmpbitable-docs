@@ -134,6 +134,7 @@ With **Group last-level rows** and 2-level row grouping (a sub-table per top-lev
 | **Show** | Toggle | On | Shows/hides the color legend drawn below the table. |
 | **Sort on label** | Toggle | Off | Off (default) lists categories in Power BI's own data order — the order that best matches how your query returns them. On sorts entries alphabetically by category name instead. |
 | **Content** | Text only, Logo + Text, Logo only | Text only | What each entry shows besides its color marker: the category name, its [Header Logo](table-headers.md), or both. A category with no logo falls back to its name, so an entry is never empty; in *Logo only* the name stays available as a hover tooltip. |
+| **Logo size (px)** | Number | 14 | Height of the legend logos. The width follows each image's own ratio (capped proportionally, so nothing gets stretched), and the entries grow taller with the logos. No effect when *Content* is *Text only*. |
 | **Position** | Top left/center/right, Bottom left/center/right | Bottom center | Where the legend sits relative to the table. It aligns to the chosen edge/center on a single row (wrapping only if it's too wide to fit), rather than being confined to a fixed third of the table's width. |
 
 Each entry's color marker is a **short line** (not a square, unlike Data Bar's legend), since the series are drawn as lines.

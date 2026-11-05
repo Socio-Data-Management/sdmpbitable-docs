@@ -5,7 +5,7 @@ title: Tile Mode & Spacing
 
 # Tile Mode Reference
 
-Render each cell (or sub-cell) as a detached tile with rounded corners, optional drop shadow, configurable padding and column/row gaps. Tile Mode transforms the table from a classic grid into a card-like layout while keeping the underlying HTML `<table>` structure intact — all existing features (significance, ranking, thresholds, sticky columns, sorting, masking…) continue to work.
+Render each cell (or sub-cell) as a detached tile with rounded corners, optional drop shadow, configurable padding. Group and row gaps are set per level (see [below](#gaps-between-groups--now-per-level)). Tile Mode transforms the table from a classic grid into a card-like layout while keeping the underlying HTML `<table>` structure intact — all existing features (significance, ranking, thresholds, sticky columns, sorting, masking…) continue to work.
 
 ![alt text](../../../images/formating-tile-mode.png)
 
@@ -135,41 +135,13 @@ All horizontal gaps are split **symmetrically** between the two adjacent tiles (
 
 Gap between sub-cells inside a multi-value cell (when 2, 3 or 4 measures are displayed per cell). Higher values clearly separate the value, percentage, indice, etc.
 
-### Group gap (px)
+### Gaps between groups — now per level
 
-**Type**: Number (px)
-**Default**: 16
+Horizontal gaps between groups of columns and vertical gaps between groups of rows are **no longer Tile mode settings**. They are set with the **Gap before each group (px)** field of each level, in the **Layout** section of the ⚙ [Column Headers and Row Headers editors](../table-headers.md#gaps-between-groups), and they apply in **tile mode and in standard mode alike**. This replaces the former *Group gap*, *Sub-group gap* and *Row gap* settings, which no longer exist, and removes the old limit to two column levels: **any** column or row level can carry its own gap.
 
-Extra horizontal space inserted at the start of each top-level column group (column level 1). For example, between two countries in a `Country > Brand` hierarchy.
+For a tile look equivalent to the former defaults, set a gap of about `16` on column level 1 and about `8` on column level 2. The gap is also applied before the **sub-total** column of the level (see *Show sub-total column* in the [Column Headers editor](../table-headers.md#fields-per-level)).
 
-The same gap is also inserted:
-
-- Between the **Grand Total** column and the first data column (or first sub-total) that follows.
-- Between two top-level column groups.
-
-### Sub-group gap (px)
-
-**Type**: Number (px)
-**Default**: 8
-
-Extra horizontal space inserted at the start of each second-level column sub-group (column level 2). For example, between two brands within a country.
-
-:::note[Deeper column levels]
-Group gap and sub-group gap apply to column levels 1 and 2. With three or more column levels, the deeper levels (3 and beyond) do not receive an additional gap of their own.
-:::
-
-The same gap is also inserted:
-
-- Between a **sub-total** column (see *Show sub-total column* in the [Column Headers editor](../table-headers.md#fields-per-level)) and the first data column of the group that follows.
-
-### Row gap (px)
-
-**Type**: Number (px)
-**Default**: 0
-
-Vertical space between rows. Like horizontal gaps, the value is split symmetrically (half added below each row, half above the next), so a value of `8` produces an 8-pixel visual gap between any two consecutive rows.
-
-A value of `0` keeps rows tightly stacked (the classic table look). Set to 4-8 for a more airy, card-style layout.
+For vertical airiness, set a gap on the **last row level**: it is then added between two consecutive rows (half below each row, half above the next, so `8` gives an 8-pixel visual gap).
 
 ---
 
@@ -209,7 +181,7 @@ Sticky row headers continue to work normally. Their background is preserved by t
 
 ### Side-by-side mode
 
-The classic side-by-side separator (a 2px border between sub-tables) is kept independent of the tile group gaps.
+The classic side-by-side separator (a 2px border between sub-tables) is kept independent of the per-level gaps.
 
 ---
 
@@ -220,8 +192,8 @@ The classic side-by-side separator (a 2px border between sub-tables) is kept ind
 | Subtle card effect | radius 6-8, shadow intensity 4-6, padding 4/4 |
 | Strong card effect | radius 10-12, shadow intensity 12-18, padding 6/8 |
 | Dense layout | radius 4, shadow off, padding 2/2, sub-cell gap 2 |
-| Airy / dashboard | radius 10, shadow 8, padding 6/10, row gap 6, group gap 24 |
-| Magazine-like | radius 14, shadow 20, padding 8/12, row gap 8, group gap 32 |
+| Airy / dashboard | radius 10, shadow 8, padding 6/10; gap 6 on the last row level, gap 24 on column level 1 |
+| Magazine-like | radius 14, shadow 20, padding 8/12; gap 8 on the last row level, gap 32 on column level 1 |
 
 ---
 
@@ -230,7 +202,7 @@ The classic side-by-side separator (a 2px border between sub-tables) is kept ind
 If Tile mode is OFF:
 
 - None of the tile CSS is injected.
-- All sliders / colors / gaps are ignored.
+- All tile sliders / colors are ignored (the per-level gaps of the header editors still apply, since they also work in standard mode).
 - The table renders identically to previous versions.
 
 This means you can keep your existing reports untouched and only enable Tile Mode where you want the new look.

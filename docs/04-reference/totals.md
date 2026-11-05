@@ -34,6 +34,11 @@ Displays a total column that sums all values across the table.
 - Understanding proportional contribution
 
 ### Show Level 1 Sub-Total
+
+:::info[CrossTable only]
+In **CrossTable InCell Charts**, the two switches below no longer exist. Sub-total columns are set **per column level** — a **Show sub-total column** checkbox in each level block of the Column Headers ⚙ editor, On by default, with no cap at two levels. See [Table Headers → Sub-total column](../05-crosstable-charts/table-headers.md#sub-total-column).
+:::
+
 **Setting**: Show Level 1 Sub-Total  
 **Type**: Toggle  
 **Default**: On
@@ -250,8 +255,8 @@ Result:
 ```
 Configuration:
 - Show Table Total Column: Yes
-- Show Level 1 Sub-Total: Yes
-- Show Level 2 Sub-Total: Yes
+- Show Level 1 Sub-Total: Yes (InCell Charts: Show sub-total column, column level 1)
+- Show Level 2 Sub-Total: Yes (InCell Charts: Show sub-total column, column level 2)
 - Show Base Row: Yes
 - Base Rows on Top: Yes
 

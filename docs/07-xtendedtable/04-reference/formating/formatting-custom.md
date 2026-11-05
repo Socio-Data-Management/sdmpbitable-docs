@@ -539,6 +539,6 @@ Cell Text:    #000000 (Black)
 
 - [Table Options](formatting-basics.md) - Display behavior
 - [Table Styles](formatting-styles.md) - Predefined themes
-- [Tile Mode & Spacing](formatting-tile-mode.md) - Card-like rendering, gaps, shadows
+- [Tile Mode & Spacing](formatting-tile-mode.md) - Card-like rendering, shadows
 - [Table Headers](../table-headers.md) - Per-level header formatting, logos and row layout
 - [Formatting Overview](index.md) - All formatting options

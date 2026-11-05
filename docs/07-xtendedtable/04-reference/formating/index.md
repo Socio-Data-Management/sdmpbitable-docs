@@ -12,7 +12,7 @@ Customize the appearance of your table to match your brand, improve readability,
 SDM Xtended Table provides flexible formatting options organized into four levels:
 
 ### 1. **Table Options** (Basic Display)
-Control how the table behaves and displays, including hover effects, row striping, freezing, row spacing and column header visibility.
+Control how the table behaves and displays, including hover effects, row striping, freezing, horizontal scroll and column header visibility.
 
 👉 [Table Options Reference →](formatting-basics.md)
 
@@ -20,7 +20,7 @@ Control how the table behaves and displays, including hover effects, row stripin
 - Hover highlights
 - Zebra striping
 - Freeze panes
-- Row height and row group spacing
+- Forbid horizontal scroll
 - Display precision
 
 ### 2. **Table Style Options** (Predefined Themes)
@@ -36,7 +36,7 @@ Apply pre-configured professional themes with coordinated color palettes and sty
 - Transparent background
 
 ### 3. **Tile Mode & Spacing** (Card-Like Rendering)
-Turn cells into detached tiles with rounded corners, shadows, configurable padding and column/row gaps. Works with any theme.
+Turn cells into detached tiles with rounded corners, shadows, configurable padding. Works with any theme.
 
 👉 [Tile Mode Reference →](formatting-tile-mode.md)
 
@@ -45,7 +45,8 @@ Turn cells into detached tiles with rounded corners, shadows, configurable paddi
 - Border radius and drop shadow
 - Horizontal / vertical padding
 - Tile width (auto-equalize or explicit)
-- Column gaps (group, sub-group), sub-cell gap, row gap
+- Sub-cell gap
+- (Group and row gaps, column widths and row heights are now set per level in the [Table Headers editors](../table-headers.md))
 
 ### 4. **Custom Element Formatting** (Advanced Customization)
 Fine-tune fonts, colors, and backgrounds. **Data cells** are styled through the *Cell format* card; **column and row headers** are styled level by level through the ⚙ editors of the *Table Headers* card — with no limit on the number of levels.
@@ -68,7 +69,8 @@ Fine-tune fonts, colors, and backgrounds. **Data cells** are styled through the 
 |------|-------|
 | Control table behavior | [Table Options](formatting-basics.md) |
 | Apply a professional theme | [Styles](formatting-styles.md) |
-| Card-like rendering, gaps between groups | [Tile Mode](formatting-tile-mode.md) |
+| Card-like rendering | [Tile Mode](formatting-tile-mode.md) |
+| Gaps between groups, column widths, row heights | [Table Headers](../table-headers.md) |
 | Override fonts on a predefined theme | [Custom Formatting](formatting-custom.md#availability-by-style-theme) |
 | Style each header level (colors, fonts, logos) | [Table Headers](../table-headers.md) |
 | Match brand colors | [Custom Formatting](formatting-custom.md) |

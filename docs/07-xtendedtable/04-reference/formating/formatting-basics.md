@@ -135,12 +135,23 @@ Number of decimal places for percentage display.
 
 Freezing keeps certain rows/columns visible while scrolling, essential for navigating large tables.
 
+### Forbid Horizontal Scroll
+**Setting**: Forbid horizontal scroll  
+**Type**: Toggle  
+**Default**: Off
+
+Fits the table into the **width of the visual**: the data columns shrink instead of overflowing, so no horizontal scrollbar appears. Because a column can no longer widen to fit its title, long column titles are **cut** — choose how with the **Title cut** field of each column level in the [Column Headers editor](../table-headers.md#title-cut-when-horizontal-scroll-is-forbidden) (one line + ellipsis, two lines + ellipsis, or as many lines as needed).
+
+**Good to know**:
+- While it is **on**, the **Freeze left column** setting is hidden and has no effect (there is nothing to scroll horizontally).
+- The width of the data columns still follows the **Width** field of the last column level (see [Size](../table-headers.md#size-width-and-height)); when the columns cannot fit, they are scaled down uniformly (never below 30 px).
+
 ### Freeze Left Column
 **Setting**: Freeze left column  
 **Type**: Toggle  
 **Default**: On
 
-Keeps the row labels (leftmost column) visible while scrolling horizontally.
+Keeps the row labels (leftmost column) visible while scrolling horizontally. Hidden — and ignored — while **Forbid horizontal scroll** is on.
 
 **When enabled**:
 - You scroll left/right through data columns
@@ -235,55 +246,16 @@ This is particularly useful when you have the same column variables but differen
 
 ---
 
-## Row Sizing & Spacing
+## Row & Column Sizing, Group Gaps
 
-### Row Height
-**Setting**: Row height (px)  
-**Type**: Number (0-∞)  
-**Default**: 0 (automatic)
+In SDM Xtended Table, the size of columns and rows and the gaps between groups are no longer Table options: they are set **level by level** in the ⚙ [Column Headers and Row Headers editors](../table-headers.md), in the **Layout** section of each level. This replaces the former *Row height (px)* and *Row group spacing* settings (and the Tile mode *Group gap*, *Sub-group gap* and *Row gap* settings), which no longer exist.
 
-Forces a **minimum** height for every data row, in pixels. This never truncates content — a row with more content (wrapped labels, larger fonts) still grows taller than the value you set; `0` simply lets each row use its natural height.
-
-**Use cases**:
-- Airier layouts: give every row consistent visual breathing room
-- Aligning row rhythm across multiple tables/visuals on the same report page
-- Preventing short rows from looking cramped next to taller ones elsewhere in the table
-
-**Tips**:
-- Leave at 0 (automatic) unless you have a specific layout reason
-- This is a floor, not a fixed height — tall content is never clipped
-
-### Row Group Spacing
-**Setting**: Row group spacing  
-**Type**: Number (px, minimum 0)  
-**Default**: 0 (no gap)
-
-Adds a vertical gap between consecutive **row groups** — the sub-tables that appear when rows have two or more hierarchy levels (each combination of the outer levels, e.g. one country, or one country × wave, gets its own set of leaf rows). SDM Xtended Table supports any number of row levels: the gap is inserted between every two consecutive sub-tables, whatever the depth. With a single row level there's nothing to space apart.
-
-**Visual effect**:
-```
-Row group spacing: 0                Row group spacing: 12px
-┌─────────────┬─────┐               ┌─────────────┬─────┐
-│ France      │     │               │ France      │     │
-│  Product A  │ 100 │               │  Product A  │ 100 │
-│  Product B  │  85 │               │  Product B  │  85 │
-│ Germany     │     │               └─────────────┴─────┘
-│  Product A  │ 120 │                     (gap)
-│  Product B  │  95 │               ┌─────────────┬─────┐
-└─────────────┴─────┘               │ Germany     │     │
-                                     │  Product A  │ 120 │
-                                     │  Product B  │  95 │
-                                     └─────────────┴─────┘
-```
-
-**Use cases**:
-- Visually separating one sub-table (one country, one wave, one segment) from the next
-- Making a stacked-sub-tables layout easier to scan at a glance
-
-**Tips**:
-- No effect with a single row level (there is only one sub-table)
-- Works with any number of row levels, and with both row layouts (side column or hierarchical banner — see [Table Headers](../table-headers.md#row-layout-side-column-vs-hierarchical))
-- `0` keeps the historical, contiguous layout
+| You want to… | Where |
+|---|---|
+| Give every data row a given height, or make rows fill the visual height | Row Headers editor → last level → **Layout → Height of each group of this level** ([details](../table-headers.md#size-width-and-height)) |
+| Set the width of the data columns (equal, fixed, minimal) | Column Headers editor → last level → **Layout → Width** ([details](../table-headers.md#size-width-and-height)) |
+| Leave a vertical gap between two sub-tables (one country, one wave…) | Row Headers editor → the level of the sub-tables → **Layout → Gap before each group** ([details](../table-headers.md#gaps-between-groups)) |
+| Leave a horizontal gap before each group of columns | Column Headers editor → the level → **Layout → Gap before each group** ([details](../table-headers.md#gaps-between-groups)) |
 
 ---
 
