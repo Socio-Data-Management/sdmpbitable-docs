@@ -49,6 +49,10 @@ The override toggle is per element. You can keep the theme's stylish headers and
 
 ---
 
+![Table Format settings card with the Custom theme — top-level and sub-level column header groups](../../images/crosstable-custom-format-panel.png)
+
+![Custom formatting examples — custom theme, dark top header, italic red row headers, Georgia cells, bold right-aligned cells, and all overrides combined](../../images/crosstable-custom-format.png)
+
 ## Element Reference
 
 ### Top-Level Column Header

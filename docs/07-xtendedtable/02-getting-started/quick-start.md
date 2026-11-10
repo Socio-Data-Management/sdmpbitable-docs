@@ -16,8 +16,8 @@ Get SDM Xtended Table up and running in just a few minutes with this quick walkt
 
 ### Step 1: Add the Visual
 <img 
-  src={require('../../images/SdmPbiTableV3.png').default} 
-  alt="SdmPbiTable logo" 
+  src={require('../../images/xtendedtable-logo.svg').default} 
+  alt="SDM Xtended Table logo" 
   width="50px" 
 />
 

@@ -5,22 +5,24 @@ title: Overview
 
 # What is SDM Xtended Table?
 
+![SDM Xtended Table — significance coloring across a two-level column hierarchy, in tile mode](../../images/xtendedtable-hero.png)
+
 ## Purpose & Design Philosophy
 
 **SDM Xtended Table** (Socio Data Management Xtended Table for Power BI) is a specialized Power BI custom visual built for creating and analyzing cross-tabulation tables (also known as contingency tables or crosstabs). It keeps everything that makes the [CrossTable](../../01-introduction/overview.md) engine valuable for survey and market-research work, and removes its structural limits: **any number of row levels and any number of column levels**, each one formatted from a dedicated editor. It goes far beyond simple data grids by providing:
 
 - **Hierarchical table structures** with as many levels of rows and columns as your analysis needs
 
-![Hierarchical Data](Hierarchical_data.png)
+![Hierarchical Data](../../images/xtendedtable-hierarchical.png)
 - **Statistical analysis capabilities** including multiple significance testing
 
-![Significance Testing](Significance.png)
+![Significance Testing](../../images/xtendedtable-significance.png)
 - **Advanced formatting options** to highlight key insights
 
-![Advanced Formatting](AdvFormating.png)
+![Advanced Formatting — Cell Rules](../../images/xtendedtable-cell-rules.png)
 - **Professional styling** for reports and presentations
 
-![Styling](Styling.png)
+![Styling — color themes and ranking badges](../../images/xtendedtable-styling.png)
 - **Flexible data aggregation** supporting both percentages and means
 - **Interactive filtering** through row and column selection
 

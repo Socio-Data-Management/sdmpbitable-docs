@@ -19,6 +19,10 @@ Table Options control how your table behaves and displays data without changing 
 
 ---
 
+![Table Format settings card — Table options group](../../images/crosstable-table-options-panel.png)
+
+![Table options examples — default, zebra rows off, table border off, % symbol off, precision 3, and row height 34 px with a fixed row title width](../../images/crosstable-table-options.png)
+
 ## Hover Behavior
 
 ### Highlight Row on Hover

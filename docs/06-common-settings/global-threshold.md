@@ -24,6 +24,10 @@ This card supersedes the old **Clear on Empty dataset** toggle of the [Table Con
 
 ---
 
+![Global Threshold card — messages, test (Test if / Is / To) and panel presentation](../images/table-global-threshold-panel.png)
+
+![Global Threshold examples — table drawn, empty dataset with the default message, a custom top-left message and Empty Panel off, then the conditional message by default and on a red panel](../images/crosstable-global-threshold.png)
+
 ## Scope
 
 Global Threshold is available on **CrossTable** and **CrossTable InCell Charts** — same card, same properties, same behavior, same defaults. It is documented once here rather than twice; nothing on this page is specific to one of the two visuals.

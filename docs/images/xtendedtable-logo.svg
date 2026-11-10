@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Fond transparent -->
+  <rect width="200" height="200" fill="transparent"/>
+
+  <!-- Groupe centré -->
+  <g transform="translate(100, 100)">
+    <!-- Cercle extérieur magenta framboise -->
+    <circle cx="0" cy="0" r="80" fill="transparent" stroke="#C2186E" stroke-width="20"/>
+
+    <!-- Lignes horizontales et verticales (quadrillage) -->
+    <line x1="-80" y1="-20" x2="80" y2="-20" stroke="#C2186E" stroke-width="2.5" opacity="0.6"/>
+    <line x1="-80" y1="20" x2="80" y2="20" stroke="#C2186E" stroke-width="2.5" opacity="0.6"/>
+    <line x1="-20" y1="-80" x2="-20" y2="80" stroke="#C2186E" stroke-width="2.5" opacity="0.6"/>
+    <line x1="20" y1="-80" x2="20" y2="80" stroke="#C2186E" stroke-width="2.5" opacity="0.6"/>
+
+    <!-- Sigma hérité du CrossTable -->
+    <g transform="translate(+26, 0) scale(0.8)">
+      <path d="M -30,-40 L 30,-40 L 30,-26 L -6,-26 L 28,0 L -6,26 L 30,26 L 30,40 L -30,40 L -30,34 L 12,0 L -30,-34 Z" fill="#C2186E"/>
+    </g>
+
+    <!-- Chevrons d'extension -->
+    <polyline points="-58,-24 -40,0 -58,24" fill="none" stroke="#F2A20C" stroke-width="11"
+              stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+    <polyline points="-34,-24 -16,0 -34,24" fill="none" stroke="#F2A20C" stroke-width="11"
+              stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+    <polyline points="-10,-24 8,0 -10,24" fill="none" stroke="#C2186E" stroke-width="11"
+              stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

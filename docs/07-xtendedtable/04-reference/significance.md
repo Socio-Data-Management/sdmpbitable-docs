@@ -9,7 +9,7 @@ title: Significance Testing
 
 ![significance regex level2](../../images/signif-regex-level2.png)
 
-The Socio Data Management Power BI cross table tool lets you identify statistically significant differences between groups in your data in several manner, depending on your configuration.
+SDM Xtended Table lets you identify statistically significant differences between groups in your data in several manner, depending on your configuration.
 All feattures includes:
 - Three independent significance tests per table
 - Multiple test types (All columns, Item vs other, Item vs total, Regex, Previous visible column, Previous row)

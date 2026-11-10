@@ -11,6 +11,10 @@ It is easy to assume a table needs no tooltip — everything worth knowing is al
 
 ---
 
+![Tooltip card — Tooltip content toggles](../images/crosstable-tooltip-panel.png)
+
+![Cell tooltip with weighted base, compared bases and confidence levels of the two significance tests](../images/crosstable-tooltip.png)
+
 ## Scope
 
 Cell Tooltip is available on both **CrossTable** and **CrossTable InCell Charts** — same settings, same content, same behavior. This also covers merged cells: when [Data Bar or Data Line "Group into one chart"](../05-crosstable-charts/data-bar.md) fuses several series into a single cell (one `<td>` holding multiple bars/points), hovering it shows one set of tooltip lines **per series**, labeled by that series' column path — same content options as an ordinary cell, just repeated once per merged series.

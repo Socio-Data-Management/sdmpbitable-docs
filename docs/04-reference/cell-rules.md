@@ -17,6 +17,10 @@ The previous version relied on a `Cell Rules` DAX measure that had to reproduce 
 
 ---
 
+![Cell Rules card — rules editor, status, display mode and badge shape](../images/crosstable-cell-rules-panel.png)
+
+![Cell Rules examples — background color, text color, text labels, inverted logic and custom CSS](../images/crosstable-cell-rules.png)
+
 ## Writing rules
 
 ### Syntax

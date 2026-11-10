@@ -5,6 +5,8 @@ title: Overview
 
 # What is SDM Cross Table Tool?
 
+![SDM Cross Table — color themes, Cell Rules labels and ranking badges on the same question](../images/crosstable-hero.png)
+
 ## Purpose & Design Philosophy
 
 The **SDM Cross Table Tool** (Socio Data Management Cross Table Tool for Power BI) is a specialized Power BI custom visual component built specifically for creating and analyzing cross-tabulation tables (also known as contingency tables or crosstabs). It goes far beyond simple data grids by providing:
