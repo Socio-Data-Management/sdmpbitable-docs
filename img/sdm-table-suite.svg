@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="transparent"/>
+  <g transform="translate(100, 100)" fill="none">
+    <!-- Three arcs, one per visual: Xtended Table (magenta), In Cell Charts (teal), Legacy Cross Table (bordeaux) -->
+    <circle r="80" stroke="#C2186E" stroke-width="16" stroke-dasharray="162 341" transform="rotate(-90)"/>
+    <circle r="80" stroke="#2EC4B6" stroke-width="16" stroke-dasharray="162 341" stroke-dashoffset="-170" transform="rotate(-90)"/>
+    <circle r="80" stroke="#6A2E35" stroke-width="16" stroke-dasharray="162 341" stroke-dashoffset="-340" transform="rotate(-90)"/>
+    <!-- Shared cross-tab grid -->
+    <g stroke="#6A2E35" stroke-width="2.5" opacity="0.6">
+      <line x1="-80" y1="-20" x2="80" y2="-20"/>
+      <line x1="-80" y1="20" x2="80" y2="20"/>
+      <line x1="-20" y1="-80" x2="-20" y2="80"/>
+      <line x1="20" y1="-80" x2="20" y2="80"/>
+    </g>
+    <!-- Sigma -->
+    <path d="M -30,-40 L 30,-40 L 30,-28 L -10,-28 L 28,0 L -10,28 L 30,28 L 30,40 L -30,40 L -30,34 L 12,0 L -30,-34 Z" fill="#6A2E35"/>
+  </g>
+</svg>
