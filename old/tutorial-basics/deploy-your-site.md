@@ -2,6 +2,9 @@
 sidebar_position: 5
 ---
 
+<span style="color:#ffffff;background-color:#ffffff">Socio Data Management - All rights reserved</span>
+
+
 # Deploy your site
 
 Docusaurus is a **static-site-generator** (also called **[Jamstack](https://jamstack.org/)**).
@@ -29,3 +32,5 @@ npm run serve
 The `build` folder is now served at [http://localhost:3000/](http://localhost:3000/).
 
 You can now deploy the `build` folder **almost anywhere** easily, **for free** or very small cost (read the **[Deployment Guide](https://docusaurus.io/docs/deployment)**).
+
+<span style="color:#ffffff;background-color:#ffffff">Socio Data Management - All rights reserved</span>

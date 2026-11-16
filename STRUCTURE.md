@@ -1,3 +1,6 @@
+
+<span style="color:#ffffff;background-color:#ffffff">Socio Data Management - All rights reserved</span>
+
 sdmpbitable-docs/
 ├── docs/
 │   ├── 01-introduction/
@@ -38,3 +41,5 @@ sdmpbitable-docs/
 ├── docusaurus.config.js
 ├── sidebars.js
 └── package.json
+
+<span style="color:#ffffff;background-color:#ffffff">Socio Data Management - All rights reserved</span>

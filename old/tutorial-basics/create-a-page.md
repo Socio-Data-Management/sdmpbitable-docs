@@ -2,6 +2,9 @@
 sidebar_position: 1
 ---
 
+<span style="color:#ffffff;background-color:#ffffff">Socio Data Management - All rights reserved</span>
+
+
 # Create a Page
 
 Add **Markdown or React** files to `src/pages` to create a **standalone page**:
@@ -41,3 +44,5 @@ This is a Markdown page
 ```
 
 A new page is now available at [http://localhost:3000/my-markdown-page](http://localhost:3000/my-markdown-page).
+
+<span style="color:#ffffff;background-color:#ffffff">Socio Data Management - All rights reserved</span>

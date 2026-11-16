@@ -3,6 +3,9 @@ sidebar_position: 5
 title: Formatting & Styling
 ---
 
+<span style="color:#ffffff;background-color:#ffffff">Socio Data Management - All rights reserved</span>
+
+
 # Formatting & Styling Reference
 
 ## Overview
@@ -309,3 +312,5 @@ A: Increase font size or reduce column width
 A: Check contrast; try lighter background or darker text
 
 For more help, see the [Quick Start Guide](../02-getting-started/quick-start.md).
+
+<span style="color:#ffffff;background-color:#ffffff">Socio Data Management - All rights reserved</span>

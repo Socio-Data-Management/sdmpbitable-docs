@@ -55,14 +55,14 @@ type VisualCard = {
 
 const VisualList: VisualCard[] = [
   {
-    title: 'CrossTable',
+    title: 'CrossTable (Legacy)',
     description: (
       <>
         The full crosstab: numeric cells, <strong>Ranking</strong> badges &amp; gradients, <strong>Cell Rules</strong> conditional decoration, <strong>Tile Mode</strong>.
       </>
     ),
-    to: '/docs/intro',
-    linkLabel: 'Explore CrossTable →',
+    to: '/docs/crosstable-legacy/introduction/welcome',
+    linkLabel: 'Explore Legacy CrossTable →',
   },
   {
     title: 'CrossTable InCell Charts',
@@ -71,7 +71,7 @@ const VisualList: VisualCard[] = [
         The same hierarchical table, with <strong>Data Bar</strong> and <strong>Data Line</strong> mini-charts — and <strong>Gap Mode</strong> comparison columns — instead of plain numbers.
       </>
     ),
-    to: '/docs/crosstable-charts/overview',
+    to: '/docs/crosstable-charts/introduction/overview',
     linkLabel: 'Explore InCell Charts →',
   },
 ];

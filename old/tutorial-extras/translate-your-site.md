@@ -2,6 +2,9 @@
 sidebar_position: 2
 ---
 
+<span style="color:#ffffff;background-color:#ffffff">Socio Data Management - All rights reserved</span>
+
+
 # Translate your site
 
 Let's translate `docs/intro.md` to French.
@@ -86,3 +89,5 @@ Or build your site to include all the locales at once:
 ```bash
 npm run build
 ```
+
+<span style="color:#ffffff;background-color:#ffffff">Socio Data Management - All rights reserved</span>

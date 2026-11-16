@@ -2,6 +2,9 @@
 sidebar_position: 3
 ---
 
+<span style="color:#ffffff;background-color:#ffffff">Socio Data Management - All rights reserved</span>
+
+
 # Create a Blog Post
 
 Docusaurus creates a **page for each blog post**, but also a **blog index page**, a **tag system**, an **RSS** feed...
@@ -32,3 +35,5 @@ Feel free to play around and edit this post as much as you like.
 ```
 
 A new blog post is now available at [http://localhost:3000/blog/greetings](http://localhost:3000/blog/greetings).
+
+<span style="color:#ffffff;background-color:#ffffff">Socio Data Management - All rights reserved</span>

@@ -1,3 +1,6 @@
+
+<span style="color:#ffffff;background-color:#ffffff">Socio Data Management - All rights reserved</span>
+
 # Website
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
@@ -65,3 +68,5 @@ Ceci est un danger/avertissement critique
 :::success
 Ceci est un succès (certaines versions)
 :::
+
+<span style="color:#ffffff;background-color:#ffffff">Socio Data Management - All rights reserved</span>

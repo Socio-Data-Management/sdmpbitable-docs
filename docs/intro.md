@@ -1,55 +1,45 @@
 ---
 sidebar_position: 1
+title: Introduction
 ---
 
-# Welcome to SDM Cross Table Tool by Socio Data Management
+<span style={{color: '#ffffff', backgroundColor: '#ffffff'}}>Socio Data Management - All rights reserved</span>
 
-## Professional Cross-Tabulation Tables for Power BI
 
-![Intro Full Feature ScreenShot](images/intro-full-features.png)
+# SDM Table Visuals for Power BI
 
-The **Socio Data Management Cross Table Tool for Power BI** is a powerful custom visual component designed to create sophisticated cross-tabulation tables with advanced analytics capabilities. Whether you're working with survey data, business metrics, or complex datasets, SDM Cross Table Tool provides the tools you need to visualize, analyze, and present your data with professional styling and precision.
+**Socio Data Management** publishes three complementary cross-tabulation visuals for Power BI. They share the same data roles, the same percentage and mean engine, the same significance tests, totals and thresholds — they differ by how far they go.
 
-### What You Can Do
+| Visual | Choose it when… |
+|---|---|
+| [**Xtended Table**](./02-xtendedtable/01-introduction/overview.md) | You need a pure table with **any number of row and column levels**, per-level header editors and a per-level sample model. This is the recommended starting point for new reports. |
+| [**CrossTable InCell Charts**](./03-crosstable-charts/01-introduction/overview.md) | You want **Data Bars, Data Lines or Gap Mode** drawn directly inside the cells of the table. |
+| [**CrossTable (Legacy)**](./04-crosstable-legacy/01-introduction/welcome.md) | You maintain reports built with the original SDM Cross Table Tool (2 levels of rows, 3 levels of columns). |
 
-- **Create Dynamic Cross-Tabs**: Build percentage and mean-based tables with hierarchical columns and rows
-- **Advanced Styling**: Apply custom formatting, colors, fonts, and visual emphasis to highlight key insights
-- **Statistical Testing**: Perform significance tests to identify meaningful differences in your data
-- **Ranking & Indexing**: Automatically rank cells and calculate indices for comparative analysis
-- **Flexible Thresholds**: Warn or mask values based on customizable business rules
-- **Interactive Selection**: Allow users to select rows and columns for dynamic filtering
-- **Professional Output**: Export to Excel with preserved formatting
+## Xtended Table
 
-:::info[Two visuals, one family]
-This documentation also covers **[CrossTable InCell Charts](05-crosstable-charts/overview.md)**, a companion visual that renders the same cross-tab data as small diverging **Data Bar** or **Data Line** charts inside each cell, instead of plain numbers. Same engine, same data roles — pick the visual that fits how you want a given table to read.
-:::
+![SDM Xtended Table — significance coloring across a two-level column hierarchy](./images/xtendedtable-hero.png)
 
-:::info[New: SDM Xtended Table]
-**[SDM Xtended Table](07-xtendedtable/01-introduction/overview.md)** is the cross-tab with **any number of row and column levels**, per-level header editors and a per-level sample model. It has its own documentation section.
-:::
+The cross-tab visual with N levels of rows and columns, ⚙ editors for headers and logos, and a Disjoint / Shared / Native sample model set per level.
 
-### Get Started
+## CrossTable InCell Charts
 
-Choose your path:
+![Data Bar examples](./images/overview-databar-example.png)
 
-- **New to SDM Cross Table Tool?** Start with [Installation & Quick Start](02-getting-started/quick-start.md)
-- **Want to see it in action?** Check out our [Use Cases & Business Examples](03-use-cases/business-cases.md)
-- **Need detailed options?** Explore the [Complete Reference Guide](04-reference/table-content.md)
-- **Comparing editions?** See what's included in [Free & Pro](01-introduction/editions.md)
-- **Want in-cell charts instead of numbers?** See [CrossTable InCell Charts](05-crosstable-charts/overview.md)
+The same hierarchical table, with diverging **Data Bars**, connected **Data Lines** and an optional **Gap Mode** replacing plain numbers inside the cells.
 
----
+## CrossTable (Legacy)
 
-### Feature Highlights
+![CrossTable full feature screenshot](./images/intro-full-features.png)
 
-✨ **Rich Formatting** — Customize every aspect of your table  
-📊 **Statistical Analysis** — Built-in significance testing  
-🎯 **Smart Sorting** — Sort by value, alphabetically, or custom rules  
-🌈 **Visual Ranking** — Color gradients and ranked labels  
-🔍 **Threshold Controls** — Mask or warn on values below thresholds  
-📈 **Multiple Aggregations** — Support for percentages and means  
-👆 **Interactive Selection** — Let users filter by clicking rows and columns
+The original visual. It remains supported and documented, in its own section, exactly as before.
 
----
+## Common Settings
 
-**Ready to create your first cross-tab table?** [Let's go →](02-getting-started/quick-start.md)
+Some cards are strictly identical across the visuals (for instance [Global Threshold](./05-common-settings/global-threshold.md)). They are documented once in the [Common Settings](./05-common-settings/global-threshold.md) section.
+
+## How each section is organized
+
+Each visual has the same four sub-sections: **Introduction**, **Getting Started**, **Use Cases** and **Reference**.
+
+<span style={{color: '#ffffff', backgroundColor: '#ffffff'}}>Socio Data Management - All rights reserved</span>

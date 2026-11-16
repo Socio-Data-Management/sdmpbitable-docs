@@ -2,6 +2,9 @@
 sidebar_position: 2
 ---
 
+<span style="color:#ffffff;background-color:#ffffff">Socio Data Management - All rights reserved</span>
+
+
 # Create a Document
 
 Documents are **groups of pages** connected through:
@@ -55,3 +58,5 @@ export default {
   ],
 };
 ```
+
+<span style="color:#ffffff;background-color:#ffffff">Socio Data Management - All rights reserved</span>

@@ -79,7 +79,7 @@ const config: Config = {
       title: 'SDM Cross Table Tool',
       logo: {
         alt: 'SDM Logo',
-        src: 'img/SdmPbiTableV3.svg',
+        src: 'img/sdm-table-suite.svg',
       },
       items: [
         {
@@ -102,12 +102,12 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Overview',
-              to: '/docs/introduction/overview',
+              label: 'Introduction',
+              to: '/docs/intro',
             },
             {
               label: 'Quick Start',
-              to: '/docs/getting-started/quick-start',
+              to: '/docs/xtendedtable/getting-started/quick-start',
             },
           ],
         },

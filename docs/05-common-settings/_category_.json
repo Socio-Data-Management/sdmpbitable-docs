@@ -1,0 +1,8 @@
+{
+  "label": "Common Settings",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Cards that are identical across the SDM table visuals — same properties, same behavior, documented once here"
+  }
+}

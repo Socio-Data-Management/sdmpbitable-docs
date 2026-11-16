@@ -20,13 +20,18 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
-            Access Documentation
+            to="/docs/xtendedtable/introduction/overview">
+            Extended Cross Table
+          </Link>
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/crosstable-charts/introduction/overview">
+            In Cell Charts
           </Link>
           <Link
             className="button button--outline button--secondary button--lg"
-            to="/docs/crosstable-charts/overview">
-            Explore InCell Charts
+            to="/docs/crosstable-legacy/introduction/welcome">
+            Legacy cross table
           </Link>
         </div>
       </div>

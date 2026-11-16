@@ -1,3 +1,6 @@
+
+<span style="color:#ffffff;background-color:#ffffff">Socio Data Management - All rights reserved</span>
+
 # Instructions pour patcher docusaurus-plugin-papersaurus
 
 ## 1. Installer patch-package
@@ -38,3 +41,5 @@ npx patch-package docusaurus-plugin-papersaurus
 ```
 
 Le patch sera automatiquement appliqué après chaque `npm install`.
+
+<span style="color:#ffffff;background-color:#ffffff">Socio Data Management - All rights reserved</span>
